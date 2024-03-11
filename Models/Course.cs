@@ -18,8 +18,9 @@ namespace PBL3_Course
         [DataType(DataType.Text)]
         [Display(Name ="Mô tả khóa học")]
 
-        public string Desciption{set;get;}
+        public string? Desciption{set;get;}
         // public int TeacherId{set;get;}
+        public ICollection<Lesson> lessons{set;get;}
 
     }
 }

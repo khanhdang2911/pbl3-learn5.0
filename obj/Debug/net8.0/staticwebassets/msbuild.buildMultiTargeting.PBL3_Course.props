@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\PBL3_Course.props" />
+</Project>

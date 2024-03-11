@@ -17,6 +17,9 @@ namespace PBL3_Course.Models
             base.OnModelCreating(modelBuilder);
            
         }
+        public DbSet<Course> courses{set;get;}
+        public DbSet<Lesson>lessons{set;get;}
+
        
     }
 }
