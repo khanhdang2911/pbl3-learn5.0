@@ -18,9 +18,11 @@ namespace PBL3_Course
         [DataType(DataType.Text)]
         [Display(Name ="Mô tả khóa học")]
 
-        public string? Desciption{set;get;}
+        public string? Description{set;get;}
         // public int TeacherId{set;get;}
-        public ICollection<Lesson> lessons{set;get;}
+        public ICollection<Lesson>? lessons{set;get;}
+        public DateTime DateCreated{set;get;}
+        public DateTime? DateEdited{set;get;}
 
     }
 }
