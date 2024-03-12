@@ -18,6 +18,7 @@ namespace PBL3_Course.Models
         }
         public DbSet<Course> courses{set;get;}
         public DbSet<Lesson>lessons{set;get;}
+        public DbSet<Chapter> chapters{set;get;}
 
        
     }

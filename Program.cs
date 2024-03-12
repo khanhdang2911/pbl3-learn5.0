@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
@@ -10,7 +11,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             string connectString = builder.Configuration.GetConnectionString("MyBlogContext");
             options.UseSqlServer(connectString);
         });
+builder.WebHost.ConfigureKestrel(options=>{
+    options.Limits.MaxRequestBodySize=512*1024*1024;
+});
+builder.Services.Configure<FormOptions>(options =>
+    {
+        options.MultipartBodyLengthLimit = 512*1024*1024; // Dung lượng tối đa của toàn bộ request
+    });
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

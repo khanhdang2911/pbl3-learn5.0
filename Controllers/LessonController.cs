@@ -1,4 +1,5 @@
 // using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
@@ -7,11 +8,19 @@ namespace PBL3_Course.Controllers;
 
 public class LessonController : Controller
 {
+    // [DataType(DataType.Upload)]
+    // [Display(Name ="Upload video bài giảng")]
+    // [BindProperty]
+        // [NotMapped]
+    // public IFormFile FormFile{set;get;}
+    private readonly IWebHostEnvironment _environment;
+    
     private readonly AppDbContext _context;
     private readonly ILogger<HomeController> _logger;
 
-    public LessonController(ILogger<HomeController> logger,AppDbContext context)
+    public LessonController(ILogger<HomeController> logger,AppDbContext context,IWebHostEnvironment environment)
     {
+        _environment=environment;
         _logger = logger;
         _context=context;
     }
@@ -22,27 +31,34 @@ public class LessonController : Controller
         return View(allLesson);
     }
     [HttpGet]
-    public IActionResult Create(int? courseId)
+    public IActionResult Create(int? chapterId)
     {
-        Console.WriteLine("Asdasdsad");
-        if(courseId==null)
+        if(chapterId==null)
         {
-            return Content("Khong ton tai khoa hoc nay");
+            return Content("Khong ton tai chuong hoc nay");
         }
-        ViewData["courseId"]=courseId;
+        ViewData["chapterId"]=chapterId;
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Create(int courseId,[Bind("LessonName,Description,FileLinkContent")] Lesson lesson)
+    public async Task<IActionResult> Create(int chapterId,[Bind("LessonName,Description,FileLinkContent,FormFile")] Lesson lesson)
     {
         if(!ModelState.IsValid)
         {
             return View();
         }
-        lesson.CourseId=courseId;
+        if(lesson.FormFile!=null)
+        {
+            var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.FormFile.FileName);
+            using FileStream fileStream=new FileStream(filepath,FileMode.Create);
+            lesson.FormFile.CopyTo(fileStream);
+            lesson.FileLinkContent=$"~/uploads/{lesson.FormFile.FileName}";
+        }
+        int courseId=_context.chapters.Where(c=>c.Id==chapterId).Select(c=>c.CourseId).FirstOrDefault();
+        lesson.ChapterId=chapterId;
         await _context.lessons.AddAsync(lesson);
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index","Course");
+        return RedirectToAction("Detail","Course",new{id=courseId});
     }
 
     public IActionResult Detail(int? id)
@@ -76,12 +92,13 @@ public class LessonController : Controller
         {
             return Content("Khong tim thay bai hoc nay");
         }
+        int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals kq.ChapterId select c.CourseId).FirstOrDefault();
         kq.LessonName=lesson.LessonName;
         kq.Description=lesson.Description;
         kq.FileLinkContent=lesson.FileLinkContent;
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return RedirectToAction("Detail","Course", new{id=courseId});
     }
     public IActionResult Delete(int? id)
     {

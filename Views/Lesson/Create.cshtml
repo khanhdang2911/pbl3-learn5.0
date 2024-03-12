@@ -1,9 +1,9 @@
 @model Lesson
 @{
-    var courseId=ViewBag.courseId;
-    int id=(int)courseId;
+    var chapterId=ViewBag.chapterId;
+    
 }
-<form method="post" asp-action="Create" asp-route-courseId="@courseId">
+<form method="post" asp-action="Create" asp-route-chapterId="@chapterId" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for ="LessonName" class="control-label" ></label>
@@ -14,7 +14,7 @@
 
     <div class="form-group">
         <label asp-for ="Description" class="control-label" ></label>
-        <input type="text" asp-for="Description" class="form-control">
+        <input type="text" asp-for="Description" class="form-control"> 
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
@@ -24,6 +24,12 @@
         <input type="text" asp-for="FileLinkContent" class="form-control">
         <span asp-validation-for="FileLinkContent" class="text-danger"></span>
     </div>
+
+    <div class="form-group">
+        <label asp-for ="FormFile" class="control-label" ></label>
+        <input type="file" asp-for="FormFile" class="form-control">
+        <span asp-validation-for="FormFile" class="text-danger"></span>
+    </div> 
     
     <hr>
     

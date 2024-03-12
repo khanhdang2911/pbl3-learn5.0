@@ -22,6 +22,28 @@ namespace PBL3_Course.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("PBL3_Course.Chapter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ChapterName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("Chapter");
+                });
+
             modelBuilder.Entity("PBL3_Course.Course", b =>
                 {
                     b.Property<int>("Id")
@@ -59,7 +81,7 @@ namespace PBL3_Course.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CourseId")
+                    b.Property<int>("ChapterId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -75,15 +97,15 @@ namespace PBL3_Course.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("ChapterId");
 
                     b.ToTable("Lesson");
                 });
 
-            modelBuilder.Entity("PBL3_Course.Lesson", b =>
+            modelBuilder.Entity("PBL3_Course.Chapter", b =>
                 {
                     b.HasOne("PBL3_Course.Course", "Course")
-                        .WithMany("lessons")
+                        .WithMany("chapters")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -91,9 +113,25 @@ namespace PBL3_Course.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("PBL3_Course.Course", b =>
+            modelBuilder.Entity("PBL3_Course.Lesson", b =>
+                {
+                    b.HasOne("PBL3_Course.Chapter", "Chapter")
+                        .WithMany("lessons")
+                        .HasForeignKey("ChapterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chapter");
+                });
+
+            modelBuilder.Entity("PBL3_Course.Chapter", b =>
                 {
                     b.Navigation("lessons");
+                });
+
+            modelBuilder.Entity("PBL3_Course.Course", b =>
+                {
+                    b.Navigation("chapters");
                 });
 #pragma warning restore 612, 618
         }

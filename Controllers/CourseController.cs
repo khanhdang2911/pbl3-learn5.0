@@ -50,7 +50,15 @@ public class CourseController : Controller
         {
             return Content("Không tìm thấy khóa học này");
         }
-        _context.Entry(kq).Collection(c=>c.lessons).Load();
+        _context.Entry(kq).Collection(c=>c.chapters).Load();
+        if(kq.chapters!=null)
+        {
+            foreach(var item in kq.chapters)
+            {
+                _context.Entry(item).Collection(i=>i.lessons).Load();
+            }
+        }
+        
         return View(kq);
     }
     [HttpGet]

@@ -7,8 +7,23 @@
     <li>Ngày tạo: @Model.DateCreated</li>
     <li>@Html.Raw(Model.Description)</li>
 </ul>
-@foreach(var item in Model.lessons)
+@foreach(var item in Model.chapters)
 {
-
+    <strong>@item.ChapterName  | <a asp-action="Create" asp-controller="Lesson" asp-route-chapterId="@item.Id">Tạo bài học</a></strong>
+    <ul>
+        @if(item.lessons!=null)
+        {
+            foreach(var lesson in item.lessons)
+            {
+                <li>@lesson.LessonName | <a asp-action="Delete" asp-controller="Lesson" asp-route-id="@lesson.Id">Xóa bài học</a>
+                    | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
+                </li>
+               @* <video ></video> *@
+               <video controls width="600px" height="500px"> 
+                    <source src="~/uploads/Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4">
+                </video>
+            }
+        }
+    </ul>
 }
-<a asp-action="Create" asp-controller="Lesson" asp-route-courseId="@Model.Id" class="btn btn-warning">Thêm bài học</a>
+<a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" class="btn btn-warning">Thêm chương học</a>

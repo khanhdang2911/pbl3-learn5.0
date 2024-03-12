@@ -20,7 +20,7 @@ namespace PBL3_Course
 
         public string? Description{set;get;}
         // public int TeacherId{set;get;}
-        public ICollection<Lesson>? lessons{set;get;}
+        public ICollection<Chapter>? chapters{set;get;}
         public DateTime DateCreated{set;get;}
         public DateTime? DateEdited{set;get;}
 
