@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pzdFNKq/U9ttOa7zs7UZOUR49WFEOAWUKY/BdKMLB1E=",
+  "Hash": "3tCbnudUWO0OjwRrlUYgoOAN8BjmQQDu2t+axxB+S+o=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\apple-watch-series-2-38mm-4.png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/apple-watch-series-2-38mm-4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\apple-watch-series-2-38mm-4.png"
+    },
+    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -1231,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\network.png"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Screenshot 2024-03-04 221902.png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/Screenshot 2024-03-04 221902.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Screenshot 2024-03-04 221902.png"
     }
   ]
 }

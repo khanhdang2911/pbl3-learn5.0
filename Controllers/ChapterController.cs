@@ -75,31 +75,27 @@ public class ChapterController : Controller
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay");
+            return Content("Khong tim thay chuong hoc de chinh sua");
         }
         kq.ChapterName=chapter.ChapterName;
 
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return RedirectToAction("Detail","Course",new{id=kq.CourseId});
     }
     public IActionResult Delete(int? id)
     {
         if(id==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return Content("Khong tim thay id chuong hoc");
         }
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return Content("Khong tim thay chuong hoc de xoa");
         }
         _context.chapters.Remove(kq);
         _context.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Detail","Course",new{id=kq.CourseId});
     }
-
-
-
-
 }
