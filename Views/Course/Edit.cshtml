@@ -1,5 +1,5 @@
 @model Course
-<form method="post" asp-action="Edit" asp-route-id="@Model.Id">
+<form method="post" asp-action="Edit" style="width: 60%;margin: 0 auto;" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for ="CourseName" class="control-label" ></label>
@@ -8,11 +8,6 @@
     </div>
     <br>
 
-    <div class="form-group">
-        <label asp-for ="Price" class="control-label" ></label>
-        <input type="text" asp-for="Price" class="form-control">
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
 
     <hr>
     <div class="form-group">
@@ -22,6 +17,40 @@
     </div>
     
     <hr>
-    
-    <input type="submit" class="btn btn-success">
+    <div class="form-group">
+        <label asp-for ="ImageFile" class="control-label" ></label>
+        <input type="file" asp-for="ImageFile" class="form-control">
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label asp-for="status" class="control-label">Loại khóa học</label>
+        <select asp-for="status" class="form-control" id="statusSelect">
+            <option value="1">Không miễn phí</option>
+            <option value="0">Miễn phí</option>
+            
+        </select>
+        <span asp-validation-for="status" class="text-danger"></span>
+    </div>
+
+    <div class="form-group" id="priceField">
+        <label asp-for="Price" class="control-label">Giá</label>
+        <input type="text" asp-for="Price" class="form-control" id="priceInput">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <hr>
+    <input type="submit" class="btn btn-success" value="Sửa khóa học">
 </form>
+
+<script>
+    document.getElementById('statusSelect').addEventListener('change', function () {
+        var priceField = document.getElementById('priceField');
+        if (this.value === '1') {
+            priceField.style.display = 'block';
+             @* priceInput.value = ''; // Clear the value *@
+        } else {
+            priceField.style.display = 'none';
+            priceInput.value = '0'; // Set value to 0
+        }
+    });
+</script>

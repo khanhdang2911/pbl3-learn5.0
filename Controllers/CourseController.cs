@@ -7,13 +7,16 @@ namespace PBL3_Course.Controllers;
 
 public class CourseController : Controller
 {
-    private readonly AppDbContext _context;
-    private readonly ILogger<HomeController> _logger;
+    private readonly IWebHostEnvironment _environment;
 
-    public CourseController(ILogger<HomeController> logger,AppDbContext context)
+    private readonly AppDbContext _context;
+    private readonly ILogger<CourseController> _logger;
+
+    public CourseController(ILogger<CourseController> logger,AppDbContext context,IWebHostEnvironment environment)
     {
         _logger = logger;
         _context=context;
+        _environment=environment;
     }
 
     public IActionResult Index()
@@ -27,11 +30,21 @@ public class CourseController : Controller
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("CourseName,Price,Description")] Course course)
+    public async Task<IActionResult> Create([Bind("CourseName,Description,ImageFile,status,Price")] Course course)
     {
         if(!ModelState.IsValid)
         {
             return View();
+        }
+        if(course.ImageFile!=null)
+        {
+            var filepath=Path.Combine(_environment.WebRootPath,"uploads",course.ImageFile.FileName);
+            if(!System.IO.File.Exists(filepath))
+            {
+                using FileStream fileStream=new FileStream(filepath,FileMode.Create);
+                course.ImageFile.CopyTo(fileStream);
+            }
+            course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
         }
         course.DateCreated=DateTime.Now;
         await _context.courses.AddAsync(course);
@@ -68,7 +81,7 @@ public class CourseController : Controller
         return View(kq);
     }
     [HttpPost]
-    public async Task<IActionResult> Edit(int? id,[Bind("CourseName,Price,Description")] Course course)
+    public async Task<IActionResult> Edit(int? id,[Bind("CourseName,Description,ImageFile,status,Price")] Course course)
     {
         if(!ModelState.IsValid)
         {
@@ -79,10 +92,22 @@ public class CourseController : Controller
         {
             return Content("Khong tim thay");
         }
+        if(course.ImageFile!=null)
+        {
+            var filepath=Path.Combine(_environment.WebRootPath,"uploads",course.ImageFile.FileName);
+            if(!System.IO.File.Exists(filepath))
+            {
+                using FileStream fileStream=new FileStream(filepath,FileMode.Create);
+                course.ImageFile.CopyTo(fileStream);
+            }
+            course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
+        }
         kq.CourseName=course.CourseName;
         kq.Price=course.Price;
         kq.DateEdited=DateTime.Now;
         kq.Description=course.Description;
+        kq.status=course.status;
+        kq.CourseImageLink=course.CourseImageLink;
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");

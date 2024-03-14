@@ -23,6 +23,11 @@ namespace PBL3_Course
         public ICollection<Chapter>? chapters{set;get;}
         public DateTime DateCreated{set;get;}
         public DateTime? DateEdited{set;get;}
-
+        public int status {set;get;}
+        [Display(Name ="Ảnh đại diện cho khóa học")]
+        [NotMapped]
+        public IFormFile? ImageFile{set;get;}
+        public string? CourseImageLink{set;get;}
+        public int IsActive{set;get;}
     }
 }

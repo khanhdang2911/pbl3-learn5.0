@@ -52,6 +52,9 @@ namespace PBL3_Course.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CourseImageLink")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CourseName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -65,8 +68,14 @@ namespace PBL3_Course.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -87,9 +96,14 @@ namespace PBL3_Course.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FileLinkContent")
-                        .IsRequired()
+                    b.Property<string>("DocumentLink")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileLinkContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IsFree")
+                        .HasColumnType("int");
 
                     b.Property<string>("LessonName")
                         .IsRequired()

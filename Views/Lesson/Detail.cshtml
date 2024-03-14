@@ -1,7 +1,12 @@
+@{
+    Layout="_NoLayout";
+}
 @model Lesson
-<h1>Thông tin bài học</h1>
-<ul>
-    <li>Tên bài học: @Model.LessonName</li>
-    <li>Nội dung bài học: @Model.FileLinkContent</li>
-    <li>Mô tả bài học: @Model.Description</li>
-</ul>
+    <div style="text-align: center;">
+    <video controls width="800px" height="700px" style="display: inline-block;"> 
+        <source src="~/@Model.FileLinkContent">
+    </video>
+</div>
+
+
+

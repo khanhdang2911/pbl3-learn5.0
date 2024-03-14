@@ -26,8 +26,33 @@
         <input type="file" asp-for="FormFile" class="form-control">
         <span asp-validation-for="FormFile" class="text-danger"></span>
     </div> 
-    
+    <div class="form-group">
+        <label asp-for ="DocumentFile" class="control-label" >File bài tập</label>
+        <input type="file" asp-for="DocumentFile" class="form-control">
+        <span asp-validation-for="DocumentFile" class="text-danger"></span>
+    </div>
     <hr>
-    
-    <input type="submit" class="btn btn-success">
+    <div class="form-group">
+        <label asp-for ="IsFree" class="control-label" >Loại bài học</label>
+        <select asp-for="IsFree" class="form-control" id="statusSelect">
+            <option value="1">Không miễn phí</option>
+            <option value="0">Miễn phí</option>
+            
+        </select>
+        <span asp-validation-for="IsFree" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-success" value="Xác nhận">
 </form>
+
+<script>
+    document.getElementById('statusSelect').addEventListener('change', function () {
+        var priceField = document.getElementById('priceField');
+        if (this.value === '1') {
+            priceField.style.display = 'block';
+             @* priceInput.value = ''; // Clear the value *@
+        } else {
+            priceField.style.display = 'none';
+            @* priceInput.value = '0'; // Set value to 0 *@
+        }
+    });
+</script>

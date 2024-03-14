@@ -39,8 +39,9 @@ public class LessonController : Controller
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Create(int chapterId,[Bind("LessonName,Description,FormFile")] Lesson lesson)
+    public async Task<IActionResult> Create(int chapterId,[Bind("LessonName,Description,FormFile,DocumentFile,IsFree")] Lesson lesson)
     {
+
         if(!ModelState.IsValid)
         {
             ModelState.AddModelError("","Tạo không thành công");
@@ -48,6 +49,7 @@ public class LessonController : Controller
         }
         if(lesson.FormFile!=null)
         {
+            
             var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.FormFile.FileName);
             if(!System.IO.File.Exists(filepath))
             {
@@ -56,6 +58,18 @@ public class LessonController : Controller
             }
             
             lesson.FileLinkContent=$"uploads/{lesson.FormFile.FileName}";
+        }
+        if(lesson.DocumentFile!=null)
+        {
+            var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.DocumentFile.FileName);
+            if(!System.IO.File.Exists(filepath))
+            {
+                using FileStream fileStream=new FileStream(filepath,FileMode.Create);
+                lesson.DocumentFile.CopyTo(fileStream);
+            }
+            
+            lesson.DocumentLink=$"uploads/{lesson.DocumentFile.FileName}";
+            Console.WriteLine("Toi upload link doc");
         }
         int courseId=_context.chapters.Where(c=>c.Id==chapterId).Select(c=>c.CourseId).FirstOrDefault();
         lesson.ChapterId=chapterId;
@@ -84,7 +98,7 @@ public class LessonController : Controller
         return View(kq);
     }
     [HttpPost]
-    public async Task<IActionResult> Edit(int? id,[Bind("LessonName,Description,FormFile")] Lesson lesson)
+    public async Task<IActionResult> Edit(int? id,[Bind("LessonName,Description,FormFile,DocumentFile,IsFree")] Lesson lesson)
     {
         if(!ModelState.IsValid)
         {
@@ -107,9 +121,21 @@ public class LessonController : Controller
             }
             kq.FileLinkContent=$"uploads/{lesson.FormFile.FileName}";
         }
+        if(lesson.DocumentFile!=null)
+        {
+            var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.DocumentFile.FileName);
+            if(!System.IO.File.Exists(filepath))
+            {
+                using FileStream fileStream=new FileStream(filepath,FileMode.Create);
+                lesson.DocumentFile.CopyTo(fileStream);
+            }
+            
+            kq.DocumentLink=$"uploads/{lesson.DocumentFile.FileName}";
+        }
         int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals kq.ChapterId select c.CourseId).FirstOrDefault();
         kq.LessonName=lesson.LessonName;
         kq.Description=lesson.Description;
+        kq.IsFree=lesson.IsFree;
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
         return RedirectToAction("Detail","Course", new{id=courseId});

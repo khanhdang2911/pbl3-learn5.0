@@ -5,12 +5,1064 @@
       "PackagePath": "staticwebassets\\PBL3_Course.bundle.scp.css"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\404.html",
+      "PackagePath": "staticwebassets\\404.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Edge\\index.html",
+      "PackagePath": "staticwebassets\\Edge\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\GET.html",
+      "PackagePath": "staticwebassets\\GET.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Trident\\index.html",
+      "PackagePath": "staticwebassets\\Trident\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Version\\index.html",
+      "PackagePath": "staticwebassets\\Version\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\about-us.html",
+      "PackagePath": "staticwebassets\\about-us.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\animate.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\aos.css",
+      "PackagePath": "staticwebassets\\assets\\css\\aos.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\default-icons.css",
+      "PackagePath": "staticwebassets\\assets\\css\\default-icons.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\flaticon-skillgro.css",
+      "PackagePath": "staticwebassets\\assets\\css\\flaticon-skillgro.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\assets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\odometer.css",
+      "PackagePath": "staticwebassets\\assets\\css\\odometer.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\spacing.css",
+      "PackagePath": "staticwebassets\\assets\\css\\spacing.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\swiper-bundle.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\tg-cursor.css",
+      "PackagePath": "staticwebassets\\assets\\css\\tg-cursor.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_author01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_author01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_author02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_author02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_bg.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_bg.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_bg02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_bg02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\bg_dots.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\bg_dots.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_icon.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_icon.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\breadcrumb_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\breadcrumb_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\courses_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\courses_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\cta_bg.html",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\cta_bg.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\instructor_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\instructor_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\author.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\author.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_details.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_details.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post10.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post10.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post11.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post11.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post12.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post12.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\comment01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\comment01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\comment02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\comment02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand06.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand06.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand07.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand07.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author001.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author001.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author002.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author002.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author003.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author003.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author004.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author004.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_instructors.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_instructors.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb10.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb10.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb11.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb11.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb12.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb12.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\courses_details.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\courses_details.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\review-author.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\review-author.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_details_img.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_details_img.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_details_img02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_details_img02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_shape.png",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_shape.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\img\\favicon.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\brand_star.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\brand_star.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\calendar.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\calendar.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\cart.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\cart.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\cat_star.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\cat_star.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\contact_phone.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\contact_phone.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon05.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon05.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon06.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon06.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\down_arrow.html",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\down_arrow.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\emial.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\emial.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\envelope.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\envelope.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\facebook.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\facebook.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\google.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\google.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\heart.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\heart.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\instagram.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\instagram.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\lock.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\lock.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\map.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\map.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\map_marker.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\map_marker.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\phone.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\phone.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\play.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\play.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\right_arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\right_arrow.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\twitter.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\twitter.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\whatsapp.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\whatsapp.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\youtube.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\youtube.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor_img_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor_img_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor_shape.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor_shape.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor06.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor06.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor07.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor07.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor08.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor08.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor09.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor09.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_details_thumb.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_details_thumb.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_two01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_two01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_two02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_two02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\logo.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\preloader.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\preloader.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\secondary_logo.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\secondary_logo.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\objects\\title_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\objects\\title_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\about_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\about_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\about_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\about_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\apple-store.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\apple-store.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape05.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape05.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\error_img.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\error_img.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\features_item_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\features_item_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\google-play.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\google-play.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\inner_about_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\inner_about_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\inner_about_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\inner_about_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\payment.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\payment.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\student_grp.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\student_grp.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\ajax-form.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ajax-form.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\aos.js",
+      "PackagePath": "staticwebassets\\assets\\js\\aos.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.appear.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.appear.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.circleType.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.circleType.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.lettering.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.lettering.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.marquee.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.marquee.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.odometer.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.odometer.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\select2.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\svg-inject.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\svg-inject.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\swiper-bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\swiper-bundle.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\tg-cursor.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tg-cursor.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\tween-max.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tween-max.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\vendor\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vendor\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\vivus.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vivus.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\wow.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\blog-details.html",
+      "PackagePath": "staticwebassets\\blog-details.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\blog.html",
+      "PackagePath": "staticwebassets\\blog.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\contact.html",
+      "PackagePath": "staticwebassets\\contact.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\course-details.html",
+      "PackagePath": "staticwebassets\\course-details.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\course.html",
+      "PackagePath": "staticwebassets\\course.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\courses.html",
+      "PackagePath": "staticwebassets\\courses.html"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\styleDetailCourse.css",
+      "PackagePath": "staticwebassets\\css\\styleDetailCourse.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\dist\\index.html",
+      "PackagePath": "staticwebassets\\dist\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\e.html",
+      "PackagePath": "staticwebassets\\e.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\events-details.html",
+      "PackagePath": "staticwebassets\\events-details.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\events.html",
+      "PackagePath": "staticwebassets\\events.html"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\forgot-pass.html",
+      "PackagePath": "staticwebassets\\forgot-pass.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-add-50.png",
+      "PackagePath": "staticwebassets\\img\\icons8-add-50.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-delete-30.png",
+      "PackagePath": "staticwebassets\\img\\icons8-delete-30.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-fix-50.png",
+      "PackagePath": "staticwebassets\\img\\icons8-fix-50.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\index-2.html",
+      "PackagePath": "staticwebassets\\index-2.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\instructor-datails.html",
+      "PackagePath": "staticwebassets\\instructor-datails.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\instructor-details.html",
+      "PackagePath": "staticwebassets\\instructor-details.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\instructors.html",
+      "PackagePath": "staticwebassets\\instructors.html"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\js\\site.js",
@@ -245,8 +1297,48 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4",
-      "PackagePath": "staticwebassets\\uploads\\Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4"
+      "Id": "D:\\PBL3_Course\\wwwroot\\login.html",
+      "PackagePath": "staticwebassets\\login.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\registration.html",
+      "PackagePath": "staticwebassets\\registration.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\shop-details.html",
+      "PackagePath": "staticwebassets\\shop-details.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\shop.html",
+      "PackagePath": "staticwebassets\\shop.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\cursor.html",
+      "PackagePath": "staticwebassets\\src\\js\\cursor.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\index.html",
+      "PackagePath": "staticwebassets\\src\\js\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\magnetic.html",
+      "PackagePath": "staticwebassets\\src\\js\\magnetic.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\t.params.html",
+      "PackagePath": "staticwebassets\\t.params.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Copy of NHÓM 2.docx.pdf",
+      "PackagePath": "staticwebassets\\uploads\\Copy of NHÓM 2.docx.pdf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Course1.png",
+      "PackagePath": "staticwebassets\\uploads\\Course1.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\SHARE-PBL3-Du-an-Lap-trinh-ung-dung-01-20241.pdf",
+      "PackagePath": "staticwebassets\\uploads\\SHARE-PBL3-Du-an-Lap-trinh-ung-dung-01-20241.pdf"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Screenshot 2024-03-04 221902.png",
@@ -255,6 +1347,10 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\apple-watch-series-2-38mm-4.png",
       "PackagePath": "staticwebassets\\uploads\\apple-watch-series-2-38mm-4.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\git.pdf",
+      "PackagePath": "staticwebassets\\uploads\\git.pdf"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\network.png",
