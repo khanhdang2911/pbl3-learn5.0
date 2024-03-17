@@ -67,7 +67,6 @@ public class LessonController : Controller
                 using FileStream fileStream=new FileStream(filepath,FileMode.Create);
                 lesson.DocumentFile.CopyTo(fileStream);
             }
-            
             lesson.DocumentLink=$"uploads/{lesson.DocumentFile.FileName}";
             Console.WriteLine("Toi upload link doc");
         }

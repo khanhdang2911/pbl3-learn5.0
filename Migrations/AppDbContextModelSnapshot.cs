@@ -116,6 +116,82 @@ namespace PBL3_Course.Migrations
                     b.ToTable("Lesson");
                 });
 
+            modelBuilder.Entity("PBL3_Course.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Role");
+                });
+
+            modelBuilder.Entity("PBL3_Course.Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PBL3_Course.UsersCourse", b =>
+                {
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UsersId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("UsersCourse");
+                });
+
+            modelBuilder.Entity("PBL3_Course.UsersRole", b =>
+                {
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UsersId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UsersRole");
+                });
+
             modelBuilder.Entity("PBL3_Course.Chapter", b =>
                 {
                     b.HasOne("PBL3_Course.Course", "Course")
@@ -138,6 +214,36 @@ namespace PBL3_Course.Migrations
                     b.Navigation("Chapter");
                 });
 
+            modelBuilder.Entity("PBL3_Course.UsersCourse", b =>
+                {
+                    b.HasOne("PBL3_Course.Course", null)
+                        .WithMany("usersCourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PBL3_Course.Users", null)
+                        .WithMany("usersCourses")
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PBL3_Course.UsersRole", b =>
+                {
+                    b.HasOne("PBL3_Course.Role", null)
+                        .WithMany("usersRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PBL3_Course.Users", null)
+                        .WithMany("usersRoles")
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("PBL3_Course.Chapter", b =>
                 {
                     b.Navigation("lessons");
@@ -146,6 +252,20 @@ namespace PBL3_Course.Migrations
             modelBuilder.Entity("PBL3_Course.Course", b =>
                 {
                     b.Navigation("chapters");
+
+                    b.Navigation("usersCourses");
+                });
+
+            modelBuilder.Entity("PBL3_Course.Role", b =>
+                {
+                    b.Navigation("usersRoles");
+                });
+
+            modelBuilder.Entity("PBL3_Course.Users", b =>
+                {
+                    b.Navigation("usersCourses");
+
+                    b.Navigation("usersRoles");
                 });
 #pragma warning restore 612, 618
         }

@@ -274,3 +274,5 @@ D:\PBL3_Course\obj\Debug\net8.0\PBL3_Course.genruntimeconfig.cache
 D:\PBL3_Course\obj\Debug\net8.0\ref\PBL3_Course.dll
 D:\PBL3_Course\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 D:\PBL3_Course\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+D:\PBL3_Course\bin\Debug\net8.0\MailKit.dll
+D:\PBL3_Course\bin\Debug\net8.0\MimeKit.dll

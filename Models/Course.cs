@@ -19,7 +19,6 @@ namespace PBL3_Course
         [Display(Name ="Mô tả khóa học")]
 
         public string? Description{set;get;}
-        // public int TeacherId{set;get;}
         public ICollection<Chapter>? chapters{set;get;}
         public DateTime DateCreated{set;get;}
         public DateTime? DateEdited{set;get;}
@@ -29,5 +28,8 @@ namespace PBL3_Course
         public IFormFile? ImageFile{set;get;}
         public string? CourseImageLink{set;get;}
         public int IsActive{set;get;}
+
+        public ICollection<UsersCourse>? usersCourses{set;get;}
+    
     }
 }

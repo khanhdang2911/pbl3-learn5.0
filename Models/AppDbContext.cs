@@ -15,10 +15,22 @@ namespace PBL3_Course.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UsersRole>(options=>{
+                options.HasKey(u=>new{u.UsersId, u.RoleId});
+            });
+            modelBuilder.Entity<UsersCourse>(options=>{
+                options.HasKey(u=>new{u.UsersId, u.CourseId});
+            });
         }
         public DbSet<Course> courses{set;get;}
         public DbSet<Lesson>lessons{set;get;}
         public DbSet<Chapter> chapters{set;get;}
+
+        public DbSet<Users> users{set;get;}
+        public DbSet<UsersRole>usersRoles{set;get;}
+        public DbSet<Role> roles{set;get;}
+        
+        public DbSet<UsersCourse> usersCourses{set;get;}
 
        
     }

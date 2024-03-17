@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
@@ -20,6 +21,16 @@ builder.Services.Configure<FormOptions>(options =>
     {
         options.MultipartBodyLengthLimit = 512*1024*1024; // Dung lượng tối đa của toàn bộ request
     });
+//Cookie login
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath="/Login/DangNhap";
+        // options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        // options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Login/Forbidden/";
+    });
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

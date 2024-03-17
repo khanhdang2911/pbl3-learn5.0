@@ -20,51 +20,62 @@
                                         By
                                         <a href="#">Khanh Dang</a>
                                     </li>
-                                    <li class="date"><i class="flaticon-calendar"></i>24/07/2024</li>
+                                    <li class="date"><i class="flaticon-calendar"></i>@Model.DateCreated.ToString("dd/MM/yyyy").Replace('-','/')</li>
                                     <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
                                 </ul>
                             </div>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                               
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum-tab-pane" type="button" role="tab" aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
-                                </li>
-                                
+                                </li>                               
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 
                                 <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel" aria-labelledby="curriculum-tab" tabindex="0">
                                     <div class="courses__curriculum-wrap">
-                                        <h3 class="title">@Model.CourseName</h3>
-                                        <p>@Model.Description.</p>
-                                        <div class="accordion" id="accordionExample">
-                                           @foreach(var item in Model.chapters)
-                                           {
-                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true" aria-controls="collapseOne">
-                                                        @item.ChapterName
-                                                    </button>
-                                                </h2>
-                                                @foreach(var lesson in item.lessons)
-                                                {
-                                                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <ul class="list-wrap">
-                                                            <li class="course-item open-item">
-                                                                <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
-                                                                
-                                                                    <span class="item-name">@lesson.LessonName</span>
-                                                                    
-                                                                </a>
-                                                            </li>
+                                        @* If admin or teacher *@
+                                        <a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" style="color: black;font-weight: 500;border-bottom: 2px solid;">
+                                            <i class="fa-solid fa-circle-plus"></i>
+                                            Thêm chương học
+                                        </a>
                                         
-                                                        </ul>
+                                        <div class="accordion" id="accordionExample">
+                                            @foreach(var item in Model.chapters)
+                                            {
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="heading@(item.Id)">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(item.Id)"  aria-expanded="true" aria-controls="collapse@(item.Id)">
+                                                            @item.ChapterName
+                                                            <span style="flex-grow: 1;"></span>
+                                                                        <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> |
+
+                                                            <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
+                                                        </button>
+                                                        
+                                                        
+                                                    </h2>
+                                                    <div id="collapse@(item.Id)" class="accordion-collapse collapse" aria-labelledby="heading@(item.Id)" data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <ul class="list-wrap">
+                                                                @if(item.lessons != null)
+                                                                {
+                                                                    foreach(var lesson in item.lessons)
+                                                                    {
+                                                                        <li class="course-item open-item">
+                                                                            <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
+                                                                                <span class="item-name">@lesson.LessonName</span>
+                                                                            </a>
+                                                                            | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
+                                                                            | <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+
+                                                                        </li>
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                }
-                                            </div>
-                                           }
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +101,6 @@
                 <li>@lesson.LessonName 
                     | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
                     | <a class="btn delete-btn delete-lesson" data-id="@lesson.Id">Xóa bài học</a>
-
                 </li>
                <video controls width="600px" height="500px"> 
                     <source src="~/@lesson.FileLinkContent">
@@ -134,7 +144,7 @@
 <div id="confirmDeleteModal" class="modal">
     <span class="close">&times;</span>
     <p>Bạn có chắc chắn muốn xóa không?</p>
-    <button id="confirmDeleteBtn" class="btn btn-danger">Xóa</button>
+    <button id="confirmDeleteBtn" class="btn-danger" style="border-radius: 10px;">Xóa</button>
 </div>
 
 @section Scripts {
@@ -183,93 +193,16 @@
             });
         });
     </script>
-
     <script>
-        function playVideo() {
-            var video = document.getElementById("lessonVideo");
-            video.play();
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            var editChapterLinks = document.querySelectorAll('.edit-chapter-link');
+            editChapterLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+                    var chapterId = this.getAttribute('data-id');
+                    window.location.href = '/Chapter/Edit/' + chapterId; // Chuyển hướng tới trang chỉnh sửa chương học
+                });
+            });
+        });
     </script>
 }
-
-@* <section class="courses__details-area section-py-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-8">
-
-                        <div class="courses__details-content">
-                            <ul class="courses__item-meta list-wrap">
-                                <li class="courses__item-tag">
-                                    <a href="course.html">Development</a>
-                                </li>
-                                <li class="avg-rating"><i class="fas fa-star"></i> (4.5 Reviews)</li>
-                            </ul>
-                            <h2 class="title">Resolving Conflicts Between Designers And Engineers</h2>
-                            <div class="courses__details-meta">
-                                <ul class="list-wrap">
-                                    <li class="author-two">
-                                        <img src="~/assets/img/courses/course_author001.png" alt="img">
-                                        By
-                                        <a href="#">David Millar</a>
-                                    </li>
-                                    <li class="date"><i class="flaticon-calendar"></i>24/07/2024</li>
-                                    <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
-                                </ul>
-                            </div>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                               
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum-tab-pane" type="button" role="tab" aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
-                                </li>
-                                
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                
-                                <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel" aria-labelledby="curriculum-tab" tabindex="0">
-                                    <div class="courses__curriculum-wrap">
-                                        <h3 class="title">Course Curriculum</h3>
-                                        <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p>
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="headingOne">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"  aria-expanded="true" aria-controls="collapseOne">
-                                                        Introduction
-                                                    </button>
-                                                </h2>
-                                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <ul class="list-wrap">
-                                                            <li class="course-item open-item">
-                                                                <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="course-item-link popup-video">
-                                                                    <span class="item-name">Course Installation</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span class="item-meta duration">03:03</span>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                            <li class="course-item">
-                                                                <a href="#" class="course-item-link">
-                                                                    <span class="item-name">Create a Simple React App</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span class="item-meta duration">07:48</span>
-                                                                        <span class="item-meta course-item-status">
-                                                                            <img src="~/assets/img/icons/lock.svg" alt="icon">
-                                                                        </span>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-</section> *@
