@@ -38,13 +38,25 @@ public class UserController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Register([Bind("Email,Password,Name,Phone")] Users user)
+    public IActionResult Register([Bind("Email,Password,Name,Phone")] Users users)
     {  
         if(!ModelState.IsValid)
         {
             return View();
         }
-        _context.users.Add(user);
+        var checkUserExists1=_context.users.Where(u=>u.Email==users.Email).FirstOrDefault();
+        if(checkUserExists1!=null)
+        {
+            ModelState.AddModelError("","Email đã tồn tại");
+            return View();
+        }
+        var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone).FirstOrDefault();
+        if(checkUserExists2!=null)
+        {
+            ModelState.AddModelError("","Phone đã tồn tại");
+            return View();
+        }
+        _context.users.Add(users);
         _context.SaveChanges();
         return RedirectToAction("Login","User");
     }

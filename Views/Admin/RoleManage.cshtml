@@ -1,41 +1,31 @@
-@model List<Users>
-@inject AppDbContext _context
+@model List<Role>
+
+@{
+    int dem=0;
+}
 <div class="container">
-    <a asp-action="AddUser" class="btn btn-info">Tạo user mới</a>
+    <a asp-action="AddRole" class="btn btn-info">Tạo role mới</a>
     <hr>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="width:50%;margin: 0 auto;">
         <div class="col-md-10">
-            <table class="table">
+            <table class="table table-striped table-bordered">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Email</th>
-                        <th>Password</th>
-                        <th>Tên</th>
-                        <th>Phone</th>
-                        <th>Quyền truy cập</th>
-                        <th>Tác vụ</th>
+                        <th scope="col">STT</th>
+                        <th scope="col">Tên role</th>
+                        <th scope="col">Tác vụ</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach(var item in Model)
                     {
+                        ++dem;
                         <tr>
-                            <td>@item.Email</td>
-                            <td>@item.Password</td>
-                            <td>@item.Name</td>
-                            <td>@item.Phone</td>
+                            <td>@dem</td>
+                            <td>@item.RoleName</td>
                             <td>
-                                @foreach(var role in item.usersRoles)
-                                {
-                                    string roleName=_context.roles.Where(r=>r.Id==role.RoleId).Select(r=>r.RoleName).FirstOrDefault();
-                                    <li>@roleName</li>
-                                }
-                            </td>
-                            <td>
-                                <a class="btn-danger delete-btn" style="display: inline-block;border-radius: 8px;min-width: 50px;text-align: center;cursor: pointer;" data-id="@item.Id">Xóa</a>
-                                <a asp-action="EditUser" asp-route-UsersId="@item.Id" class="btn-success" style="display: inline-block;border-radius: 8px;min-width: 50px;text-align: center;cursor: pointer;">Edit</a>
-                                <a class="btn-warning" style="display: inline-block;border-radius: 8px;min-width: 50px;text-align: center;cursor: pointer;" asp-action="AddRoleForUser" asp-route-id="@item.Id">Phân quyền</a>
-
+                                <a asp-action="EditRole" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                                <button type="button" class="btn btn-danger delete-btn" data-id="@item.Id">Xóa</button>
                             </td>
                         </tr>
                     }
@@ -82,21 +72,19 @@
     <button id="confirmDeleteBtn" class="btn-danger" style="border-radius: 6px;">Xóa</button>
 </div>
 
-
-
 @section Scripts {
     <script>
         // Lấy tất cả các nút xóa và gán sự kiện click cho mỗi nút
         var deleteButtons = document.querySelectorAll('.delete-btn');
         deleteButtons.forEach(button => {
             button.addEventListener('click', function() {
-                var UsersId = this.getAttribute('data-id');
+                var RoleId = this.getAttribute('data-id');
                 document.getElementById('confirmDeleteModal').style.display = 'block';
                 document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
                 
                 // Xác nhận xóa khi người dùng nhấn nút "Xóa"
                 document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-                    window.location.href = '/Admin/DeleteUser/' + UsersId;
+                    window.location.href = '/Admin/DeleteRole/' + RoleId;
                 });
                 
                 // Ẩn modal và overlay khi người dùng nhấn nút "Đóng"

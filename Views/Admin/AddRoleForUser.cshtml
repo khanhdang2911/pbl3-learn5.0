@@ -1,0 +1,32 @@
+@{
+    var user=ViewData["user"] as Users;
+}
+@model List<RoleCheckbox>
+@if(user!=null)
+{
+    <div class="border border-primary" style="margin: 0 auto;width: 50%;">
+        <form method="post" class="m-5" asp-action="AddRoleForUser" asp-route-id="@user.Id" style="margin: 0 auto;">
+            <h4>Phân quyền cho user @user.Name</h4>
+            <div>
+                @for (var item = 0; item < @Model.Count(); item++)
+                {
+                    <input type="checkbox" asp-for="@Model[item].IsChecked" class="form-check-input" />
+                    <label class="form-check-label" asp-for="@Model[item].IsChecked">
+                        @Model[item].RoleName
+                    </label>
+                    <input type="hidden" asp-for="@Model[item].Id" />
+                    <input type="hidden" asp-for="@Model[item].RoleName" />
+                    <br />
+                }
+            </div>
+            <div>
+                <input class="btn-primary mt-3" type="submit" value="Lưu" style="border-radius: 999px;" />
+            </div>
+        </form>
+    </div>
+}
+else
+{
+    <h1>khong tim thay user
+    </h1>
+}

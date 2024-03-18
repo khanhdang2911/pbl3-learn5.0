@@ -26,8 +26,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\PBL3_Course
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/PBL3_Course/Views/Admin/AddRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Admin/AddRoleForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkUm9sZUZvclVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PBL3_Course/Views/Admin/AddUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Admin/EditRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PBL3_Course/Views/Admin/EditUser.cshtml]
@@ -36,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/PBL3_Course/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Admin/RoleManage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUm9sZU1hbmFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PBL3_Course/Views/Chapter/Create.cshtml]
