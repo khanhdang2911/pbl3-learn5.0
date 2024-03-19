@@ -17,6 +17,7 @@ builder.WebHost.ConfigureKestrel(options=>{
     options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(30); // Thời gian chờ mặc định là 10 phút
 
 });
+builder.Services.AddSingleton<HashPasswordByBC>();
 builder.Services.Configure<FormOptions>(options =>
     {
         options.MultipartBodyLengthLimit = 512*1024*1024; // Dung lượng tối đa của toàn bộ request

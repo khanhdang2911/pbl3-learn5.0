@@ -44,49 +44,16 @@ public class AdminController : Controller
         if(checkUserExists1!=null)
         {
             ModelState.AddModelError("","Email đã tồn tại");
+            return View();
         }
         var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone).FirstOrDefault();
         if(checkUserExists2!=null)
         {
             ModelState.AddModelError("","Phone đã tồn tại");
+            return View();
         }
         _context.users.Add(users);
         _context.SaveChanges();
-        return RedirectToAction("Index");
-    }
-    [HttpGet]
-    public IActionResult EditUser(int UsersId)
-    {
-        if(UsersId==null)
-        {
-            return Content("Khong tim thay user");
-        }
-        var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
-        if(kq==null)
-        {
-            return Content("Khong tim thay user");
-
-        }
-        return View(kq);
-    }
-    [HttpPost]
-    public async Task<IActionResult> EditUser(int UsersId,[Bind("Email,Password,Name,Phone")] Users users)
-    {
-        if(!ModelState.IsValid)
-        {
-            return View();
-        }
-        var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
-        if(kq==null)
-        {
-            return Content("Khong tim thay user nay");
-        }
-        _context.Entry(kq).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
-        kq.Email=users.Email;
-        kq.Password=users.Password;
-        kq.Name=users.Name;
-        kq.Phone=users.Phone;
-        await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
     
@@ -117,6 +84,12 @@ public class AdminController : Controller
         {
             return View();
         }
+        var checkRoleExists=_context.roles.Any(r=>r.RoleName==role.RoleName);
+        if(checkRoleExists==true)
+        {
+            ModelState.AddModelError("","Role đã tồn tại");
+            return View();
+        }
         await _context.roles.AddAsync(role);
         await _context.SaveChangesAsync();
         return RedirectToAction("RoleManage");
@@ -141,8 +114,9 @@ public class AdminController : Controller
         var kq=_context.roles.Where(r=>r.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy User để chỉnh sửa");
+            return Content("Không tìm thấy Role để chỉnh sửa");
         }
+        
         return View(kq);
     }
     [HttpPost]
@@ -150,6 +124,12 @@ public class AdminController : Controller
     {
         if(!ModelState.IsValid)
         {
+            return View();
+        }
+        var checkRoleExists=_context.roles.Any(r=>r.RoleName==role.RoleName);
+        if(checkRoleExists==true)
+        {
+            ModelState.AddModelError("","Role đã tồn tại");
             return View();
         }
         var kq=_context.roles.Where(r=>r.Id==id).FirstOrDefault();

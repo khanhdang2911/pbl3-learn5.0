@@ -14,14 +14,17 @@ namespace PBL3_Course.Controllers;
 
 public class UserController : Controller
 {
+
     public static string EmailEnter{set;get;}
     public static int _randomCode{set;get;}
     private readonly ILogger<UserController> _logger;
+    private readonly HashPasswordByBC _hashPasswordByBC;
     private readonly AppDbContext _context;
-    public UserController(ILogger<UserController> logger,AppDbContext context)
+    public UserController(ILogger<UserController> logger,AppDbContext context,HashPasswordByBC hashPasswordByBC)
     {
         _context=context;
         _logger = logger;
+        _hashPasswordByBC=hashPasswordByBC;
     }
 
     public IActionResult Index()
@@ -39,7 +42,7 @@ public class UserController : Controller
     }
     [HttpPost]
     public IActionResult Register([Bind("Email,Password,Name,Phone")] Users users)
-    {  
+    {
         if(!ModelState.IsValid)
         {
             return View();
@@ -56,6 +59,7 @@ public class UserController : Controller
             ModelState.AddModelError("","Phone đã tồn tại");
             return View();
         }
+        users.Password=_hashPasswordByBC.HashPassword(users.Password);
         _context.users.Add(users);
         _context.SaveChanges();
         return RedirectToAction("Login","User");
@@ -80,7 +84,7 @@ public class UserController : Controller
             }
             if(kq!=null)
             {
-                if(kq.Password!=Password)
+                if(_hashPasswordByBC.VerifyPassword(Password,kq.Password)==false)
                 {
                     ModelState.AddModelError("","Sai mật khẩu");
                     return View();
@@ -117,6 +121,7 @@ public class UserController : Controller
                     claims.Add(new Claim(ClaimTypes.Role,rolename));
                 }
             }
+            claims.Add(new Claim("Id",kq.Id+""));
             var claimIdentity=new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             var claimPrincipal=new ClaimsPrincipal(claimIdentity);
             await HttpContext.SignInAsync(claimPrincipal);
@@ -185,7 +190,7 @@ public class UserController : Controller
             }
             
             _context.Entry(kq).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
-            kq.Password=newpassword;
+            kq.Password=_hashPasswordByBC.HashPassword(newpassword);
             await _context.SaveChangesAsync();
             return RedirectToAction("Login");
         }
@@ -233,6 +238,109 @@ public class UserController : Controller
 
             return View("ForgotPasswordConfirmCode",(object)randomCode);
         }
+
+
+    [HttpGet]
+    [Authorize]
+    public IActionResult EditUser(int UsersId)
+    {
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UsersId.ToString()!=User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value)
+        {
+            return RedirectToAction("Forbidden","User");
+        }
+
+        if(UsersId==null)
+        {
+            return Content("Khong tim thay user");
+        }
+        var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
+        if(kq==null)
+        {
+            return Content("Khong tim thay user");
+
+        }
+        return View(kq);
+    }
+    [HttpPost]
+    public async Task<IActionResult> EditUser(int UsersId,[Bind("Email,Password,Name,Phone")] Users users)
+    {
+        
+        var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
+        if(kq==null)
+        {
+            return Content("Khong tim thay user nay");
+        }
+        
+        if(!ModelState.IsValid)
+        {
+            return View(kq);
+        }
+
+
+        var checkUserExists1=_context.users.Where(u=>u.Email==users.Email&&u.Id!=UsersId).FirstOrDefault();
+        if(checkUserExists1!=null)
+        {
+            ModelState.AddModelError("","Email đã tồn tại");
+            return View(kq);
+        }
+        var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone&&u.Id!=UsersId).FirstOrDefault();
+        if(checkUserExists2!=null)
+        {
+            ModelState.AddModelError("","Phone đã tồn tại");
+            return View(kq);
+        }
+
+        _context.Entry(kq).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
+        kq.Email=users.Email;
+        kq.Password=users.Password;
+        kq.Name=users.Name;
+        kq.Phone=users.Phone;
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index","Home");
+    }
+    [Authorize]
+    public IActionResult ChangePassword(int id)
+    {
+        var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return NotFound();
+        }
+        return View(kq);
+    }
+    [HttpPost]
+    public IActionResult ChangePassword(int id,string oldPassword,string newpassword,string newpasswordConfirm)
+    {
+        var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return NotFound();
+        }
+        if(_hashPasswordByBC.VerifyPassword(oldPassword,kq.Password)==false)
+        {
+            ModelState.AddModelError("","Mật khẩu cũ không chính xác");
+            return View(kq);
+        }
+        if(newpassword!=newpasswordConfirm)
+        {
+            ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
+            return View(kq);
+        }
+        if(_hashPasswordByBC.VerifyPassword(newpassword,kq.Password))
+        {
+            ModelState.AddModelError("","Mật khẩu mới không được trùng mật khẩu cũ");
+            return View(kq);
+        }
+        _context.Entry(kq).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
+        kq.Password=_hashPasswordByBC.HashPassword(newpassword);
+        _context.SaveChanges();
+        return RedirectToAction("EditUser",new {UsersId=id});
+    }
+    
 
     
 }

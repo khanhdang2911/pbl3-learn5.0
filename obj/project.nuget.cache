@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VKlAWXy2Qw0p/vSoD5G+WxGiVUGx8JoRC6YtC1ayzM8PWi586B2mhaumH2sHF/rjaVZBh6Wu+8ZqHyno2wxHdw==",
+  "dgSpecHash": "HLFCClv5SWlcoYDFIQm+Pfqyhy6c33aPhYcBxxmZCVO1g8DZ2Ev1zK/o1wah6Zyy8ffA8zoqpnDAtghNpQL3og==",
   "success": true,
   "projectFilePath": "D:\\PBL3_Course\\PBL3_Course.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DXT\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\DXT\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\DXT\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\DXT\\.nuget\\packages\\bouncycastle.cryptography\\2.3.0\\bouncycastle.cryptography.2.3.0.nupkg.sha512",
     "C:\\Users\\DXT\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\DXT\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",

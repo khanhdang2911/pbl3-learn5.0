@@ -1,4 +1,8 @@
 @model Users
+
+
+@if(Model!=null)
+{
 <form method="post" asp-action="EditUser" asp-route-UsersId="@Model.Id" style="width: 30%;margin: 0 auto;">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
@@ -7,12 +11,11 @@
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
-
     <div class="form-group">
-        <label asp-for ="Password" class="control-label" ></label>
-        <input type="text" asp-for="Password" class="form-control">
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
+            @* <label asp-for ="Password" class="control-label" ></label> *@
+            <input type="hidden" asp-for="Password" class="form-control" value="@Model.Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
     
     <div class="form-group">
         <label asp-for ="Name" class="control-label" ></label>
@@ -24,7 +27,10 @@
         <input type="text" asp-for="Phone" class="form-control">
         <span asp-validation-for="Phone" class="text-danger"></span>
     </div>
+    <a asp-action="ChangePassword" asp-controller="User" asp-route-id="@Model.Id">Đổi mật khẩu</a>
     <hr>
+    
 
     <input type="submit" class="btn btn-success" value="Lưu thông tin">
 </form>
+}

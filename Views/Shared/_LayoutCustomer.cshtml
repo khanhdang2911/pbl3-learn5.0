@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
 @using Microsoft.AspNetCore.Http
-
+@inject AppDbContext _context
 @inject IHttpContextAccessor HttpContextAccessor
 
 <!-- Mirrored from themegenix.com/demo/skillgro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Mar 2024 13:17:57 GMT -->
@@ -135,6 +135,20 @@
                                                 <img src="~/assets/img/icons/cart.svg" class="injectable" alt="img">
                                                 <span class="mini-cart-count">0</span>
                                             </a>
+                                        </li>
+                                        <li class="mini-cart-icon">
+                                            @{
+                                                int? id = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
+                                                    ? int.Parse(HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value) 
+                                                    : null;
+
+                                            }
+                                            @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&id!=null)
+                                            {
+                                                <a asp-action="EditUser" asp-controller="User" asp-route-UsersId="@id" class="cart-count">
+                                                    <i class="fa-solid fa-user"></i>
+                                                </a>
+                                            }
                                         </li>
                                         @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
                                         {
