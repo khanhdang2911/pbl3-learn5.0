@@ -1,5 +1,6 @@
 // using System.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
@@ -18,19 +19,21 @@ public class CourseController : Controller
         _context=context;
         _environment=environment;
     }
-
+    //Quản lí khóa học(admin)
     public IActionResult Index()
     {
-        var allCourse=(from c in _context.courses select c).ToList();
+        var allCourse=_context.courses.Include(c=>c.Category).ToList();
         return View(allCourse);
     }
     [HttpGet]
     public IActionResult Create()
     {
+        SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
+        ViewData["categoryList"]=categoryList;
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("CourseName,Description,ImageFile,status,Price")] Course course)
+    public async Task<IActionResult> Create([Bind("CourseName,Description,ImageFile,status,Price,CategoryId")] Course course)
     {
         if(!ModelState.IsValid)
         {
@@ -77,11 +80,17 @@ public class CourseController : Controller
     [HttpGet]
     public IActionResult Edit(int? id)
     {
+        SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
+        ViewData["categoryList"]=categoryList;
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return Content("Không tìm thấy Course");
+        }
         return View(kq);
     }
     [HttpPost]
-    public async Task<IActionResult> Edit(int? id,[Bind("CourseName,Description,ImageFile,status,Price")] Course course)
+    public async Task<IActionResult> Edit(int? id,[Bind("CourseName,Description,ImageFile,status,Price,CategoryId")] Course course)
     {
         if(!ModelState.IsValid)
         {
@@ -102,6 +111,7 @@ public class CourseController : Controller
             }
             course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
         }
+        kq.CategoryId=course.CategoryId;
         kq.CourseName=course.CourseName;
         kq.Price=course.Price;
         kq.DateEdited=DateTime.Now;
@@ -127,8 +137,9 @@ public class CourseController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
-
-
-
-
+    public IActionResult AllCourse()
+    {
+        var allCourse=_context.courses.Include(c=>c.Category).ToList();
+        return View(allCourse);
+    }
 }

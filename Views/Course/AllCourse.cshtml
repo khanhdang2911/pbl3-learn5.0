@@ -1,0 +1,119 @@
+@model List<Course>
+
+<!-- all-courses -->
+<div class="courses__nav" style="width:60%;margin: 0 auto;margin-top: 100px;">
+                                <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-tab-pane" type="button"
+                                            role="tab" aria-controls="all-tab-pane" aria-selected="true">
+                                            All Courses
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button"
+                                            role="tab" aria-controls="design-tab-pane" aria-selected="false">
+                                            Design
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business-tab-pane" type="button"
+                                            role="tab" aria-controls="business-tab-pane" aria-selected="false">
+                                            Business
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="development-tab" data-bs-toggle="tab" data-bs-target="#development-tab-pane" type="button"
+                                            role="tab" aria-controls="development-tab-pane" aria-selected="false">
+                                            Development
+                                        </button>
+                                    </li>
+                                </ul>
+</div>
+<section class="all-courses-area section-py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col" >
+                        <div class="courses-top-wrap courses-top-wrap">
+                            <div class="row align-items-center">
+                                <div class="col-md-5">
+                                    <div class="courses-top-left">
+                                        <p>Số khóa học:@Model.Count</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="d-flex justify-content-center justify-content-md-end align-items-center flex-wrap">
+                                        <div class="courses-top-right m-0 ms-md-auto">
+                                            <span class="sort-by">Sắp xếp theo:</span>
+                                            <div class="courses-top-right-select">
+                                                <select name="orderby" class="orderby">
+                                                    <option value="">Theo giá</option>
+                                                    <option value="">Theo tên</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+
+
+                                        <div class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                            @foreach(var item in Model)
+                                            {
+                                                <div class="col">
+                                                    <div class="courses__item shine__animate-item">
+                                                        <div class="courses__item-thumb">
+                                                            <a href="" class="shine__animate-link">
+                                                                <img src="~/@item.CourseImageLink" alt="img">
+                                                            </a>
+                                                        </div>
+                                                        <div class="courses__item-content">
+                                                            <ul class="courses__item-meta list-wrap">
+                                                                <li class="courses__item-tag">
+                                                                    <a href="">@item.Category.CategoryName</a>
+                                                                </li>
+                                                                <li class="avg-rating"><i class="fas fa-star"></i>4.8</li>
+                                                            </ul>
+                                                            <h5 class="title"><a href="">@item.CourseName</a></h5>
+                                                            <p class="author">By <a href="#">admin</a></p>
+                                                            <div class="courses__item-bottom">
+                                                                <div class="button">
+                                                                    <a href="">
+                                                                        <span class="text">Mua ngay</span>
+                                                                        <i class="flaticon-arrow-right"></i>
+                                                                    </a>
+                                                                </div>
+                                                                @if(item.Price==0)
+                                                                {
+                                                                    <h5 class="price">Free</h5>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <h5 class="price">$@item.Price</h5>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           }
+                                        </div>
+                                
+                                @* <nav class="pagination__wrap mt-30">
+                                    <ul class="list-wrap">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="courses.html">2</a></li>
+                                        <li><a href="courses.html">3</a></li>
+                                        <li><a href="courses.html">4</a></li>
+                                    </ul>
+                                </nav> *@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+<!-- all-courses-end -->

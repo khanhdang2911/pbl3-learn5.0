@@ -1,7 +1,7 @@
-@model List<Course>
+@model List<Category>
 
 <div class="container">
-    <a asp-action="Create" class="btn btn-info">Tạo khóa học mới</a>
+    <a asp-action="Create" class="btn btn-info">Tạo danh mục mới</a>
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -9,9 +9,6 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Tên khóa học</th>
-                        <th>Giá</th>
-                        <th>Ngày tạo</th>
-                        <th>Lĩnh vực</th>
                         <th>Tác vụ</th>
                     </tr>
                 </thead>
@@ -19,12 +16,9 @@
                     @foreach(var item in Model)
                     {
                         <tr>
-                            <td>@item.CourseName</td>
-                            <td>@item.Price$</td>
-                            <td>@item.DateCreated</td>
-                            <td>@item.Category.CategoryName</td>
+                            <td>@item.CategoryName</td>
                             <td>
-                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Xem chi tiết</a>
+                                
                                 <a class="btn btn-danger delete-btn" data-id="@item.Id">Xóa</a>
                                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
                             </td>
@@ -79,13 +73,13 @@
         var deleteButtons = document.querySelectorAll('.delete-btn');
         deleteButtons.forEach(button => {
             button.addEventListener('click', function() {
-                var courseId = this.getAttribute('data-id');
+                var CategoryId = this.getAttribute('data-id');
                 document.getElementById('confirmDeleteModal').style.display = 'block';
                 document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
                 
                 // Xác nhận xóa khi người dùng nhấn nút "Xóa"
                 document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-                    window.location.href = '/Course/Delete/' + courseId;
+                    window.location.href = '/Category/Delete/' + CategoryId;
                 });
                 
                 // Ẩn modal và overlay khi người dùng nhấn nút "Đóng"

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ve/Vf4RdyfBrdX15QaLlsbhOJvWAbajfu8BcXE6egcI=",
+  "Hash": "5Se9Mi0m9S4BuhAwBq4FfpAkBfWRBpJkEAwugeV8sfo=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -6382,6 +6382,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Course1.png"
     },
     {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Detail-Anh1.png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/Detail-Anh1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Detail-Anh1.png"
+    },
+    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\git.pdf",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -6437,6 +6456,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\network.png"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Screenshot (13).png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/Screenshot (13).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Screenshot (13).png"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Screenshot 2024-03-04 221902.png",

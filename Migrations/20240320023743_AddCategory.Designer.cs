@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PBL3_Course.Models;
 
@@ -11,9 +12,11 @@ using PBL3_Course.Models;
 namespace PBL3_Course.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240320023743_AddCategory")]
+    partial class AddCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,9 +72,6 @@ namespace PBL3_Course.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CourseImageLink")
                         .HasColumnType("nvarchar(max)");
 
@@ -98,8 +98,6 @@ namespace PBL3_Course.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Course");
                 });
@@ -225,17 +223,6 @@ namespace PBL3_Course.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("PBL3_Course.Course", b =>
-                {
-                    b.HasOne("PBL3_Course.Category", "Category")
-                        .WithMany("courses")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("PBL3_Course.Lesson", b =>
                 {
                     b.HasOne("PBL3_Course.Chapter", "Chapter")
@@ -275,11 +262,6 @@ namespace PBL3_Course.Migrations
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("PBL3_Course.Category", b =>
-                {
-                    b.Navigation("courses");
                 });
 
             modelBuilder.Entity("PBL3_Course.Chapter", b =>

@@ -31,6 +31,7 @@ namespace PBL3_Course.Models
         public DbSet<Role> roles{set;get;}
         
         public DbSet<UsersCourse> usersCourses{set;get;}
+        public DbSet<Category> categories{set;get;}
 
        
     }

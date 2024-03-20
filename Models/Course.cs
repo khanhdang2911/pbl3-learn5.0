@@ -30,6 +30,10 @@ namespace PBL3_Course
         public int IsActive{set;get;}
 
         public ICollection<UsersCourse>? usersCourses{set;get;}
+        // Khoa ngoai lien ket den bang category
+        [ForeignKey("CategoryId")]
+        public int CategoryId{set;get;}
+        public Category? Category{set;get;}
     
     }
 }
