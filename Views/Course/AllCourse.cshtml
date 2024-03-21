@@ -1,32 +1,43 @@
 @model List<Course>
+@inject AppDbContext _context
+@{
+    string routeId="";
+    if(ViewContext.RouteData.Values.ContainsKey("id"))
+    {
+         routeId=ViewContext.RouteData.Values["id"].ToString();
+    }
 
+}
 <!-- all-courses -->
 <div class="courses__nav" style="width:60%;margin: 0 auto;margin-top: 100px;">
                                 <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all-tab-pane" type="button"
-                                            role="tab" aria-controls="all-tab-pane" aria-selected="true">
-                                            All Courses
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button"
-                                            role="tab" aria-controls="design-tab-pane" aria-selected="false">
-                                            Design
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="business-tab" data-bs-toggle="tab" data-bs-target="#business-tab-pane" type="button"
-                                            role="tab" aria-controls="business-tab-pane" aria-selected="false">
-                                            Business
-                                        </button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="development-tab" data-bs-toggle="tab" data-bs-target="#development-tab-pane" type="button"
-                                            role="tab" aria-controls="development-tab-pane" aria-selected="false">
-                                            Development
-                                        </button>
-                                    </li>
+                                        @if(string.IsNullOrEmpty(routeId))
+                                        {
+                                            <a  asp-action="AllCourse" asp-route-id="" asp-route-sortBy="" style="color:blue;font-weight: 500;" >
+                                                All Course
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a  asp-action="AllCourse" asp-route-id="" asp-route-sortBy="" style="color:black;font-weight: 500;" >
+                                                All Course
+                                            </a>
+                                        }
+                                    @foreach(var item in _context.categories)
+                                    {
+                                        @if(routeId==item.Id.ToString())
+                                        {
+                                            <a  asp-action="AllCourse" asp-route-id="@item.Id" asp-route-sortBy="" style="color:blue;font-weight: 500;" >
+                                                @item.CategoryName
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a  asp-action="AllCourse" asp-route-id="@item.Id" asp-route-sortBy="" style="color:black;font-weight: 500;" >
+                                                @item.CategoryName
+                                            </a>
+                                        }
+                                    }
                                 </ul>
 </div>
 <section class="all-courses-area section-py-120">
@@ -45,10 +56,11 @@
                                         <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sắp xếp theo:</span>
                                             <div class="courses-top-right-select">
-                                                <select name="orderby" class="orderby">
-                                                    <option value="">Theo giá</option>
-                                                    <option value="">Theo tên</option>
-
+                                                <select id="orderby" class="orderby">
+                                                    <option value="">---</option>
+                                                    <option value="price2">Theo giá thấp đến cao</option>
+                                                    <option value="price1">Theo giá cao đến thấp</option>
+                                                    <option value="name">Theo tên</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -67,14 +79,14 @@
                                                 <div class="col">
                                                     <div class="courses__item shine__animate-item">
                                                         <div class="courses__item-thumb">
-                                                            <a href="" class="shine__animate-link">
+                                                            <a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id" class="shine__animate-link">
                                                                 <img src="~/@item.CourseImageLink" alt="img">
                                                             </a>
                                                         </div>
                                                         <div class="courses__item-content">
                                                             <ul class="courses__item-meta list-wrap">
                                                                 <li class="courses__item-tag">
-                                                                    <a href="">@item.Category.CategoryName</a>
+                                                                    <a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.Category.CategoryName</a>
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i>4.8</li>
                                                             </ul>
@@ -117,3 +129,16 @@
             </div>
 </section>
 <!-- all-courses-end -->
+@section Scripts
+{
+    <script>
+        document.getElementById('orderby').addEventListener('change', function() {
+            var sortBy = this.value;
+            var url = '/Course/AllCourse';
+            if (sortBy) {
+                url += '?sortBy=' + sortBy;
+            }
+            window.location.href = url;
+        });
+    </script>
+}

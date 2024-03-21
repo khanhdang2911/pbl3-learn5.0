@@ -1,11 +1,12 @@
 // using System.Data.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
 namespace PBL3_Course.Controllers;
-
+[Authorize(Roles ="Admin")]
 public class CourseController : Controller
 {
     private readonly IWebHostEnvironment _environment;
@@ -54,7 +55,7 @@ public class CourseController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
-
+    [AllowAnonymous]
     public IActionResult Detail(int? id)
     {
         if(id==null)
@@ -122,6 +123,12 @@ public class CourseController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+    [HttpPost]
+    public IActionResult Search(string courseName)
+    {
+        var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
+        return View("AllCourse",kq);
+    }
     public IActionResult Delete(int? id)
     {
         if(id==null)
@@ -137,9 +144,31 @@ public class CourseController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
-    public IActionResult AllCourse()
+    [AllowAnonymous]
+    public IActionResult AllCourse(int?id,string sortBy)
     {
-        var allCourse=_context.courses.Include(c=>c.Category).ToList();
+        List<Course> allCourse=new List<Course>();
+        if(id==null)
+        {
+            allCourse=_context.courses.ToList();
+            //sort
+            if(sortBy=="price1")
+            {
+                allCourse=_context.courses.OrderByDescending(c=>c.Price).ToList();
+            }
+            else if(sortBy=="price2")
+            {
+                allCourse=_context.courses.OrderBy(c=>c.Price).ToList();
+            }
+            return View(allCourse);
+        }
+        //Neu id khac null
+        allCourse=_context.courses.Where(c=>c.CategoryId==id).ToList();
+        //sort
+        if(sortBy=="name")
+        {
+            allCourse=_context.courses.OrderBy(c=>c.CourseName).ToList();
+        }
         return View(allCourse);
     }
 }

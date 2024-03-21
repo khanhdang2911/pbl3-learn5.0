@@ -186,4 +186,16 @@ public class AdminController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
+    public IActionResult CourseManage()
+    {
+        return RedirectToAction("Index","Course");
+    }
+    public IActionResult UserManage()
+    {
+        return RedirectToAction("Index");
+    }
+    public IActionResult CategoryManage()
+    {
+        return RedirectToAction("Index","Category");
+    }
 }

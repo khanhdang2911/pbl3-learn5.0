@@ -1341,8 +1341,24 @@
       "PackagePath": "staticwebassets\\uploads\\Detail-Anh1.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\HTML.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HTML.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Java.png",
+      "PackagePath": "staticwebassets\\uploads\\Java.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\KidLearning.jpg",
+      "PackagePath": "staticwebassets\\uploads\\KidLearning.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4",
       "PackagePath": "staticwebassets\\uploads\\Mocktest IELTS Speaking Band 8.0 - Bài mẫu mới nhất 2024 _ IELTS with Datio.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Photogr.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Photogr.jpg"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\SHARE-PBL3-Du-an-Lap-trinh-ung-dung-01-20241.pdf",
@@ -1365,12 +1381,32 @@
       "PackagePath": "staticwebassets\\uploads\\apple-watch-series-2-38mm-4.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\computerAI2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\computerAI2.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\english (2).jpg",
+      "PackagePath": "staticwebassets\\uploads\\english (2).jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\git.pdf",
       "PackagePath": "staticwebassets\\uploads\\git.pdf"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\machine learning.png",
+      "PackagePath": "staticwebassets\\uploads\\machine learning.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\marketing.jpg",
+      "PackagePath": "staticwebassets\\uploads\\marketing.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\network.png",
       "PackagePath": "staticwebassets\\uploads\\network.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeic.jpg",
+      "PackagePath": "staticwebassets\\uploads\\toeic.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PBL3_Course.Microsoft.AspNetCore.StaticWebAssets.props",
