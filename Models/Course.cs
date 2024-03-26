@@ -34,6 +34,12 @@ namespace PBL3_Course
         [ForeignKey("CategoryId")]
         public int CategoryId{set;get;}
         public Category? Category{set;get;}
-    
+
+        //Teacher ID
+         [ForeignKey("TeacherId")]
+        public int TeacherId{set;get;}
+        public Users? Teacher{set;get;}
+       
+
     }
 }

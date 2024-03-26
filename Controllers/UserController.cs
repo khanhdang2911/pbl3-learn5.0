@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using System.ComponentModel.DataAnnotations;
 namespace PBL3_Course.Controllers;
 
 public class UserController : Controller
@@ -41,7 +42,7 @@ public class UserController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult Register([Bind("Email,Password,Name,Phone")] Users users)
+    public IActionResult Register([Bind("Email,Password,Name,Phone")] Users users, string ConfirmPassword)
     {
         if(!ModelState.IsValid)
         {
@@ -57,6 +58,16 @@ public class UserController : Controller
         if(checkUserExists2!=null)
         {
             ModelState.AddModelError("","Phone đã tồn tại");
+            return View();
+        }
+        if(string.IsNullOrEmpty(ConfirmPassword)==true)
+        {
+            ModelState.AddModelError("","Bạn chưa nhập lại mật khẩu");
+            return View();
+        }
+        if(users.Password!=ConfirmPassword)
+        {
+            ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
             return View();
         }
         users.Password=_hashPasswordByBC.HashPassword(users.Password);
@@ -148,7 +159,7 @@ public class UserController : Controller
                 ModelState.AddModelError("","Phải nhập code để xác nhận");
                 return View();
             }
-            else if(int.Parse(code)!=_randomCode)
+            else if(code!=_randomCode.ToString())
             {
                 Console.WriteLine(code+"  "+_randomCode);
                 ModelState.AddModelError("","Mã xác nhận bạn nhập không đúng, vui lòng kiểm tra lại");
@@ -339,6 +350,16 @@ public class UserController : Controller
         kq.Password=_hashPasswordByBC.HashPassword(newpassword);
         _context.SaveChanges();
         return RedirectToAction("EditUser",new {UsersId=id});
+    }
+    //Dang ki giang day
+    public IActionResult TeacherRegister()
+    {
+        return RedirectToAction("Create","Course");
+    }
+    //
+    public IActionResult CourseManageForTeacher()
+    {
+        return View();
     }
     
 

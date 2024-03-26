@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+WF2Fvw1qhVaWEYuD7iC2INVIVfW097k6cLCjEgbbhY=",
+  "Hash": "cASXQD9P9ppA5J5TvWzQmd8a0o6QAZM7zfrVfk6nAyM=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -6608,6 +6608,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Photogr.jpg"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\renovation-logo.jpg",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/renovation-logo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\renovation-logo.jpg"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Screenshot (13).png",

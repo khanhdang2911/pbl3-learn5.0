@@ -23,10 +23,16 @@ public class CourseController : Controller
     //Quản lí khóa học(admin)
     public IActionResult Index()
     {
-        var allCourse=_context.courses.Include(c=>c.Category).ToList();
+        var allCourse=_context.courses.Where(c=>c.IsActive==1).Include(c=>c.Category).ToList();
         return View(allCourse);
     }
+    public IActionResult IndexForCourseNotActive()
+    {
+        var allCourse=_context.courses.Where(c=>c.IsActive==0).Include(c=>c.Category).ToList();
+        return View("Index",allCourse);
+    }
     [HttpGet]
+    [AllowAnonymous]
     public IActionResult Create()
     {
         SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
@@ -34,6 +40,7 @@ public class CourseController : Controller
         return View();
     }
     [HttpPost]
+    [AllowAnonymous]
     public async Task<IActionResult> Create([Bind("CourseName,Description,ImageFile,status,Price,CategoryId")] Course course)
     {
         if(!ModelState.IsValid)
@@ -50,9 +57,19 @@ public class CourseController : Controller
             }
             course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
         }
+        if(User.IsInRole("Admin"))
+        {
+            course.IsActive=1;
+        }
+        var UserId=User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value;
+        course.TeacherId=int.Parse(UserId);
         course.DateCreated=DateTime.Now;
         await _context.courses.AddAsync(course);
         await _context.SaveChangesAsync();
+        if(User.IsInRole("Admin")==false)
+        {
+            return RedirectToAction("Index","Home");
+        }
         return RedirectToAction("Index");
     }
     [AllowAnonymous]
@@ -129,6 +146,11 @@ public class CourseController : Controller
         var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
         return View("AllCourse",kq);
     }
+    public IActionResult SearchForAdmin(string courseName)
+    {
+         var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
+        return View("Index",kq);
+    }
     public IActionResult Delete(int? id)
     {
         if(id==null)
@@ -170,5 +192,17 @@ public class CourseController : Controller
             allCourse=_context.courses.OrderBy(c=>c.CourseName).ToList();
         }
         return View(allCourse);
+    }
+    public IActionResult CourseActivate(int id)
+    {
+        var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return Content("Khong tim thay khoa hoc");
+        }
+        _context.Entry(kq).State=EntityState.Modified;
+        kq.IsActive=1;
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
 }

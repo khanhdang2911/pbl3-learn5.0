@@ -1,4 +1,4 @@
-
+@* 
 <form method="post" asp-action="Login">
      <div asp-validation-summary="ModelOnly"></div>
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
@@ -14,8 +14,51 @@
     <input type="submit" value="Login" class="btn btn-info">
 </form>
 <a asp-action="forgotpassword" style="text-decoration: none;color:black;font-weight: 500;">Quên mật khẩu</a>
-|<a asp-action="Register" style="text-decoration: none;color:black;font-weight: 500;">Đăng kí</a>
+|<a asp-action="Register" style="text-decoration: none;color:black;font-weight: 500;">Đăng kí</a> *@
 
+
+
+
+<!-- singUp-area -->
+        <section class="singUp-area section-py-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="singUp-wrap">
+                            <h2 class="title">Welcome back!</h2>
+                            <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in action in no time. Let's go!</p>
+
+                            <form method="post" asp-action="Login" class="account__form">
+                                 <div asp-validation-summary="ModelOnly"></div>
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                <div class="form-grp">
+                                    <label for="Email">Email</label>
+                                    <input id="email" type="text" placeholder="email" name="Email" type="email">
+                                </div>
+                                <div class="form-grp">
+                                    <label for="password">Password</label>
+                                    <input id="password" placeholder="password" type="password" name="Password">
+                                </div>
+                                <div class="account__check">
+                                    <div class="account__check-remember">
+                                        <input type="checkbox" class="form-check-input" value="" id="terms-check">
+                                        <label for="terms-check" class="form-check-label">Remember me</label>
+                                    </div>
+                                    <div class="account__check-forgot">
+                                        <a asp-action="ForgotPassword">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-two arrow-btn">Sign In<img src="~/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                            </form>
+                            <div class="account__switch">
+                                <p>Don't have an account?<a asp-action="Register">Sign Up</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- singUp-area-end -->
 
  @section scripts{
         <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>

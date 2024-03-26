@@ -4,7 +4,6 @@
 @inject AppDbContext _context
 @inject IHttpContextAccessor HttpContextAccessor
 
-<!-- Mirrored from themegenix.com/demo/skillgro/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Mar 2024 13:17:57 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,7 +14,6 @@
 
 
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
@@ -108,8 +106,12 @@
                                         
                                         </li> *@
                                         <li class="menu-item"><a href="#">Blog</a>
-                                       
-                                        </li>
+                                        @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin")==false)
+                                        {
+                                            <li class="menu-item"><a asp-action="TeacherRegister" asp-controller="User">Đăng kí giảng dạy</a>
+                                            </li>
+                                        }
+                                        
                                         <li>
                                             @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin"))
                                             {

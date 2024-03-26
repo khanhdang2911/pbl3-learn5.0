@@ -19,6 +19,7 @@ namespace PBL3_Course
         public string Password{set;get;}
         public ICollection<UsersRole>? usersRoles{set;get;}
         public ICollection<UsersCourse>? usersCourses{set;get;}
+        public ICollection<Course>? courses{set;get;}
 
 
     }

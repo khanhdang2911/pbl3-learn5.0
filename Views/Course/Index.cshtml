@@ -1,7 +1,13 @@
 @model List<Course>
 
 <div class="container">
-    <a asp-action="Create" class="btn btn-info">Tạo khóa học mới</a>
+    <div class="CourseFunc" style="display: flex;justify-content: space-between;">
+        <a asp-action="Create" class="btn btn-info">Tạo khóa học mới</a>
+        <div>
+            <a asp-action="IndexForCourseNotActive" class="" style="border: 1px solid black;color: black;">Khóa học chưa kích hoạt</a>
+            <a asp-action="Index" class="" style="border: 1px solid black;color: black;">Khóa học đã kích hoạt</a>
+        </div>
+    </div>
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -18,15 +24,24 @@
                 <tbody>
                     @foreach(var item in Model)
                     {
+
                         <tr>
                             <td>@item.CourseName</td>
                             <td>@item.Price$</td>
                             <td>@item.DateCreated</td>
                             <td>@item.Category.CategoryName</td>
                             <td>
-                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Xem chi tiết</a>
-                                <a class="btn btn-danger delete-btn" data-id="@item.Id">Xóa</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn-primary" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;">Xem chi tiết</a>
+                                <a class="btn-danger delete-btn" data-id="@item.Id" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: pointer;">Xóa</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-success" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;">Edit</a>
+                                @if(item.IsActive==1)
+                                {
+                                    <a class="btn-info" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: context-menu;">Đã kích hoạt</a>
+                                }
+                                else
+                                {
+                                    <a class="btn-warning" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: pointer;">Kích hoạt</a>
+                                }
                             </td>
                         </tr>
                     }

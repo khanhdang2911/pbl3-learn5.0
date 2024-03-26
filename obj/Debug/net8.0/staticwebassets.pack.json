@@ -1405,6 +1405,10 @@
       "PackagePath": "staticwebassets\\uploads\\network.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\renovation-logo.jpg",
+      "PackagePath": "staticwebassets\\uploads\\renovation-logo.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeic.jpg",
       "PackagePath": "staticwebassets\\uploads\\toeic.jpg"
     },
