@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cASXQD9P9ppA5J5TvWzQmd8a0o6QAZM7zfrVfk6nAyM=",
+  "Hash": "/sukvudVA+7zdejSfxhw3EM8AiaxhBLjcMstQrhbt3g=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -6342,6 +6342,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\apple-watch-series-2-38mm-4.png"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\BigData.png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/BigData.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\BigData.png"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\computerAI2.jpg",

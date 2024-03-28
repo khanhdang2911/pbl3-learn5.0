@@ -84,6 +84,10 @@ public class CourseController : Controller
         {
             return Content("Không tìm thấy khóa học này");
         }
+        if(kq.IsActive==0)
+        {
+            return NotFound();
+        }
         _context.Entry(kq).Collection(c=>c.chapters).Load();
         if(kq.chapters!=null)
         {
@@ -202,6 +206,23 @@ public class CourseController : Controller
         }
         _context.Entry(kq).State=EntityState.Modified;
         kq.IsActive=1;
+        //Lay ra id cua user hien tai
+        int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value);
+        
+        //Tim Teacher Id Trong role
+        UsersRole usersRole=new UsersRole();
+        var RoleTeacherID=_context.roles.Where(r=>r.RoleName=="Teacher").Select(r=>r.Id).FirstOrDefault();
+        
+        //Kiem tra nguoi dung hien tai da co role teacher hay chua
+        bool checkAddUserRole=_context.usersRoles.Any(u=>u.RoleId==RoleTeacherID&& u.UsersId==UserId);
+        if(checkAddUserRole==false)
+        {
+            Console.WriteLine("IDasdasda");
+            usersRole.UsersId=UserId;
+            usersRole.RoleId=RoleTeacherID;
+            _context.usersRoles.Add(usersRole);
+        }
+        
         _context.SaveChanges();
         return RedirectToAction("Index");
     }

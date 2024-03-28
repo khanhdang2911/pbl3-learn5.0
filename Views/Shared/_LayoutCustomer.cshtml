@@ -16,6 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.png">
 
     <!-- CSS here -->
+
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/assets/css/animate.min.css">
     <link rel="stylesheet" href="~/assets/css/magnific-popup.css">
@@ -30,6 +31,8 @@
     <link rel="stylesheet" href="~/assets/css/tg-cursor.css">
     <link rel="stylesheet" href="~/assets/css/main.css">
 
+
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -105,7 +108,7 @@
                                         @* <li class="menu-item"><a href="#">Shop</a>
                                         
                                         </li> *@
-                                        <li class="menu-item"><a href="#">Blog</a>
+                                        <li class="menu-item"><a href="#">Blog</a></li>
                                         @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin")==false)
                                         {
                                             <li class="menu-item"><a asp-action="TeacherRegister" asp-controller="User">Đăng kí giảng dạy</a>
@@ -115,12 +118,21 @@
                                         <li>
                                             @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin"))
                                             {
-                                                <select id="adminManage" class="adminManage" style="height: 40px;width: 150px;margin-top: 28px;">
-                                                        <option value="">Admin</option>
-                                                        <option value="UserManage">Quản lí user</option>
-                                                        <option value="CourseManage">Quản lí Course</option>
-                                                        <option value="CategoryManage">Quản lí category</option>
-                                                </select>
+                                                
+                                                <li class="menu-item-has-children"><a href="#">Admin</a>
+                                                    <ul class="sub-menu">
+                                                        
+                                                        <li>
+                                                            <a asp-action="" asp-controller="Admin" >Quản lí user</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-action="CourseManage" asp-controller="Admin" >Quản lí Course</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-action="CategoryManage" asp-controller="Admin">Quản lí category</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             }
                                         </li>
                                     </ul>
@@ -153,6 +165,8 @@
                                                 <span class="mini-cart-count">0</span>
                                             </a>
                                         </li>
+                                      
+
                                         <li class="mini-cart-icon">
                                             @{
                                                 int? id = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
@@ -366,23 +380,7 @@
     <script src="~/assets/js/main.js"></script>
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
-        function handleAdminManageChange() {
-            var adminManageDropdown = document.getElementById('adminManage');
-            if (adminManageDropdown) {
-                adminManageDropdown.addEventListener('change', function() {
-                    var ObjManage = this.value;
-                    var url = '/Admin/';
-                    if (ObjManage) {
-                        url += ObjManage;
-                    }
-                    window.location.href = url;
-                });
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            handleAdminManageChange();
-        });
+        
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
