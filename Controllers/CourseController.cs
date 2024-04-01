@@ -119,10 +119,30 @@ public class CourseController : Controller
             return View();
         }
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
+        
         if(kq==null)
         {
             return Content("Khong tim thay");
         }
+        // Xoa file cu di
+            if(string.IsNullOrEmpty(kq.CourseImageLink)==false)
+            {
+                Console.WriteLine("Hello go to here");
+                var FolderName="wwwroot/uploads";
+                string fileNameDelete=kq.CourseImageLink.Substring(8);
+                Console.WriteLine(FolderName+ fileNameDelete);
+                DirectoryInfo dir = new DirectoryInfo(FolderName);
+
+                foreach(FileInfo fi in dir.GetFiles())
+                {
+                    if(fi.Name==fileNameDelete)
+                    {
+                        fi.Delete();
+                        break;
+                    }
+                }
+            }
+        // end
         if(course.ImageFile!=null)
         {
             var filepath=Path.Combine(_environment.WebRootPath,"uploads",course.ImageFile.FileName);
@@ -131,6 +151,10 @@ public class CourseController : Controller
                 using FileStream fileStream=new FileStream(filepath,FileMode.Create);
                 course.ImageFile.CopyTo(fileStream);
             }
+
+            
+
+            
             course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
         }
         kq.CategoryId=course.CategoryId;
@@ -166,7 +190,22 @@ public class CourseController : Controller
         {
             return Content("Khong tim thay khoa hoc");
         }
+        
         _context.courses.Remove(kq);
+        _context.SaveChanges();
+        //Kiem tra xem user còn đang dạy khóa nào hay không
+        bool checkExistCourseWithTeacherId=_context.courses.Any(c=>c.TeacherId==kq.TeacherId);
+        //Lấy ID của teacher trong database
+        int TeacherId=_context.roles.Where(r=>r.RoleName=="Teacher").Select(r=>r.Id).FirstOrDefault();
+        if(checkExistCourseWithTeacherId==false)
+        {
+            var deleteRoleTeacher=_context.usersRoles.Where(c=>c.UsersId==kq.TeacherId&&c.RoleId==TeacherId).FirstOrDefault();
+            //Neu ton tai thi xoa role teacher cho user do
+            if(deleteRoleTeacher!=null)
+            {
+                _context.usersRoles.Remove(deleteRoleTeacher);
+            }
+        }
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
@@ -186,6 +225,7 @@ public class CourseController : Controller
             {
                 allCourse=_context.courses.OrderBy(c=>c.Price).ToList();
             }
+            allCourse=allCourse.Where(c=>c.IsActive==1).ToList();
             return View(allCourse);
         }
         //Neu id khac null
@@ -195,6 +235,7 @@ public class CourseController : Controller
         {
             allCourse=_context.courses.OrderBy(c=>c.CourseName).ToList();
         }
+        allCourse=allCourse.Where(c=>c.IsActive==1).ToList();
         return View(allCourse);
     }
     public IActionResult CourseActivate(int id)
@@ -207,8 +248,7 @@ public class CourseController : Controller
         _context.Entry(kq).State=EntityState.Modified;
         kq.IsActive=1;
         //Lay ra id cua user hien tai
-        int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value);
-        
+        int UserId=kq.TeacherId;
         //Tim Teacher Id Trong role
         UsersRole usersRole=new UsersRole();
         var RoleTeacherID=_context.roles.Where(r=>r.RoleName=="Teacher").Select(r=>r.Id).FirstOrDefault();
@@ -217,7 +257,6 @@ public class CourseController : Controller
         bool checkAddUserRole=_context.usersRoles.Any(u=>u.RoleId==RoleTeacherID&& u.UsersId==UserId);
         if(checkAddUserRole==false)
         {
-            Console.WriteLine("IDasdasda");
             usersRole.UsersId=UserId;
             usersRole.RoleId=RoleTeacherID;
             _context.usersRoles.Add(usersRole);

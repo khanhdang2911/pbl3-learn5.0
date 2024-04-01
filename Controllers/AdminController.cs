@@ -69,6 +69,8 @@ public class AdminController : Controller
         {
             return Content("Khong tim thay user nay dau");
         }
+        var deleteCourse=_context.courses.Where(c=>c.TeacherId==id).ToList();
+        _context.courses.RemoveRange(deleteCourse);
         _context.users.Remove(kq);
         _context.SaveChanges();
         return RedirectToAction("Index");

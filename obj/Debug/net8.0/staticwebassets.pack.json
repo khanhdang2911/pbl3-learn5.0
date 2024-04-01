@@ -1353,6 +1353,14 @@
       "PackagePath": "staticwebassets\\uploads\\Java.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Java1.png",
+      "PackagePath": "staticwebassets\\uploads\\Java1.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Javascript.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Javascript.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\KidLearning.jpg",
       "PackagePath": "staticwebassets\\uploads\\KidLearning.jpg"
     },
@@ -1363,6 +1371,10 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Photogr.jpg",
       "PackagePath": "staticwebassets\\uploads\\Photogr.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React.png",
+      "PackagePath": "staticwebassets\\uploads\\React.png"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\SHARE-PBL3-Du-an-Lap-trinh-ung-dung-01-20241.pdf",
