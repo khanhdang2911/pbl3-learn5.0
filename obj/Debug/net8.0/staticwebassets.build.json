@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k1TeAnMDYWInXyR4AvslfSd2oLzvM4+uZtOI7Etz2Qw=",
+  "Hash": "ipA7sWZHZ0DmrwiVXyyG1bdRqMID2uyV72aXq24axxs=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -6513,25 +6513,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Java.png"
-    },
-    {
-      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Java1.png",
-      "SourceId": "PBL3_Course",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
-      "BasePath": "_content/PBL3_Course",
-      "RelativePath": "uploads/Java1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\Java1.png"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\Javascript.jpg",

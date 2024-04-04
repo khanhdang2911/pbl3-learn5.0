@@ -1,0 +1,31 @@
+@inject AppDbContext _context
+@model List<int>
+@{
+    var DateTimeNow=DateTime.Now;
+    int result=0;
+    for(int i=0;i<Model.Count;i++)
+    {
+        if(Model[i]==1)
+        {
+            result++;
+        }
+    }
+    int TestId=(int)ViewBag.id;
+    var test=_context.tests.Where(t=>t.Id==TestId).FirstOrDefault();
+}
+<div class="container message">
+    <h3>Đề:@test.TestName</h3>
+    <h5>Bạn làm đúng được @result/ @test.NumberOfQuestion câu</h5>
+    <h6>Tổng điểm:@(result*1)</h6>
+    <p><strong>Hoàn thành vào lúc</strong> @DateTimeNow</p>
+</div>
+
+<style>
+    .message{
+        width: 50%;
+        margin-top: 50px;
+        padding: 30px;
+        background-color: rgb(235, 243, 243);
+        border-radius: 15px;
+    }
+</style>

@@ -1,92 +1,133 @@
 @model Course
-
-<h1>Thông tin khóa học</h1>
+@inject IHttpContextAccessor HttpContextAccessor
+@inject AppDbContext _context
+@{
+    Users Teacher=(from c in _context.courses join u in _context.users on Model.TeacherId equals u.Id select u).First();
+    _context.Entry(Model).Collection(c=>c.Tests).Load();
+    int? id = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
+                                                    ? int.Parse(HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value) 
+                                                    : null;
+}
+<style>
+    .Description{
+        width: 1070px;
+        background-color: #f7f9fa;
+        box-sizing: border-box;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container mt-5">
+    <div class="Description">
+        <h3>@Model.CourseName</h3>
+        <p>Create By: @Teacher.Name</p>
+        <p>
+            <i class="fa-solid fa-users"></i>
+            30 students
+        </p>
+        <p>
+            <i class="fa-solid fa-calendar-plus"></i>
+            Date created: @Model.DateCreated.ToString("dd/MM/yyyy").Replace('-','/')
+        </p>
+        
+    </div>
+    @* <img src="~/@Model.CourseImageLink" alt="" style="width: 1070px;border-radius: 30px;"> *@
+    
+</div>
 
 
 @* <a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" class="btn btn-warning">Thêm chương học</a> *@
 <br>
 <section class="courses__details-area section-py-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-8">
-
-                        <div class="courses__details-content">
-                           
-                            <h2 class="title">@Model.CourseName</h2>
-                            <div class="courses__details-meta">
-                                <ul class="list-wrap">
-                                    <li class="author-two">
-                                        <img src="~/assets/img/courses/course_author001.png" alt="img">
-                                        By
-                                        <a href="#">Khanh Dang</a>
-                                    </li>
-                                    <li class="date"><i class="flaticon-calendar"></i>@Model.DateCreated.ToString("dd/MM/yyyy").Replace('-','/')</li>
-                                    <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
-                                </ul>
-                            </div>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum-tab-pane" type="button" role="tab" aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
-                                </li>                               
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                                
-                                <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel" aria-labelledby="curriculum-tab" tabindex="0">
-                                    <div class="courses__curriculum-wrap">
-                                        @* If admin or teacher *@
-                                        <a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" style="color: black;font-weight: 500;border-bottom: 2px solid;">
-                                            <i class="fa-solid fa-circle-plus"></i>
-                                            Thêm chương học
-                                        </a>
-                                        
-                                        <div class="accordion" id="accordionExample">
-                                            @foreach(var item in Model.chapters)
-                                            {
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="heading@(item.Id)">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(item.Id)"  aria-expanded="true" aria-controls="collapse@(item.Id)">
-                                                            @item.ChapterName
-                                                            <span style="flex-grow: 1;"></span>
-                                                                        <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> |
-
-                                                            <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
-                                                        </button>
-                                                        
-                                                        
-                                                    </h2>
-                                                    <div id="collapse@(item.Id)" class="accordion-collapse collapse" aria-labelledby="heading@(item.Id)" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <ul class="list-wrap">
-                                                                @if(item.lessons != null)
-                                                                {
-                                                                    foreach(var lesson in item.lessons)
-                                                                    {
-                                                                        <li class="course-item open-item">
-                                                                            <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
-                                                                                <span class="item-name">@lesson.LessonName</span>
-                                                                            </a>
-                                                                            | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
-                                                                            | <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
-
-                                                                        </li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            }
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-7">
+                <div class="courses__details-content">
+                    <h2 class="title">Course content</h2>
+                    <div class="courses__details-meta">
+                        <ul class="list-wrap">
+                            <li class="author-two">
+                                <img src="~/assets/img/courses/course_author001.png" alt="img">
+                                By
+                                <a href="#">@Teacher.Name</a>
+                            </li>
+                            @* <li class="date"><i class="flaticon-calendar"></i>@Model.DateCreated.ToString("dd/MM/yyyy").Replace('-','/')</li>
+                            <li><i class="flaticon-mortarboard"></i>2,250 Students</li> *@
+                        </ul>
+                    </div>
+                    <div class="courses__curriculum-wrap">
+                        <div class="accordion" id="accordionExample">
+                            @foreach(var item in Model.chapters)
+                            {
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading@(item.Id)">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(item.Id)"  aria-expanded="true" aria-controls="collapse@(item.Id)">
+                                            @item.ChapterName
+                                            <span style="flex-grow: 1;"></span>
+                                            <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> |
+                                            <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse@(item.Id)" class="accordion-collapse collapse" aria-labelledby="heading@(item.Id)" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-wrap">
+                                                @if(item.lessons != null)
+                                                {
+                                                    foreach(var lesson in item.lessons)
+                                                    {
+                                                        <li class="course-item open-item">
+                                                            <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
+                                                                <span class="item-name">@lesson.LessonName</span>
+                                                            </a>
+                                                            | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
+                                                            | <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
+                            }
                         </div>
                     </div>
-                   
                 </div>
             </div>
+            <div class="col-xl-4 col-lg-5">
+                <div class="create-test-exam">
+                    <a asp-action="Create" asp-controller="Test" asp-route-CourseId="@Model.Id" class="btn-custom btn-primary">Tạo bài thi</a>
+                </div>
+                <div class="test-exam">
+                    <h4>Đề thi</h4>
+                    @foreach(var item in Model.Tests)
+                    {
+                        <li style="padding: 5px;" >
+                            <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 260px; display: inline-block;" >@item.TestName</a>
+                            @if(User.IsInRole("Teacher")&&id==Teacher.Id)
+                            {
+                                <a class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
+                                <a class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
+                            }
+                            
+                        </li>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<div class="container" >
+    <div style="width:1200px;">
+        @Html.Raw(Model.Description)
+        
+    </div>
+</div>
+
+
+
+
 @* @foreach(var item in Model.chapters)
 {
     <strong>@item.ChapterName  | <a asp-action="Create" asp-controller="Lesson" asp-route-chapterId="@item.Id">Tạo bài học</a>
@@ -137,6 +178,23 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối */
     }
+    .btn-custom{
+        border-radius: 8px;
+        width: 150px;
+        height: 25px;
+        display:inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .test-exam{
+        background-color: #e2e4e5;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 15px;
+        
+    }
     
 </style>
 <div class="overlay" id="overlay"></div> <!-- Overlay để tối màn hình -->
@@ -149,6 +207,14 @@
 
 @section Scripts {
     <script>
+        // Wait for the document to be fully loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            // Scroll to the curriculum section
+            document.getElementById('curriculum-tab-pane').scrollIntoView();
+        });
+    </script>
+
+    <script>
         // Lấy tất cả các nút xóa và gán sự kiện click cho mỗi nút
         var deleteButtons = document.querySelectorAll('.delete-lesson');
         deleteButtons.forEach(button => {
@@ -156,12 +222,12 @@
                 var lessonId = this.getAttribute('data-id');
                 document.getElementById('confirmDeleteModal').style.display = 'block';
                 document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
-                
+
                 // Xác nhận xóa khi người dùng nhấn nút "Xóa"
                 document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
                     window.location.href = '/Lesson/Delete/' + lessonId;
                 });
-                
+
                 // Ẩn modal và overlay khi người dùng nhấn nút "Đóng"
                 document.querySelector('.close').addEventListener('click', function() {
                     document.getElementById('confirmDeleteModal').style.display = 'none';
@@ -171,7 +237,7 @@
         });
     </script>
 
-     <script>
+    <script>
         // Lấy tất cả các nút xóa và gán sự kiện click cho mỗi nút
         var deleteButtons = document.querySelectorAll('.delete-chapter');
         deleteButtons.forEach(button => {
@@ -179,12 +245,12 @@
                 var chapterId = this.getAttribute('data-id');
                 document.getElementById('confirmDeleteModal').style.display = 'block';
                 document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
-                
+
                 // Xác nhận xóa khi người dùng nhấn nút "Xóa"
                 document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
                     window.location.href = '/Chapter/Delete/' + chapterId;
                 });
-                
+
                 // Ẩn modal và overlay khi người dùng nhấn nút "Đóng"
                 document.querySelector('.close').addEventListener('click', function() {
                     document.getElementById('confirmDeleteModal').style.display = 'none';
@@ -193,6 +259,7 @@
             });
         });
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var editChapterLinks = document.querySelectorAll('.edit-chapter-link');

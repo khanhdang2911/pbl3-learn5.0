@@ -1,0 +1,102 @@
+@model Test
+@{
+    int soCauhoi=Model.Questions.Count;
+    int i=0;
+}
+<form method="post" asp-action="SubmitTest" asp-route-id="@Model.Id" class="container exam">
+   <div class="content">
+        
+            @foreach(var item in Model.Questions){
+                int j=0;
+                <div class="exam__question" id="exam__question-@(i+1)">
+                    <h5 class="exam__question--text">Câu @(i+1): @item.QuestionName </h5>
+                </div>
+                <div class="exam__answer">
+                    @foreach(var ans in item.Answers)
+                    {
+                        <input type="radio" name="answers[@i]" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                        <label for="answer-@(i*4+j)">@ans.AnswerText</label>
+                        <br>
+                        j++;
+                    }
+                    
+                </div>
+                @* Tang i len 1 *@
+                ++i;
+            }
+        
+   </div>
+   <div class="time">
+        <p>Thời gian còn lại: <strong>50:60</strong></p>
+        <input type="submit" class="btn-custom" value="Nộp bài">
+        <div class="btn-question">
+            @for(int j=0;j<soCauhoi;j++)
+            {
+                <div class="btn-question__detail"><button class="btn-question__review" onclick="goToQuestion('exam__question-@(j+1)')">@(j+1)</button></div>
+            }
+        </div>
+   </div>
+</form>
+<style>
+    .exam{
+        display:flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        color:black;
+        position: relative;
+    }
+    .content{
+        width: 75%;
+        padding: 50px;
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 221, 221);
+        border-radius: 20px;
+        box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.1);
+    }
+    .time{
+        width: 18%;
+        padding: 15px;
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 221, 221);
+        border-radius: 20px;
+        color:black;
+        font-weight: 600;
+        height: 40%;
+        position: sticky;
+        top:100px;
+        right:0;
+        z-index: 1;
+        @* box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.1); *@
+    }
+    .btn-custom{
+        display: inline-block;
+        color:red;
+        margin: 0 auto;
+        background-color: #fff;
+        border: 1px solid black;
+        padding: 5px 30px;
+        border-radius: 10px;
+    }
+    .btn-question{
+        display: grid;
+        grid-template-columns: 80px 80px 80px;
+    }
+    .btn-question__detail{
+        padding:6px;
+    }
+    .btn-question__review{
+        color:black;
+        width: 80%;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+    
+</style>
+
+<script>
+    function goToQuestion(questionId) {
+        // Sử dụng phương thức scrollIntoView để cuộn đến câu hỏi cụ thể
+        var questionElement = document.getElementById(questionId);
+        questionElement.scrollIntoView();
+    }
+</script>

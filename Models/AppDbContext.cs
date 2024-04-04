@@ -33,6 +33,10 @@ namespace PBL3_Course.Models
         public DbSet<UsersCourse> usersCourses{set;get;}
         public DbSet<Category> categories{set;get;}
 
+        public DbSet<Test> tests{set;get;}
+        public DbSet<Question> questions{set;get;}
+        public DbSet<Answer> answers{set;get;}
+
        
     }
 }

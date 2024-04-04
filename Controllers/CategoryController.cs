@@ -48,7 +48,16 @@ public class CategoryController : Controller
     [HttpGet]
     public IActionResult Edit(int? id)
     {
+        
+        if(id==null)
+        {
+            return Content("Khong hop le id");
+        }
         var kq=_context.categories.Where(c=>c.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return Content("Khong hop le id");
+        }
         return View(kq);
     }
     [HttpPost]

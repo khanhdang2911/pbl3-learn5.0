@@ -122,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVzc29uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/PBL3_Course/Views/Question/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlc3Rpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/PBL3_Course/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -136,6 +140,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/PBL3_Course/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Test/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Test/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Test/DetailNote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxEZXRhaWxOb3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Test/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PBL3_Course/Views/Test/SubmitTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxTdWJtaXRUZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PBL3_Course/Views/User/ChangePassword.cshtml]

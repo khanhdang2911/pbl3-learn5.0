@@ -1,0 +1,82 @@
+@model Test
+@{
+   @* var id = ViewContext.RouteData.Values["id"]; *@
+}
+<div class="container introduce">
+
+    <div class="language vietnamese">
+        <h3 class="note">
+            Lưu ý:
+        </h3>
+        <p>• Thời gian thi sẽ bắt đầu tính khi bạn chọn nút "Bắt đầu làm bài"</p>
+        <h3 class="regulation">
+            Các trường hợp thi sai luật:
+        </h3>
+        <p>• Đăng nhập một tài khoản trên hai máy hoặc hai trình duyệt khác nhau và thi cùng một thời điểm</p>
+        <p>• Đang làm bài thi mà tải lại trang đề thi hoặc thoát ra không nộp bài</p>
+        <p>• Mở nhiều cửa sổ vào thi cùng một lúc</p>
+    </div>
+
+    <div class="language english">
+        <h3 class="note">
+            Note:
+        </h3>
+        <p>• The test time will start when you select the button "Bắt đầu làm bài" </p>
+        <h3 class="regulation">
+            Cases of exam violations:
+        </h3>
+        <p>• Log in to one account on two different devices or browsers and take the test at the same time</p>
+        <p>• While taking the exam, reload the exam page or exit without submitting the exam</p>
+        <p>• Open multiple test windows at the same time</p>
+    </div>
+</div>
+<div class="container btn-start">
+    <a class="btn-custom" asp-action="Detail" asp-controller="Test" asp-route-id="@Model.Id">Bắt đầu làm bài</a>
+</div>
+
+
+
+
+<style>
+    .introduce{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:30px
+    }
+    .note{
+        color:red;
+    }
+    .regulation{
+        color:red;
+    }
+    p{
+        color:black;
+        font-weight: 500;
+    }
+    .language{
+        height: 400px;
+        width: 600px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 30px;
+        padding: 40px;
+        box-shadow: -25px -17px 27px -13px rgba(0,0,0,0.1);
+    }
+    .btn-start{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-custom{
+        border-radius: 10px;
+        padding: 5px;
+        border: none;
+        color:#fff;
+        background-color: #5751e1;
+    }
+    .btn-custom:hover{
+        color:#fff;
+        opacity: 0.8;
+    }
+</style>
+

@@ -16,7 +16,7 @@
                     <tr>
                         <th>Tên khóa học</th>
                         <th>Giá</th>
-                        <th>Ngày tạo</th>
+                        @* <th>Ngày tạo</th> *@
                         <th>Lĩnh vực</th>
                         <th>Tác vụ</th>
                     </tr>
@@ -28,7 +28,7 @@
                         <tr>
                             <td>@item.CourseName</td>
                             <td>@item.Price$</td>
-                            <td>@item.DateCreated</td>
+                            @* <td>@item.DateCreated</td> *@
                             <td>@item.Category.CategoryName</td>
                             <td>
                                 <a asp-action="Detail" asp-route-id="@item.Id" class="btn-primary" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;">Xem chi tiết</a>

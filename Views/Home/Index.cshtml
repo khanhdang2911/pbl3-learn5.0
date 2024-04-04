@@ -1,4 +1,5 @@
-﻿<!-- banner-area -->
+﻿@inject IHttpContextAccessor HttpContextAccessor
+<!-- banner-area -->
         <section class="banner-area banner-bg tg-motion-effects" data-background="assets/img/banner/banner_bg.png">
             <div class="container">
                 <div class="row justify-content-between align-items-start">
@@ -16,9 +17,13 @@
                                 <br>Life <b>Never Stop</b> Teaching
                             </h3>
                             <p data-aos="fade-right" data-aos-delay="600">Every teaching and learning journey is unique Following We'll help guide your way.</p>
-                            <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
-                                <a href="contact.html" class="btn arrow-btn">Start Free Trial <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                           
+                            @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated==false)
+                            {
+                                 <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
+                                <a asp-action="AllCourse" asp-controller="Course" class="btn arrow-btn">Start Free Trial <img src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                             </div>
+                            }
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -40,7 +45,7 @@
                                     <div class="image">
                                         <img src="assets/img/banner/banner_author02.png" alt="img">
                                     </div>
-                                    <h6 class="name">Michel Jones</h6>
+                                    <h6 class="name">Khanh.X.Dang</h6>
                                 </div>
                                 <img src="assets/img/banner/banner_shape02.svg" alt="shape" class="arrow-shape tg-motion-effects3">
                             </div>
@@ -890,68 +895,68 @@
                     <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="blog-details.html" class="shine__animate-link"><img src="assets/img/blog/blog_post01.jpg" alt="img"></a>
-                                <a href="blog.html" class="post-tag">Marketing</a>
+                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post01.jpg" alt="img"></a>
+                                <a href="" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
                                         <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware In 20 Minutes</a></h4>
+                                <h4 class="title"><a href="">How To Become idiculously Self-Aware In 20 Minutes</a></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="blog-details.html" class="shine__animate-link"><img src="assets/img/blog/blog_post02.jpg" alt="img"></a>
-                                <a href="blog.html" class="post-tag">Marketing</a>
+                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post02.jpg" alt="img"></a>
+                                <a href="" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
                                         <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">Get Started With UI Design With Tips To Speed</a></h4>
+                                <h4 class="title"><a href="">Get Started With UI Design With Tips To Speed</a></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="blog-details.html" class="shine__animate-link"><img src="assets/img/blog/blog_post03.jpg" alt="img"></a>
-                                <a href="blog.html" class="post-tag">Marketing</a>
+                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post03.jpg" alt="img"></a>
+                                <a href="" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
                                         <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">Make Your Own Expanding Contracting Content</a></h4>
+                                <h4 class="title"><a href="">Make Your Own Expanding Contracting Content</a></h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="blog-details.html" class="shine__animate-link"><img src="assets/img/blog/blog_post04.jpg" alt="img"></a>
-                                <a href="blog.html" class="post-tag">Marketing</a>
+                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post04.jpg" alt="img"></a>
+                                <a href="" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
                                         <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">What we are capable to usually discovered</a></h4>
+                                <h4 class="title"><a href="">What we are capable to usually discovered</a></h4>
                             </div>
                         </div>
                     </div>

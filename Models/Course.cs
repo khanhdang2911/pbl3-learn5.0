@@ -39,6 +39,8 @@ namespace PBL3_Course
          [ForeignKey("TeacherId")]
         public int TeacherId{set;get;}
         public Users? Teacher{set;get;}
+
+        public ICollection<Test>? Tests{set;get;}
        
 
     }

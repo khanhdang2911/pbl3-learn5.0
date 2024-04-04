@@ -1,0 +1,95 @@
+@inject AppDbContext _context
+@{
+    
+    var TestId=ViewBag.TestId;
+    int testId=(int)TestId;
+    var test=_context.tests.Where(t=>t.Id==testId).FirstOrDefault();
+    var course=_context.courses.Where(c=>c.Id==test.CourseId).FirstOrDefault();
+    int soCauHoi=test.NumberOfQuestion;
+
+}
+<div class="title">
+    <h3 class="title__name">@test.TestName (@course.CourseName)</h3>
+</div>
+<div class="exam-system">
+    <form method="post" asp-action="create" asp-controller="Question" asp-route-TestId="@TestId" >
+        <div asp-validation-summary="All" class="text-danger"></div>
+        @for(int i=0;i<soCauHoi;i++)
+        {
+            <div class="question-area">
+                <label for="questions[@i].QuestionName" required ><strong>Nhập câu hỏi @(i+1):</strong></label>
+                <input type="text" name="questions[@i].QuestionName" id="questions[@i].QuestionName" class="input-text">
+                <input type="hidden" name="questions[@i].TestId"  value="@TestId">
+                <br>
+                <label for="">Nhập đáp án:</label>
+                <br>
+                <input type="text" name="answerText[@(i*4)]" required class="input-text"> <input type="radio" class="input-radio"  name="answerCorrect[@i]" required value="0"><br>
+                <input type="text" name="answerText[@(i*4+1)]" required class="input-text"> <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="1"><br>
+                <input type="text" name="answerText[@(i*4+2)]" required class="input-text"> <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="2"><br>
+                <input type="text" name="answerText[@(i*4+3)]" required class="input-text"> <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="3"><br>
+            </div>
+        }
+        <input type="submit" value="Tạo bài thi" class="btn-danger">
+    </form>
+</div>
+<style>
+
+    @* Title *@
+    .title{
+        margin: 0 auto;
+        width: 80%;
+        padding: 20px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        background-color: rgb(225, 235, 236);
+        border-radius: 30px;
+    }
+    .title__name{
+        width: 600px;
+        margin: 0 auto;
+        background-color:;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @* Exem-system *@
+    .exam-system{
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    input,button,textarea,label{
+        color: black;
+    }
+    .input-text{
+        width: 600px;
+    }
+    
+    input{
+        padding: 5px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+    strong{
+        color:red;
+        font-weight: 600;
+    }
+    .question-area
+    {
+        border:1px solid black;
+        @* box-sizing: border-box; *@
+        padding:40px;
+        width: 100%;
+    }
+    .btn-danger{
+        background-color: #5751e1;
+        border: none;
+    }
+    .btn-danger:hover{
+        background-color: #5751e1;
+        opacity: 0.8;
+    }
+
+</style>

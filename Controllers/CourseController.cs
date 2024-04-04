@@ -125,23 +125,23 @@ public class CourseController : Controller
             return Content("Khong tim thay");
         }
         // Xoa file cu di
-            if(string.IsNullOrEmpty(kq.CourseImageLink)==false)
-            {
-                Console.WriteLine("Hello go to here");
-                var FolderName="wwwroot/uploads";
-                string fileNameDelete=kq.CourseImageLink.Substring(8);
-                Console.WriteLine(FolderName+ fileNameDelete);
-                DirectoryInfo dir = new DirectoryInfo(FolderName);
+            // if(string.IsNullOrEmpty(kq.CourseImageLink)==false)
+            // {
+            //     Console.WriteLine("Hello go to here");
+            //     var FolderName="wwwroot/uploads";
+            //     string fileNameDelete=kq.CourseImageLink.Substring(8);
+            //     Console.WriteLine(FolderName+ fileNameDelete);
+            //     DirectoryInfo dir = new DirectoryInfo(FolderName);
 
-                foreach(FileInfo fi in dir.GetFiles())
-                {
-                    if(fi.Name==fileNameDelete)
-                    {
-                        fi.Delete();
-                        break;
-                    }
-                }
-            }
+            //     foreach(FileInfo fi in dir.GetFiles())
+            //     {
+            //         if(fi.Name==fileNameDelete)
+            //         {
+            //             fi.Delete();
+            //             break;
+            //         }
+            //     }
+            // }
         // end
         if(course.ImageFile!=null)
         {
@@ -169,6 +169,7 @@ public class CourseController : Controller
         return RedirectToAction("Index");
     }
     [HttpPost]
+    [AllowAnonymous]
     public IActionResult Search(string courseName)
     {
         var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
