@@ -35,6 +35,10 @@ public class QuestionController : Controller
             ViewData["TestId"]=TestId;
             return View();
         }
+        if(TestId==null)
+        {
+            return Content("Không tìm thấy bài Test để chỉnh sửa");
+        }
         List<Answer> answers=new List<Answer>();
         int i=0;
         foreach(var item in questions)
@@ -62,28 +66,85 @@ public class QuestionController : Controller
     }
 
     [HttpGet]
-    public IActionResult Edit(int? id)
+    public IActionResult Edit(int? TestId)
     {
-        var kq=_context.questions.Where(c=>c.Id==id).FirstOrDefault();
+        if(TestId==null)
+        {
+            return Content("Khong tim thay bai kiem tra de chinh sua");
+        }
+        bool checkExits=_context.tests.Any(t=>t.Id==TestId);
+        ViewData["TestId"]=TestId;
+        if(checkExits==false)
+        {
+            return Content("Id cua bai kiem tra khong hop le");
+        }        
+        var kq=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
+
         return View(kq);
     }
     [HttpPost]
-    public async Task<IActionResult> Edit(int? id,[Bind("QuestionName,TestId")] Question question)
+    public async Task<IActionResult> Edit(int? TestId,[FromForm] List<Question> questions,[FromForm]List<string> answerText,[FromForm]List<int>answerCorrect)
     {
         if(!ModelState.IsValid)
         {
-            return View();
+            ModelState.AddModelError("","Tạo không thành công");
+            ViewData["TestId"]=TestId;//khong can cung duoc vi co model truyen qua
+            var kq=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
+            return View(kq);
         }
-        var kq=_context.questions.Where(c=>c.Id==id).FirstOrDefault();
-        if(kq==null)
+        if(TestId==null)
         {
-            return NotFound();
+            return Content("Không tìm thấy bài kiểm tra");
         }
+        Console.WriteLine(questions.Count+" la so luong ");
+        List<Answer> answers=new List<Answer>();
+        int i=0;
+        int k=0;
+        var questionsOfTest=_context.questions.Where(q=>q.TestId==TestId).ToList();
+        foreach(var item in questionsOfTest)
+        {
+            _context.Entry(item).State=EntityState.Modified;
+            item.QuestionName=questions[k].QuestionName;
+            await _context.SaveChangesAsync();
+            await _context.Entry(item).Collection(q=>q.Answers).LoadAsync();
+            if(item.Answers!=null)
+            {
+                    Console.WriteLine("So luong cua ans:"+item.Answers.Count);
+                    foreach(var ans in item.Answers)
+                    {
+                        _context.Entry(ans).State=EntityState.Modified;
+                        ans.IsCorrect=0;
+                        ans.AnswerText=answerText[i];
+                        if(i%4==answerCorrect[k])
+                        {
+                            ans.IsCorrect=1;
+                        }
+                        i++;
+                    }
+            }
+            k++;
+        }
+        // foreach(var item in questions)
+        // {
 
-        kq.QuestionName=question.QuestionName;
-        _context.Entry(kq).State=EntityState.Modified;
+        //     for(int j=i;j<i+4;j++)
+        //     {
+        //         Answer ans=new Answer();
+        //         ans.AnswerText=answerText[j];
+        //         ans.IsCorrect=0;
+        //         int QuestionId=_context.questions.Where(q=>q.QuestionName==item.QuestionName).Select(q=>q.Id).FirstOrDefault();
+        //         ans.QuestionId=QuestionId;
+                
+        //         if(j%4==answerCorrect[j/4])
+        //         {
+        //             ans.IsCorrect=1;
+        //         }
+        //         await _context.answers.AddAsync(ans);
+        //     }
+        //     i+=4;
+        // }
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return RedirectToAction("Index","Home");
     }
     public IActionResult Delete(int? id)
     {

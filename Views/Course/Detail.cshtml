@@ -4,7 +4,7 @@
 @{
     Users Teacher=(from c in _context.courses join u in _context.users on Model.TeacherId equals u.Id select u).First();
     _context.Entry(Model).Collection(c=>c.Tests).Load();
-    int? id = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
+    int? UserIdCurrent = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
                                                     ? int.Parse(HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value) 
                                                     : null;
 }
@@ -65,8 +65,12 @@
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse@(item.Id)"  aria-expanded="true" aria-controls="collapse@(item.Id)">
                                             @item.ChapterName
                                             <span style="flex-grow: 1;"></span>
-                                            <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> |
+                                            @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
+                                            {
+                                            <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> <span>|</span>
                                             <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
+                                            }
+                                            
                                         </button>
                                     </h2>
                                     <div id="collapse@(item.Id)" class="accordion-collapse collapse" aria-labelledby="heading@(item.Id)" data-bs-parent="#accordionExample">
@@ -80,8 +84,13 @@
                                                             <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                             </a>
-                                                            | <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
-                                                            | <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+                                                            @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
+                                                            {
+                                                            <span>|</span> <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
+                                                            <span>|</span> <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+                                                            }
+                                                            
+                                                            
                                                         </li>
                                                     }
                                                 }
@@ -96,7 +105,11 @@
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="create-test-exam">
-                    <a asp-action="Create" asp-controller="Test" asp-route-CourseId="@Model.Id" class="btn-custom btn-primary">Tạo bài thi</a>
+                    @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
+                    {
+                        <a asp-action="Create" asp-controller="Test" asp-route-CourseId="@Model.Id" class="btn-custom btn-primary">Tạo bài thi</a>
+                    }
+                    
                 </div>
                 <div class="test-exam">
                     <h4>Đề thi</h4>
@@ -104,10 +117,10 @@
                     {
                         <li style="padding: 5px;" >
                             <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 260px; display: inline-block;" >@item.TestName</a>
-                            @if(User.IsInRole("Teacher")&&id==Teacher.Id)
+                            @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {
-                                <a class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
-                                <a class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
+                                <a class="delete-btn btn-danger delete-test" data-id="@item.Id" class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
+                                <a asp-action="Edit" asp-controller="Question" asp-route-TestId="@item.Id" class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
                             }
                             
                         </li>
@@ -259,7 +272,30 @@
             });
         });
     </script>
+    @* Xoa de thi start *@
+    <script>
+        // Lấy tất cả các nút xóa và gán sự kiện click cho mỗi nút
+        var deleteButtons = document.querySelectorAll('.delete-test');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                var TestId = this.getAttribute('data-id');
+                document.getElementById('confirmDeleteModal').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block'; // Hiển thị overlay
 
+                // Xác nhận xóa khi người dùng nhấn nút "Xóa"
+                document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+                    window.location.href = '/Test/Delete/' + TestId;
+                });
+
+                // Ẩn modal và overlay khi người dùng nhấn nút "Đóng"
+                document.querySelector('.close').addEventListener('click', function() {
+                    document.getElementById('confirmDeleteModal').style.display = 'none';
+                    document.getElementById('overlay').style.display = 'none'; // Ẩn overlay
+                });
+            });
+        });
+    </script>
+    @* Xoa de thi end *@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var editChapterLinks = document.querySelectorAll('.edit-chapter-link');

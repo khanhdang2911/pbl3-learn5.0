@@ -1,11 +1,11 @@
 @inject AppDbContext _context
-@model List<int>
+@model List<Answer>
 @{
     var DateTimeNow=DateTime.Now;
     int result=0;
     for(int i=0;i<Model.Count;i++)
     {
-        if(Model[i]==1)
+        if(Model[i].IsCorrect==1)
         {
             result++;
         }

@@ -3,7 +3,7 @@
     int soCauhoi=Model.Questions.Count;
     int i=0;
 }
-<form method="post" asp-action="SubmitTest" asp-route-id="@Model.Id" class="container exam">
+<form id="submitTest_Exam" method="post" asp-action="SubmitTest" asp-route-id="@Model.Id" class="container exam">
    <div class="content">
         
             @foreach(var item in Model.Questions){
@@ -14,8 +14,10 @@
                 <div class="exam__answer">
                     @foreach(var ans in item.Answers)
                     {
-                        <input type="radio" name="answers[@i]" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                        <input type="radio" name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
                         <label for="answer-@(i*4+j)">@ans.AnswerText</label>
+                        <input type="hidden" name="answers[@i].QuestionId" value="@ans.QuestionId">
+                        <input type="hidden" name="answers[@i].AnswerText" value="@ans.AnswerText">
                         <br>
                         j++;
                     }
@@ -32,7 +34,7 @@
         <div class="btn-question">
             @for(int j=0;j<soCauhoi;j++)
             {
-                <div class="btn-question__detail"><button class="btn-question__review" onclick="goToQuestion('exam__question-@(j+1)')">@(j+1)</button></div>
+                <div class="btn-question__detail"><button type="button"  class="btn-question__review time-button" onclick="goToQuestion('exam__question-@(j+1)')">@(j+1)</button></div>
             }
         </div>
    </div>
@@ -90,8 +92,10 @@
         border-radius: 10px;
         background-color: #fff;
     }
-    
+
+
 </style>
+
 
 <script>
     function goToQuestion(questionId) {
@@ -99,4 +103,19 @@
         var questionElement = document.getElementById(questionId);
         questionElement.scrollIntoView();
     }
+
+    document.getElementById("submitTest_Exam").addEventListener("submit", function(event) {
+        var unansweredQuestions = document.querySelectorAll('input[type="radio"]:not(:checked)');
+        unansweredQuestions.forEach(function(question) {
+            if (question.value == "") { // Kiểm tra nếu giá trị của input radio là rỗng (không được chọn)
+                question.checked = false; // Chọn giá trị mặc định
+            }
+        });
+       
+    });
+
+    //Lam roi thi to sang nut
+    //Do action, se thuc hien sau
+
 </script>
+

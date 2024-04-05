@@ -60,7 +60,7 @@ public class TestController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai hoc nay");
+            return Content("Khong tim thay bai kiem tra nay");
         }
         kq.TestName=test.TestName;
         kq.Time=test.Time;
@@ -78,7 +78,7 @@ public class TestController : Controller
         }
         _context.tests.Remove(kq);
         _context.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Detail","Course",new{id=kq.CourseId});
     }
 
     public IActionResult DetailNote(int ?id)//Trước khi người dùng click vào để làm bài
@@ -112,7 +112,7 @@ public class TestController : Controller
 
         return View(kq);
     }
-    public IActionResult SubmitTest(int?id,[FromForm]List<int> answers)
+    public IActionResult SubmitTest(int?id,[FromForm]List<Answer> answers)
     {
         if(id==null)
         {
