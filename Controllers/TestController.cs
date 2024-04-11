@@ -10,7 +10,6 @@ namespace PBL3_Course.Controllers;
 [Authorize]
 public class TestController : Controller
 {
-    
     private readonly AppDbContext _context;
     public TestController(AppDbContext context)
     {
@@ -112,8 +111,14 @@ public class TestController : Controller
 
         return View(kq);
     }
-    public IActionResult SubmitTest(int?id,[FromForm]List<Answer> answers)
+    public IActionResult SubmitTest(int?id,[FromForm] int []answers)
     {
+        int i=0;
+        foreach(var item in answers)
+        {
+            i++;
+            Console.WriteLine("dap an ne:"+i+"   "+item);
+        }
         if(id==null)
         {
             return Content("Khong tim thay bai kiem tra");
@@ -125,7 +130,7 @@ public class TestController : Controller
             return Content("Khong tim thay bai kiem tra");
         }
         ViewData["id"]=id;
-        return View(answers);
+        return View(answers.ToList());
     }
 
 

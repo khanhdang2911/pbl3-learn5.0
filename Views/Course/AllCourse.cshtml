@@ -6,7 +6,7 @@
     {
          routeId=ViewContext.RouteData.Values["id"].ToString();
     }
-
+    
 }
 <!-- all-courses -->
 <div class="courses__nav" style="width:60%;margin: 0 auto;margin-top: 100px;">
@@ -90,8 +90,11 @@
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i>4.8</li>
                                                             </ul>
-                                                            <h5 class="title"><a href="">@item.CourseName</a></h5>
-                                                            <p class="author">By <a href="#">admin</a></p>
+                                                            <h5 class="title"><a asp-action="Detail" asp-route-id="@item.Id">@item.CourseName</a></h5>
+                                                            @{
+                                                                var teacher=_context.users.Where(u=>u.Id==item.TeacherId).FirstOrDefault();
+                                                            }
+                                                            <p class="author">By<a href="#"></a>@teacher.Name</p>
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
                                                                     <a href="">

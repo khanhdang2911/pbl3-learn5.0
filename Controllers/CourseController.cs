@@ -266,4 +266,12 @@ public class CourseController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
+    public IActionResult CourseEnroll(int? courseId,int? userId)
+    {
+        return View();
+    }
+    // public IActionResult CourseEnroll()
+    // {
+    //     return RedirectToAction("Index","Home");
+    // }
 }

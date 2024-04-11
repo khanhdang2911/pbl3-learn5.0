@@ -14,14 +14,12 @@
                 <div class="exam__answer">
                     @foreach(var ans in item.Answers)
                     {
-                        <input type="radio" name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                        Console.WriteLine("Id cua item"+ans.Id);
+                        <input type="radio" name="answer[@i]" id="answer-@(i*4+j)" value="@ans.Id">
                         <label for="answer-@(i*4+j)">@ans.AnswerText</label>
-                        <input type="hidden" name="answers[@i].QuestionId" value="@ans.QuestionId">
-                        <input type="hidden" name="answers[@i].AnswerText" value="@ans.AnswerText">
                         <br>
                         j++;
                     }
-                    
                 </div>
                 @* Tang i len 1 *@
                 ++i;
@@ -29,7 +27,7 @@
         
    </div>
    <div class="time">
-        <p>Thời gian còn lại: <strong>50:60</strong></p>
+        <p class="clock-element"> </p>
         <input type="submit" class="btn-custom" value="Nộp bài">
         <div class="btn-question">
             @for(int j=0;j<soCauhoi;j++)
@@ -104,18 +102,56 @@
         questionElement.scrollIntoView();
     }
 
-    document.getElementById("submitTest_Exam").addEventListener("submit", function(event) {
-        var unansweredQuestions = document.querySelectorAll('input[type="radio"]:not(:checked)');
-        unansweredQuestions.forEach(function(question) {
-            if (question.value == "") { // Kiểm tra nếu giá trị của input radio là rỗng (không được chọn)
-                question.checked = false; // Chọn giá trị mặc định
+    let hours=0;
+    let minutes=@Model.Time;
+    let seconds=1;
+    let clockElement=document.querySelector(".clock-element");
+    function clock()
+    {
+        let prefixHour=hours<10?"0":"";
+        let prefixMinute=minutes<10?"0":"";
+        let prefixSecond=seconds<10?"0":"";
+            seconds--;
+            clockElement.innerHTML=` Thời gian còn lại: <strong>${prefixMinute}${minutes}:${prefixSecond}${seconds}</strong>`;
+            console.log(`${hours}:${minutes}:${seconds}`);
+            if(hours===0&&minutes===0&&seconds===0)
+            {
+                clearInterval(clearClock);
+                document.querySelector("#submitTest_Exam").submit();
             }
-        });
-       
-    });
+            if(seconds===0)
+            {
+                if(minutes>0)
+                {
+                    seconds=60;
+                    minutes--;
+                }
+            }
+            if(minutes===0)
+            {
+                if(hours>0)
+                {
+                    hours--;
+                    minutes=59;
+                    seconds=60;
+                }
+            }
+        
+    }
 
-    //Lam roi thi to sang nut
-    //Do action, se thuc hien sau
+    var clearClock=setInterval(clock,1000);    
+
+    //Check ans
+    document.querySelector("#submitTest_Exam").onsubmit=function(e)
+    {
+        let i=0;
+        let inputRadioElement=document.querySelectorAll(`input[type="radio"]:checked`);
+        Array.from(inputRadioElement).forEach(function(input){
+            input.name=`answers[${i}]`;
+            ++i;
+        });
+    }
+    
 
 </script>
 
