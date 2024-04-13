@@ -59,6 +59,7 @@ public class LessonController : Controller
             
             lesson.FileLinkContent=$"uploads/{lesson.FormFile.FileName}";
         }
+        
         if(lesson.DocumentFile!=null)
         {
             var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.DocumentFile.FileName);
@@ -131,7 +132,7 @@ public class LessonController : Controller
             
             kq.DocumentLink=$"uploads/{lesson.DocumentFile.FileName}";
         }
-        int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals kq.ChapterId select c.CourseId).FirstOrDefault();
+        int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals l.ChapterId where c.Id==kq.ChapterId select c.CourseId).FirstOrDefault();
         kq.LessonName=lesson.LessonName;
         kq.Description=lesson.Description;
         kq.IsFree=lesson.IsFree;
@@ -151,13 +152,10 @@ public class LessonController : Controller
         {
             return Content("Khong tim thay khoa hoc");
         }
-        int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals l.ChapterId select c.CourseId).FirstOrDefault();
+        int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals l.ChapterId where c.Id==kq.ChapterId select c.CourseId).FirstOrDefault();
         _context.lessons.Remove(kq);
         _context.SaveChanges();
         return RedirectToAction("Detail","Course",new{id=courseId});
     }
-
-
-
 
 }

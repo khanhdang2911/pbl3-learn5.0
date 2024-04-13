@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
+using PBL3_Course.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,12 +27,15 @@ builder.Services.Configure<FormOptions>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath="/Login/DangNhap";
+        options.LoginPath="/User/Login";
         // options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
         // options.SlidingExpiration = true;
         options.AccessDeniedPath = "/Login/Forbidden/";
     });
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddSingleton<IVnPayServices, VnPayService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

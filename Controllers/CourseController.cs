@@ -3,36 +3,42 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using PBL3_Course.Models;
+using PBL3_Course.Services;
 
 namespace PBL3_Course.Controllers;
-[Authorize(Roles ="Admin")]
+[Authorize]
 public class CourseController : Controller
 {
     private readonly IWebHostEnvironment _environment;
 
     private readonly AppDbContext _context;
+    private readonly IVnPayServices _vnPayServices;
     private readonly ILogger<CourseController> _logger;
 
-    public CourseController(ILogger<CourseController> logger,AppDbContext context,IWebHostEnvironment environment)
+    public CourseController(ILogger<CourseController> logger,AppDbContext context,IWebHostEnvironment environment,IVnPayServices vnPayServices)
     {
         _logger = logger;
         _context=context;
         _environment=environment;
+        _vnPayServices=vnPayServices;
+        
     }
     //Quản lí khóa học(admin)
+    [Authorize(Roles ="Admin")]
     public IActionResult Index()
     {
         var allCourse=_context.courses.Where(c=>c.IsActive==1).Include(c=>c.Category).ToList();
         return View(allCourse);
     }
+    [Authorize(Roles ="Admin")]
     public IActionResult IndexForCourseNotActive()
     {
         var allCourse=_context.courses.Where(c=>c.IsActive==0).Include(c=>c.Category).ToList();
         return View("Index",allCourse);
     }
     [HttpGet]
-    [AllowAnonymous]
     public IActionResult Create()
     {
         SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
@@ -40,7 +46,6 @@ public class CourseController : Controller
         return View();
     }
     [HttpPost]
-    [AllowAnonymous]
     public async Task<IActionResult> Create([Bind("CourseName,Description,ImageFile,status,Price,CategoryId")] Course course)
     {
         if(!ModelState.IsValid)
@@ -102,12 +107,22 @@ public class CourseController : Controller
     [HttpGet]
     public IActionResult Edit(int? id)
     {
+        if(id==null)
+        {
+            return NotFound();
+        }
+
         SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
         ViewData["categoryList"]=categoryList;
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
             return Content("Không tìm thấy Course");
+        }
+        int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        {
+            return NotFound();
         }
         return View(kq);
     }
@@ -123,6 +138,11 @@ public class CourseController : Controller
         if(kq==null)
         {
             return Content("Khong tim thay");
+        }
+        int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        {
+            return NotFound();
         }
         // Xoa file cu di
             // if(string.IsNullOrEmpty(kq.CourseImageLink)==false)
@@ -152,9 +172,6 @@ public class CourseController : Controller
                 course.ImageFile.CopyTo(fileStream);
             }
 
-            
-
-            
             course.CourseImageLink=$"uploads/{course.ImageFile.FileName}";
         }
         kq.CategoryId=course.CategoryId;
@@ -175,6 +192,7 @@ public class CourseController : Controller
         var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
         return View("AllCourse",kq);
     }
+    [Authorize(Roles ="Admin")]
     public IActionResult SearchForAdmin(string courseName)
     {
          var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
@@ -191,7 +209,12 @@ public class CourseController : Controller
         {
             return Content("Khong tim thay khoa hoc");
         }
-        
+
+        int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        {
+            return NotFound();
+        }
         _context.courses.Remove(kq);
         _context.SaveChanges();
         //Kiem tra xem user còn đang dạy khóa nào hay không
@@ -262,16 +285,119 @@ public class CourseController : Controller
             usersRole.RoleId=RoleTeacherID;
             _context.usersRoles.Add(usersRole);
         }
-        
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
-    public IActionResult CourseEnroll(int? courseId,int? userId)
+    public IActionResult Checkout(int? courseId)
     {
+        if(courseId==null)
+        {
+            return NotFound();
+        }
+        bool checkCourse=_context.courses.Any(c => c.Id==courseId);
+        if(checkCourse==false)
+        {
+            return Content("Khong tim thay khoa hoc");
+        }
+        ViewData["courseId"]=courseId;
         return View();
     }
-    // public IActionResult CourseEnroll()
-    // {
-    //     return RedirectToAction("Index","Home");
-    // }
+    public IActionResult CourseEnroll(int courseId)
+    {
+        if(User.Identity.IsAuthenticated==false)
+        {
+            return RedirectToAction("Login","User");
+        }
+        bool checkCourse=_context.courses.Any(c => c.Id==courseId);
+        if(checkCourse==false)
+        {
+            return Content("Khong tim thay khoa hoc");
+        }
+        int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
+        {
+            return Content("Ban da dang ki khoa hoc nay roi");
+        }
+        UsersCourse usersCourse=new UsersCourse();
+        usersCourse.CourseId=courseId;
+        usersCourse.UsersId=userId;
+        _context.usersCourses.Add(usersCourse);
+        _context.SaveChanges();
+        return RedirectToAction("Index","Home");
+    }
+    public IActionResult CheckoutVNPay(int courseId)
+    {
+        if(User.Identity.IsAuthenticated==false)
+        {
+            return RedirectToAction("Login","User");
+        }
+        var checkCourse=_context.courses.Where(c => c.Id==courseId).FirstOrDefault();
+        if(checkCourse==null)
+        {
+            return Content("Khong tim thay khoa hoc");
+        }
+        int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
+        {
+            return Content("Ban da dang ki khoa hoc nay roi");
+        }
+
+        var vnPayModel = new VnPaymentRequestModel
+					{
+						Amount = (double)checkCourse.Price*23000,
+						CreatedDate = DateTime.Now,
+						Description = $"",
+						FullName = "",
+						OrderId = new Random().Next(1000, 100000),
+                        courseId=courseId,
+					};
+        // Serialize vnPayModel thành chuỗi JSON
+        var vnPayModelJson = JsonConvert.SerializeObject(vnPayModel);
+
+    // Lưu chuỗi JSON trong TempData
+        TempData["vnPayModel"] = vnPayModelJson;
+
+        return Redirect(_vnPayServices.CreatePaymentUrl(HttpContext,vnPayModel));
+    }
+    public IActionResult PaymentCallBack()
+		{
+			var response = _vnPayServices.PaymentExecute(Request.Query);
+
+			if (response == null || response.VnPayResponseCode != "00")
+			{
+				TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
+				return View("PaymentFail");
+			}
+
+            var vnPayModelJson = TempData["vnPayModel"] as string;
+            var vnPayModel = JsonConvert.DeserializeObject<VnPaymentRequestModel>(vnPayModelJson);
+
+
+            //User cua id hien tai dang dang nhap
+            int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+
+            if (vnPayModel != null)
+            {
+                // Lưu đơn hàng vô database
+                Order order=new Order();
+                order.UserId=userId;
+                order.courseId=vnPayModel.courseId;
+                order.TotalMoney=vnPayModel.Amount;
+                order.DateCreated=vnPayModel.CreatedDate;
+                _context.orders.Add(order);
+
+
+                //Kich hoat khoa hoc cho user o day
+                UsersCourse usersCourse=new UsersCourse();
+                usersCourse.CourseId=vnPayModel.courseId;
+                usersCourse.UsersId=userId;
+                _context.usersCourses.Add(usersCourse);
+            }
+            
+            _context.SaveChanges();
+			
+
+			TempData["Message"] = $"Thanh toán VNPay thành công";
+			return RedirectToAction("Index","Home");
+		}
 }

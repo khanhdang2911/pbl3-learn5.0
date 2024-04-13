@@ -36,6 +36,7 @@ namespace PBL3_Course.Models
         public DbSet<Test> tests{set;get;}
         public DbSet<Question> questions{set;get;}
         public DbSet<Answer> answers{set;get;}
+        public DbSet<Order> orders{set;get;}
 
        
     }
