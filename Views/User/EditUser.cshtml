@@ -1,3 +1,4 @@
+@using Microsoft.EntityFrameworkCore
 @inject AppDbContext _context
 @model Users
 @{
@@ -18,6 +19,8 @@
 
             <div class="form-group">
                     @* <label asp-for ="Password" class="control-label" ></label> *@
+    using System.Data.Entity;
+    using System.Data.Entity;
                     <input type="hidden" asp-for="Password" class="form-control" value="@Model.Password">
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>

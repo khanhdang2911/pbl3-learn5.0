@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PBL3_Course
@@ -8,7 +7,5 @@ namespace PBL3_Course
     {
         public int UsersId{set;get;}
         public int RoleId{set;get;}
-    
-        
     }
 }

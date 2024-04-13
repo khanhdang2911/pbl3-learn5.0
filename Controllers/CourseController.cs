@@ -327,19 +327,32 @@ public class CourseController : Controller
     }
     public IActionResult CheckoutVNPay(int courseId)
     {
+        
         if(User.Identity.IsAuthenticated==false)
         {
             return RedirectToAction("Login","User");
         }
+        if(User.IsInRole("Admin"))
+        {
+            TempData["Message"]="Bạn là Admin mà, bạn có quyền xem mà không cần phải mua khóa học này";
+            return RedirectToAction("NotFound","Home");
+        }
         var checkCourse=_context.courses.Where(c => c.Id==courseId).FirstOrDefault();
         if(checkCourse==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+        //Kiem tra neu khoa học hiện tại của user hiện tại đang đăng nhập thì không cần phải mua
+        if(checkCourse.TeacherId==userId)
+        {
+            TempData["Message"]="Bạn là chủ sở hữu của khóa học này mà, bạn có quyền xem mà không cần phải mua khóa học này!";
+            return RedirectToAction("NotFound","Home");
+        }
         if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
         {
-            return Content("Ban da dang ki khoa hoc nay roi");
+            TempData["Message"]="Bạn đã mua khóa học này rồi đó, không cần mua lại nhé!";
+            return RedirectToAction("NotFound","Home");
         }
 
         var vnPayModel = new VnPaymentRequestModel
@@ -366,7 +379,7 @@ public class CourseController : Controller
 			if (response == null || response.VnPayResponseCode != "00")
 			{
 				TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
-				return View("PaymentFail");
+				return RedirectToAction("NotFound","Home");
 			}
 
             var vnPayModelJson = TempData["vnPayModel"] as string;

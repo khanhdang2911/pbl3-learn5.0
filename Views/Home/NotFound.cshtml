@@ -1,0 +1,36 @@
+@{
+    var message=TempData["Message"] as string;
+}
+    <!-- main-area -->
+    <main class="main-area fix">
+        <!-- error-area -->
+        <section class="error-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="error-wrap text-center">
+                            <div class="error-img">
+                                <img src="~/assets/img/others/error_img.svg" alt="img" class="injectable">
+                            </div>
+                            <div class="error-content">
+                                @if(string.IsNullOrEmpty(message))
+                                {
+                                    <h2 class="title">ERROR! <span>Sorry! This Page is Not Available!</span></h2>
+                                }
+                                else
+                                {
+                                    <h2 class="title">ERROR! <span>@message</span></h2>
+                                }
+                                <div class="tg-button-wrap">
+                                    <a asp-action="Index" class="btn arrow-btn">Go To Home Page <img src="~/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- error-area-end -->
+
+    </main>
+    <!-- main-area-end -->

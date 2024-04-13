@@ -1,0 +1,194 @@
+@inject AppDbContext _context
+@model List<Order>
+@{
+    int stt=1;
+    double totalMoney=0;
+    double soLuongOrder=0;
+    foreach(var item in Model)
+    {
+        totalMoney+=item.TotalMoney;
+        soLuongOrder++;
+    }
+   
+}
+<style>
+    .table-container{
+        width: 80%;
+        margin-top: 50px;
+    }
+    @* revenue-date-statistical *@
+    .revenue-date-statistical{
+        display: flex;
+        justify-content: space-between;
+    }
+    .tab{
+        height: 100px;
+        box-shadow: 0px 0px 12px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        box-sizing: border-box;
+        padding: 12px;
+        width: 22%;
+        
+    }
+
+    @* Table *@
+    .btn-delete{
+        padding: 2px;
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        border-radius: 15px;
+    }
+    input{
+        height: 22px;
+        border-radius: 8px;
+        text-align: center;
+    }
+    input:hover{
+        border-color: rgb(12, 148, 169);
+    }
+    .date-content{
+        display: flex;
+        justify-content: space-between;
+    }
+    .btn-submit{
+        height: 26px;
+        text-align: center;
+        background-color: #5751e1;
+        color:white;
+        border: none;
+        transition: ease 0.8s;
+    }
+    .btn-custom{
+        padding: 3px;
+        border-radius: 8px;
+    }
+    .btn-submit:hover{
+        opacity: 0.8;
+    }
+</style>
+<div class="container table-container revenue-date-statistical">
+    <div class="revenue tab">
+        <p style="border-bottom: 2px solid hwb(206 60% 11%);">Revenue</p>
+        @* <p>---------------------</p> *@
+        <h3>@(totalMoney/1000000)M VND</h3>
+    </div>
+
+    <div class="order-quantity tab">
+        <p style="border-bottom: 2px solid hwb(206 60% 11%);">Orders</p>
+        @* <p>---------------------</p> *@
+        <h3>@soLuongOrder orders</h3>
+    </div>
+
+    <div class="avg-order-value tab">
+        <p style="border-bottom: 2px solid hwb(206 60% 11%);">Avg. Order Value</p>
+        @* <p>---------------------</p> *@
+        <h3>~@(totalMoney/1000000/soLuongOrder)M VND</h3>
+    </div>
+</div>
+<div class="container table-container" >
+    <div class="date-content">
+        <div class="left-content">
+            <h3>Sales</h3>
+        </div>
+        <div class="right-content">
+                <div class="">
+                    
+                    <form asp-action="IndexDate">
+                        <label for="month"><i class="fa-solid fa-calendar"></i>Month</label>
+                        <input type="number" required min="1" max="12" id="month" name="month">
+                        <label for="year">Year</label>
+                        <input type="number" required min="2000" max="2090" id="year" name="year">
+                        <input type="submit" class="btn-submit" value="Xem thống kê">
+                    </form>
+                </div>
+                
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Người mua</th>
+                <th>Khóa học đã mua</th>
+                <th>Tổng tiền</th>
+                <th>Ngày mua</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach(var item in Model)
+                {
+                    var user=_context.users.Where(c=>c.Id==item.UserId).FirstOrDefault();
+                    var course=_context.courses.Where(c=>c.Id==item.courseId).FirstOrDefault();
+                    <td>@stt</td>
+                    
+                    @if(user!=null)
+                    {
+                        
+                        <td>
+                            <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px"></i>
+                            @user.Name
+                        </td>
+                    }
+                    else{
+                        <td>
+                            <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
+                            -------
+                        </td>
+                    }   
+                    //Khoa hoc
+                    @if(course!=null)
+                    {
+                        <td>
+                            <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px;"></i>
+                            @course.CourseName
+                        </td>
+                    }
+                    else{
+                        <td>
+                            <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
+                            -------
+                        </td>
+                    }
+                    //Khoa hoc end 
+                    
+                    <td>@item.TotalMoney.ToString("N0") VND</td>
+                    <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <!-- Button to Open the Modal -->
+                            <a type="button" class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Xóa
+                            </a>
+
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Xác nhận</h4>
+                                    <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <a type="button" class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
+                                </div>
+
+                                </div>
+                            </div>
+                            </div>
+                    </td>
+
+                    //So thu tu cong len 1
+                    ++stt;
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
