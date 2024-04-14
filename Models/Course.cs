@@ -41,6 +41,7 @@ namespace PBL3_Course
         public Users? Teacher{set;get;}
 
         public ICollection<Test>? Tests{set;get;}
+        public ICollection<Comment>? comments{set;get;}
        
 
     }

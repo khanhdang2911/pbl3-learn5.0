@@ -117,76 +117,78 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                @foreach(var item in Model)
+            
+            @foreach(var item in Model)
                 {
+                    
                     var user=_context.users.Where(c=>c.Id==item.UserId).FirstOrDefault();
                     var course=_context.courses.Where(c=>c.Id==item.courseId).FirstOrDefault();
-                    <td>@stt</td>
-                    
-                    @if(user!=null)
-                    {
+                    <tr>
+                        <td>@stt</td>
                         
+                        @if(user!=null)
+                        {
+                            
+                            <td>
+                                <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px"></i>
+                                @user.Name
+                            </td>
+                        }
+                        else{
+                            <td>
+                                <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
+                                -------
+                            </td>
+                        }   
+                        @* Khoa hoc *@
+                        @if(course!=null)
+                        {
+                            <td>
+                                <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px;"></i>
+                                @course.CourseName
+                            </td>
+                        }
+                        else{
+                            <td>
+                                <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
+                                -------
+                            </td>
+                        }
+                        
+                        <td>@item.TotalMoney.ToString("N0") VND</td>
+                        <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
                         <td>
-                            <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px"></i>
-                            @user.Name
-                        </td>
-                    }
-                    else{
-                        <td>
-                            <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
-                            -------
-                        </td>
-                    }   
-                    //Khoa hoc
-                    @if(course!=null)
-                    {
-                        <td>
-                            <i class="fa-solid fa-circle" style="color: rgb(44, 183, 44);size: 10px;font-size: 10px;"></i>
-                            @course.CourseName
-                        </td>
-                    }
-                    else{
-                        <td>
-                            <i class="fa-solid fa-circle" style="color: rgb(245, 14, 14);size: 10px;font-size: 10px"></i>
-                            -------
-                        </td>
-                    }
-                    //Khoa hoc end 
-                    
-                    <td>@item.TotalMoney.ToString("N0") VND</td>
-                    <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
-                    <td>
-                        <!-- Button to Open the Modal -->
-                            <a type="button" class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Xóa
-                            </a>
-
-                            <!-- The Modal -->
-                            <div class="modal fade" id="myModal">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Xác nhận</h4>
-                                    <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+                            <!-- Button to Open the Modal -->
+                                <a type="button" class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
+                                Xóa
+                                </a>
+    
+                                <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xác nhận</h4>
+                                        <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+                                    </div>
+    
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <a type="button" class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
+                                    </div>
+    
+                                    </div>
                                 </div>
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <a type="button" class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
                                 </div>
-
-                                </div>
-                            </div>
-                            </div>
-                    </td>
-
+                        </td>
+    
+                    </tr>
                     //So thu tu cong len 1
                     ++stt;
                 }
-            </tr>
+           
         </tbody>
     </table>
 </div>

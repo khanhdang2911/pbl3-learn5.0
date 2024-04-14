@@ -20,6 +20,7 @@ namespace PBL3_Course
         public ICollection<UsersRole>? usersRoles{set;get;}
         public ICollection<UsersCourse>? usersCourses{set;get;}
         public ICollection<Course>? courses{set;get;}
+        public ICollection<Comment>? comments{set;get;}
 
 
     }

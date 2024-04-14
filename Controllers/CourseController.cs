@@ -349,6 +349,16 @@ public class CourseController : Controller
             TempData["Message"]="Bạn là chủ sở hữu của khóa học này mà, bạn có quyền xem mà không cần phải mua khóa học này!";
             return RedirectToAction("NotFound","Home");
         }
+        if(checkCourse.Price==0)
+        {
+            TempData["Message"]="Because this course is free, you do not need to pay.";
+            UsersCourse usersCourse=new UsersCourse();
+            usersCourse.UsersId=userId;
+            usersCourse.CourseId=courseId;
+            _context.usersCourses.Add(usersCourse);
+            _context.SaveChanges();
+            return RedirectToAction("Success","Home");
+        }
         if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
         {
             TempData["Message"]="Bạn đã mua khóa học này rồi đó, không cần mua lại nhé!";
@@ -411,6 +421,33 @@ public class CourseController : Controller
 			
 
 			TempData["Message"] = $"Thanh toán VNPay thành công";
-			return RedirectToAction("Index","Home");
+			return RedirectToAction("Success","Home");
 		}
+
+
+        //Comment
+        [HttpPost]
+        public async Task<IActionResult> Comment([FromQuery]int courseId, string commentText, int rate)
+        {
+            int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
+            bool checkUserComment=((_context.usersCourses.Any(u=>u.UsersId==userId))&&(_context.comments.Any(c=>c.UserId==userId&&c.CourseId==courseId))==false);
+            if(checkUserComment==false)
+            {
+                return RedirectToAction("NotFound","Home");
+            }
+            Comment comment=new Comment();
+            comment.UserId=userId;
+            comment.CourseId=courseId;
+            comment.CommentText=commentText;
+            comment.DateComment=DateTime.Now;
+
+            //Cap nhat rate
+            var usersCourse=_context.usersCourses.Where(u=>u.CourseId==courseId&&u.UsersId==userId).First();
+            _context.Entry(usersCourse).State=EntityState.Modified;
+            usersCourse.rate=rate;
+
+            await _context.comments.AddAsync(comment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Detail","Course",new {id=courseId});
+        }
 }

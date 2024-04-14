@@ -4,6 +4,8 @@
 @{
     int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value.ToString());
     var allCourseOfUser=_context.courses.Where(c=>c.TeacherId==UserId).ToList();
+
+    var getCourseUser=(from u in _context.usersCourses join c in _context.courses on u.CourseId equals c.Id where u.UsersId==UserId select c).ToList();
 }
 
 <div style="border: 1px solid rgba(43, 37, 37, 0.527); width: 70%; margin: 50px auto 25px;"></div>
@@ -19,8 +21,7 @@
 
             <div class="form-group">
                     @* <label asp-for ="Password" class="control-label" ></label> *@
-    using System.Data.Entity;
-    using System.Data.Entity;
+   
                     <input type="hidden" asp-for="Password" class="form-control" value="@Model.Password">
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
@@ -51,6 +52,16 @@
                 if(item.IsActive==1)
                 {
                     <li><a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.CourseName</a></li>
+                }
+            }
+            @foreach(var item in getCourseUser)
+            {
+                if(item.IsActive==1)
+                {
+                    <li>
+                        <a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.CourseName</a>
+                        <span>(Student)</span>
+                    </li>
                 }
             }
         </ul>
