@@ -36,25 +36,21 @@ public class OrderController : Controller
         return RedirectToAction("Index","Order");
     }
 
-    public IActionResult Detail(int ?id)
-    {
-        if(id==null)
-        {
-            return Content("Khong tim thay hoa don");
-        }
+    // public IActionResult Detail(int ?id)
+    // {
+    //     if(id==null)
+    //     {
+    //         return Content("Khong tim thay hoa don");
+    //     }
 
-        var order=_context.orders.Where(c=>c.Id==id).FirstOrDefault();
-        if(order==null)
-        {
-            return Content("Khong tim thay hoa don");
-        }
-        ViewData["user"]=_context.users.Where(c=>c.Id==order.UserId).FirstOrDefault();
-        ViewData["course"]=_context.courses.Where(c=>c.Id==order.courseId).FirstOrDefault();
-        return View(order);
-    }
-
-
-
-
+    //     var order=_context.orders.Where(c=>c.Id==id).FirstOrDefault();
+    //     if(order==null)
+    //     {
+    //         return Content("Khong tim thay hoa don");
+    //     }
+    //     ViewData["user"]=_context.users.Where(c=>c.Id==order.UserId).FirstOrDefault();
+    //     ViewData["course"]=_context.courses.Where(c=>c.Id==order.courseId).FirstOrDefault();
+    //     return View(order);
+    // }
 
 }

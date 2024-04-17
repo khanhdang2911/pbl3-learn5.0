@@ -1,0 +1,23 @@
+@model Blog
+<style>
+    .btn-custom{
+        display: inline-block;
+        padding:8px;
+        border-radius: 9px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+</style>
+<form method="post" asp-action="Edit"  style="width: 30%;margin: 0 auto;">
+    @* <div asp-validation-summary="All" class="text-danger"></div> *@
+    <div class="form-group">
+        <label asp-for ="BlogName" class="control-label" ></label>
+        <input type="text" asp-for="BlogName" class="form-control">
+        <span asp-validation-for="BlogName" class="text-danger"></span>
+    </div>
+
+    <hr>
+    <input type="submit" class="btn-custom btn-success" value="Chỉnh sửa">
+    <a asp-action="index" class="btn-custom btn-warning">Quay về</a>
+</form>
+

@@ -109,7 +109,7 @@
                                         @* <li class="menu-item"><a href="#">Shop</a>
                                         
                                         </li> *@
-                                        <li class="menu-item"><a href="#">Blog</a></li>
+                                        <li class="menu-item"><a asp-action="index" asp-controller="post">Blog</a></li>
                                         @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin")==false)
                                         {
                                             <li class="menu-item"><a asp-action="TeacherRegister" asp-controller="User">Đăng kí giảng dạy</a>

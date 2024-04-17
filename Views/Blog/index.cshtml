@@ -1,0 +1,71 @@
+@model List<Blog> 
+@{
+    int stt=1;
+}
+<style>
+    .btn-custom{
+        display: inline-block;
+        padding:8px;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+    .btn-create{
+        color:white;
+        margin: 30px 0;
+        background-color: #5751e1;
+    }
+    .btn-create:hover{
+        color:white;
+        opacity: 0.85;
+    }
+
+</style>
+<div class="container">
+    <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 blog</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên Blog</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.BlogName</td>
+                    <td>
+                        <a class="btn-custom btn-info" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                        <a class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
+                                Xóa
+                                </a>
+    
+                                <!-- The Modal -->
+                                <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xác nhận</h4>
+                                        <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+                                    </div>
+    
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <a type="button" class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
+                                    </div>
+    
+                                    </div>
+                                </div>
+                                </div>
+                        <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="Edit" asp-route-id="@item.Id">Quản lí các bài post</a>
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+</div>

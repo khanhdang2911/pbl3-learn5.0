@@ -38,6 +38,8 @@ namespace PBL3_Course.Models
         public DbSet<Answer> answers{set;get;}
         public DbSet<Order> orders{set;get;}
         public DbSet<Comment> comments{set;get;}
+        public DbSet<Blog> blogs{set;get;}
+        public DbSet<Post> posts{set;get;}
 
        
     }
