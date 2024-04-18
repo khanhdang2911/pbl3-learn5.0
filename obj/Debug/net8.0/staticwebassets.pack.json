@@ -1333,6 +1333,10 @@
       "PackagePath": "staticwebassets\\uploads\\BigData.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\BlogToeicTuVung.png",
+      "PackagePath": "staticwebassets\\uploads\\BlogToeicTuVung.png"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Copy of NHÓM 2.docx.pdf",
       "PackagePath": "staticwebassets\\uploads\\Copy of NHÓM 2.docx.pdf"
     },
@@ -1393,8 +1397,16 @@
       "PackagePath": "staticwebassets\\uploads\\apple-watch-series-2-38mm-4.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\chatGptBlog.png",
+      "PackagePath": "staticwebassets\\uploads\\chatGptBlog.png"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\computerAI2.jpg",
       "PackagePath": "staticwebassets\\uploads\\computerAI2.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\dataAnalystBlog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\dataAnalystBlog.jpg"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\english (2).jpg",

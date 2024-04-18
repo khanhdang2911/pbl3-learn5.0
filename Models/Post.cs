@@ -13,8 +13,12 @@ namespace PBL3_Course
         [Required(ErrorMessage = "Bạn chưa nhập nội dung của bài post")]
         public string PostContent{set;get;}="";
         public DateTime DateCreatedOrEdited{set;get;}
-        public string ImageLink{set;get;}="";
+        [NotMapped]
+        [Required(ErrorMessage ="Chưa upload ảnh cho bài viết")]
+        public IFormFile FormFile{set;get;}
+        public string? ImageLink{set;get;}
         [ForeignKey("BlogId")]
+        [Required(ErrorMessage ="Bạn chưa chọn chủ đề cho bài viết")]
         public int BlogId{set;get;}
         public Blog? Blog{set;get;}
     }

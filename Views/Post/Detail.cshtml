@@ -1,0 +1,7 @@
+@model Post
+<div class="container" style="width: 80%;margin-top: 50px;">
+    <h1>@Model.PostName</h1>
+    <img src="~/@Model.ImageLink" alt="">
+    <hr>
+    <p>@Html.Raw(Model.PostContent)</p>
+</div>

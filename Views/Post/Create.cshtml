@@ -1,0 +1,64 @@
+@model Post
+@inject AppDbContext _context;
+<form id="create-post" method="post" asp-action="Create" style="width: 60%;margin: 0 auto;" enctype="multipart/form-data">
+    @* <div asp-validation-summary="All" class="text-danger"></div> *@
+    <div class="form-group">
+        <label asp-for ="PostName" class="control-label" ></label>
+        <input type="text" asp-for="PostName" class="form-control">
+        <span asp-validation-for="PostName" class="text-danger"></span>
+    </div>
+    <br>
+
+    <hr>
+    <div class="form-group">
+        <label asp-for ="FormFile" class="control-label" >Chọn ảnh</label>
+        <input type="file" asp-for="FormFile" class="form-control">
+        <span asp-validation-for="FormFile" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input id="image-link" type="hidden" asp-for="ImageLink" class="form-control">
+        
+    </div>
+    <hr>
+
+
+    <div class="form-group" >
+        <label asp-for="BlogId" class="control-label">Chủ đề</label>
+        <select id="blogid" asp-for="BlogId" class="control-label">
+            <option value="" >----------</option>
+            @foreach(var item in _context.blogs)
+            {
+                <option value="@item.Id">@item.BlogName</option>
+            }
+        </select>
+        <span asp-validation-for="BlogId" id="blogid-message" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for ="PostContent" class="control-label" ></label>
+        <textarea asp-for="PostContent"></textarea>
+        @* <input type="text" asp-for="Description" class="form-control"> *@
+        <span asp-validation-for="PostContent" class="text-danger"></span>
+    </div>
+
+    <hr>
+    <input type="submit" class="btn btn-success" value="Tạo bài viết">
+</form>
+@* <script>
+    let formElement=document.querySelector("#create-post");
+    formElement.onsubmit=function(e)
+    {
+        let blogidElement=document.querySelector("#blogid");
+        console.log(blogidElement);
+        if(!blogidElement.value)
+        {
+            let blogidMessageElement=document.querySelector("#blogid-message");
+            if(!blogidElement.value)
+            {
+                console.log(blogidElement);
+                blogidMessageElement.innerHTML="Bạn chưa chọn chủ đề cho bài viết";
+                e.preventDefault();
+            }
+        }
+    }
+</script> *@

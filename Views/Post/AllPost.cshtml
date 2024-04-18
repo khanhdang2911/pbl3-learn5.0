@@ -1,0 +1,113 @@
+@model List<Post>
+@inject AppDbContext _context
+<!-- main-area -->
+    <main class="main-area fix">
+
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb__area breadcrumb__bg" data-background="assets/img/bg/breadcrumb_bg.jpg">
+            
+            <div class="breadcrumb__shape-wrap">
+                <img src="~/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
+                <img src="~/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
+                <img src="~/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
+                <img src="~/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
+                <img src="~/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
+            </div>
+        </section>
+        <!-- breadcrumb-area-end -->
+
+        <!-- blog-area -->
+        <section class="blog-area section-py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="row gutter-20">
+                            @foreach(var item in Model)
+                            {
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="blog__post-item shine__animate-item">
+                                        <div class="blog__post-thumb">
+                                            <a asp-action="detail" asp-route-id="@item.Id" class="shine__animate-link"><img src="~/@item.ImageLink" alt="img"></a>
+                                            @* <a  class="post-tag">@item.Blog.BlogName</a> *@
+                                        </div>
+                                        <div class="blog__post-content">
+                                            <div class="blog__post-meta">
+                                                <ul class="list-wrap">
+                                                    <li><i class="flaticon-calendar"></i>@(item.DateCreatedOrEdited.ToString("dd/MM/yyyy"))</li>
+                                                    <li><i class="flaticon-user-1"></i>by <a >Admin</a></li>
+                                                </ul>
+                                            </div>
+                                            <h4 class="title"><a asp-action="detail" asp-route-id="@item.Id">@item.PostName</a></h4>
+                                        </div>
+                                    </div>
+                                </div>  
+                            }
+                        </div>
+                        <nav class="pagination__wrap mt-25">
+                            <ul class="list-wrap">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a >2</a></li>
+                                <li><a >3</a></li>
+                                <li><a >4</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-xl-3 col-lg-4">
+                        <aside class="blog-sidebar">
+                            <div class="blog-widget widget_search">
+                                <div class="sidebar-search-form">
+                                    <form asp-action="Search">
+                                        <input type="text" name="postName" placeholder="Search here">
+                                        <button type="submit"><i class="flaticon-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="blog-widget">
+                                <h4 class="widget-title">Categories</h4>
+                                <div class="shop-cat-list">
+                                    <ul class="list-wrap">
+                                        @foreach(var item in _context.blogs)
+                                        {
+                                            <li>
+                                                <a asp-action="AllPost" asp-route-BlogId="@item.Id"><i class="flaticon-angle-right"></i>@item.BlogName</a>
+                                            </li>
+                                        }
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="blog-widget">
+                                <h4 class="widget-title">Latest Post</h4>
+                                @{
+                                    int i=0;
+                                }
+                                @foreach(var item in _context.posts)
+                                {
+                                    i++;
+                                    <div class="rc-post-item">
+                                        <div class="rc-post-thumb">
+                                            <a asp-action="detail" asp-route-id="@item.Id">
+                                                <img src="~/@item.ImageLink" alt="img">
+                                            </a>
+                                        </div>
+                                        <div class="rc-post-content">
+                                            <span class="date"><i class="flaticon-calendar"></i> @(item.DateCreatedOrEdited.ToString("dd/MM/yyyy"))</span>
+                                            <h4 class="title"><a asp-action="detail" asp-route-id="@item.Id">@item.PostName</a></h4>
+                                        </div>
+                                    </div>
+                                    if(i==4)
+                                    {
+                                        break;
+                                    }
+                                }
+                            </div>
+                            
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- blog-area-end -->
+
+    </main>
+    <!-- main-area-end -->

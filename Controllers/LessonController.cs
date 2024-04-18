@@ -1,8 +1,6 @@
 // using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
 using PBL3_Course.Models;
 
 namespace PBL3_Course.Controllers;
@@ -105,12 +103,13 @@ public class LessonController : Controller
             return View();
         }
         var kq=_context.lessons.Where(c=>c.Id==id).FirstOrDefault();
-        var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.FileLinkContent.Remove(0,8));
-        System.IO.File.Delete(fileDelete);
+        
         if(kq==null)
         {
             return Content("Khong tim thay bai hoc nay");
         }
+        var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.FileLinkContent.Remove(0,8));
+        System.IO.File.Delete(fileDelete);
         if(lesson.FormFile!=null)
         {
             var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.FormFile.FileName);

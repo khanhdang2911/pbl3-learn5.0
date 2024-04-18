@@ -1,132 +1,73 @@
-@model List<Post>
-@inject AppDbContext _context
-<!-- main-area -->
-    <main class="main-area fix">
-
-        <!-- breadcrumb-area -->
-        <section class="breadcrumb__area breadcrumb__bg" data-background="assets/img/bg/breadcrumb_bg.jpg">
-            
-            <div class="breadcrumb__shape-wrap">
-                <img src="~/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
-                <img src="~/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right" data-aos-delay="300">
-                <img src="~/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
-                <img src="~/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left" data-aos-delay="400">
-                <img src="~/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left" data-aos-delay="400">
-            </div>
-        </section>
-        <!-- breadcrumb-area-end -->
-
-        <!-- blog-area -->
-        <section class="blog-area section-py-120">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 col-lg-8">
-                        <div class="row gutter-20">
-                            <div class="col-xl-4 col-md-6">
-                                <div class="blog__post-item shine__animate-item">
-                                    <div class="blog__post-thumb">
-                                        <a  class="shine__animate-link"><img src="assets/img/blog/blog_post01.jpg" alt="img"></a>
-                                        <a  class="post-tag">Marketing</a>
+@model List<Post> 
+@{
+    int stt=1;
+}
+<style>
+        .btn-custom{
+        display: inline-block;
+        padding:8px;
+        border-radius: 9px;
+        cursor: pointer;
+    }
+    .btn-create{
+        color:white;
+        
+        background-color: #5751e1;
+    }
+    .btn-create:hover{
+        color:white;
+        opacity: 0.85;
+    }
+</style>
+<div class="container">
+    <div class="manage-blog">
+        <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 bài viết</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên bài viết</th>
+                <th>Tên chủ đề</th>
+                <th>Tác vụ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.PostName</td>
+                    <td>@item.Blog.BlogName</td>
+                    <td>
+                        <a class="btn-custom btn-info" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                        <a class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-@item.Id">
+                                Xóa
+                                </a>
+    
+                                <!-- The Modal -->
+                                <div class="modal fade" id="myModal-@item.Id">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xác nhận</h4>
+                                        <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
                                     </div>
-                                    <div class="blog__post-content">
-                                        <div class="blog__post-meta">
-                                            <ul class="list-wrap">
-                                                <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                                <li><i class="flaticon-user-1"></i>by <a >Admin</a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="title"><a >How To Become idiculously Self-Aware In 20 Minutes</a></h4>
+    
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <a  class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</a>
                                     </div>
-                                </div>
-                            </div>        
-                        </div>
-                        <nav class="pagination__wrap mt-25">
-                            <ul class="list-wrap">
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a >2</a></li>
-                                <li><a >3</a></li>
-                                <li><a >4</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="col-xl-3 col-lg-4">
-                        <aside class="blog-sidebar">
-                            <div class="blog-widget widget_search">
-                                <div class="sidebar-search-form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Search here">
-                                        <button><i class="flaticon-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="blog-widget">
-                                <h4 class="widget-title">Categories</h4>
-                                <div class="shop-cat-list">
-                                    <ul class="list-wrap">
-                                        @foreach(var item in _context.blogs)
-                                        {
-                                            <li>
-                                                <a href="#"><i class="flaticon-angle-right"></i>@item.BlogName</a>
-                                            </li>
-                                        }
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="blog-widget">
-                                <h4 class="widget-title">Latest Post</h4>
-                                <div class="rc-post-item">
-                                    <div class="rc-post-thumb">
-                                        <a >
-                                            <img src="assets/img/blog/latest_post01.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="rc-post-content">
-                                        <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                        <h4 class="title"><a >the Right Learning Path for your</a></h4>
                                     </div>
                                 </div>
-                                <div class="rc-post-item">
-                                    <div class="rc-post-thumb">
-                                        <a >
-                                            <img src="assets/img/blog/latest_post02.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="rc-post-content">
-                                        <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                        <h4 class="title"><a >The Growing Need Management</a></h4>
-                                    </div>
                                 </div>
-                                <div class="rc-post-item">
-                                    <div class="rc-post-thumb">
-                                        <a >
-                                            <img src="assets/img/blog/latest_post03.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="rc-post-content">
-                                        <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                        <h4 class="title"><a >the Right Learning Path for your</a></h4>
-                                    </div>
-                                </div>
-                                <div class="rc-post-item">
-                                    <div class="rc-post-thumb">
-                                        <a >
-                                            <img src="assets/img/blog/latest_post04.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                    <div class="rc-post-content">
-                                        <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                        <h4 class="title"><a >The Growing Need Management</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </aside>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- blog-area-end -->
-
-    </main>
-    <!-- main-area-end -->
+                        <a class="btn-custom btn-warning" asp-action="Detail" asp-route-id="@item.Id">Xem bài</a>
+                    </td>
+                </tr>
+                stt++;
+            }
+        </tbody>
+    </table>
+</div>

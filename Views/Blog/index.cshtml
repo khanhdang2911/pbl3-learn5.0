@@ -11,17 +11,26 @@
     }
     .btn-create{
         color:white;
-        margin: 30px 0;
+        
         background-color: #5751e1;
     }
     .btn-create:hover{
         color:white;
         opacity: 0.85;
     }
+    .manage-blog{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
 </style>
 <div class="container">
-    <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 blog</a>
+    <div class="manage-blog">
+        <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 blog</a>
+        <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="index" asp-controller="Post">Quản lí các bài post</a>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -61,7 +70,7 @@
                                     </div>
                                 </div>
                                 </div>
-                        <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="Edit" asp-route-id="@item.Id">Quản lí các bài post</a>
+                        
                     </td>
                 </tr>
                 stt++;

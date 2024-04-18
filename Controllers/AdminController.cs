@@ -200,4 +200,12 @@ public class AdminController : Controller
     {
         return RedirectToAction("Index","Category");
     }
+    public IActionResult BlogManage()
+    {
+        return RedirectToAction("Index","Blog");
+    }
+    public IActionResult OrderManage()
+    {
+        return RedirectToAction("Index","Order");
+    }
 }

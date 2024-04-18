@@ -103,13 +103,8 @@
                                             
                                         </li>
                                         
-                                        @* <li class="menu-item"><a href="#">Pages</a>
-                                          
-                                        </li> *@
-                                        @* <li class="menu-item"><a href="#">Shop</a>
-                                        
-                                        </li> *@
-                                        <li class="menu-item"><a asp-action="index" asp-controller="post">Blog</a></li>
+                                      
+                                        <li class="menu-item"><a asp-action="allpost" asp-controller="post" asp-route-blogid="">Blog</a></li>
                                         @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin")==false)
                                         {
                                             <li class="menu-item"><a asp-action="TeacherRegister" asp-controller="User">Đăng kí giảng dạy</a>
@@ -131,6 +126,12 @@
                                                         </li>
                                                         <li>
                                                             <a asp-action="CategoryManage" asp-controller="Admin">Quản lí category</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-action="BlogManage" asp-controller="Admin" >Quản lí Blog</a>
+                                                        </li>
+                                                        <li>
+                                                            <a asp-action="OrderManage" asp-controller="Admin">Quản lí order</a>
                                                         </li>
                                                     </ul>
                                                 </li>
