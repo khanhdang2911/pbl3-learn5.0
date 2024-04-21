@@ -1001,6 +1001,10 @@
       "PackagePath": "staticwebassets\\courses.html"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\layout_admin.css",
+      "PackagePath": "staticwebassets\\css\\layout_admin.css"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -1413,6 +1417,10 @@
       "PackagePath": "staticwebassets\\uploads\\english (2).jpg"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\gameblockChainBlog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\gameblockChainBlog.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\git.pdf",
       "PackagePath": "staticwebassets\\uploads\\git.pdf"
     },
@@ -1435,6 +1443,10 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeic.jpg",
       "PackagePath": "staticwebassets\\uploads\\toeic.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeicBlog.png",
+      "PackagePath": "staticwebassets\\uploads\\toeicBlog.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PBL3_Course.Microsoft.AspNetCore.StaticWebAssets.props",

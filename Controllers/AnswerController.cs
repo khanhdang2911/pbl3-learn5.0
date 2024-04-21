@@ -22,7 +22,7 @@ public class AnswerController : Controller
         var kq=_context.questions.Any(t=>t.Id==QuestionId);
         if(kq==null)
         {
-            return Content("Khong tim thay cau hoi");
+            return RedirectToAction("NotFound","Home");
         }
         return View();
     }
@@ -70,7 +70,7 @@ public class AnswerController : Controller
         var kq=_context.answers.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay dap an");
+            return RedirectToAction("NotFound","Home");
         }
         _context.answers.Remove(kq);
         _context.SaveChanges();

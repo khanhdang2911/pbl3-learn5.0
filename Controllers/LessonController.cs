@@ -30,7 +30,7 @@ public class LessonController : Controller
     {
         if(chapterId==null)
         {
-            return Content("Khong ton tai chuong hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["chapterId"]=chapterId;
         Console.WriteLine("dadasd");
@@ -80,12 +80,12 @@ public class LessonController : Controller
     {
         if(id==null)
         {
-            return Content("Không tìm thấy bài học này");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.lessons.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy bài học này");
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -106,7 +106,7 @@ public class LessonController : Controller
         
         if(kq==null)
         {
-            return Content("Khong tim thay bai hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
         var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.FileLinkContent.Remove(0,8));
         System.IO.File.Delete(fileDelete);
@@ -143,13 +143,13 @@ public class LessonController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay bai hoc");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.lessons.Where(c=>c.Id==id).FirstOrDefault();
         Console.WriteLine("id="+kq.Id);
         if(kq==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return RedirectToAction("NotFound","Home");
         }
         int courseId=(from c in _context.chapters join l in _context.lessons on c.Id equals l.ChapterId where c.Id==kq.ChapterId select c.CourseId).FirstOrDefault();
         _context.lessons.Remove(kq);

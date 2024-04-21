@@ -1,19 +1,73 @@
 @model List<Course>
-
-<div class="container">
+@{
+    Layout="_LayoutAdmin";
+}
+<style>
+    
+    
+    @* head-content *@
+    .input-search{
+        border-radius: 999px;
+        border: 0.5px solid black;
+        padding: 6px;
+        margin-left: 20px;
+    }
+    .btn-search{
+        border: none;
+        background-color: #5751e1;
+        color: white;
+        border-radius: 50%;
+    }
+    @*  *@
+    .course-manage-detail{
+        margin-top: 40px;
+    }
+    .action{
+        padding: 5px;
+    }
+    .delete-btn{
+        cursor: pointer;
+    }
+    .btn-custom{
+        padding: 5px;
+        border-radius: 8px;
+        color:rgb(252, 252, 252);
+    }
+    .btn-custom:hover{
+        color:rgb(252, 252, 252);
+    }
+    .btn-add{
+        background-color: #3eb93c;
+    }
+    .btn-chuakichhoat{
+        color:red;
+        padding: 5px;
+    }
+    .btn-kichhoat{
+        color:rgb(20, 189, 20);
+        padding: 5px;
+    }
+    
+</style>
+<div class="container course-manage-detail">
     <div class="CourseFunc" style="display: flex;justify-content: space-between;">
-        <a asp-action="Create" class="btn btn-info">Tạo khóa học mới</a>
+        <a asp-action="Create" class="btn-add btn-custom"><i class="fa-solid fa-plus"></i>Tạo khóa học mới</a>
+        <form action="" class="form-search">
+            <input type="text" class="input-search" placeholder="Search For Course">
+            <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
         <div>
-            <a asp-action="IndexForCourseNotActive" class="" style="border: 1px solid black;color: black;">Khóa học chưa kích hoạt</a>
-            <a asp-action="Index" class="" style="border: 1px solid black;color: black;">Khóa học đã kích hoạt</a>
+            <a asp-action="IndexForCourseNotActive" class=" btn-chuakichhoat" >Khóa học chưa kích hoạt</a>
+            <a asp-action="Index" class=" btn-kichhoat" >Khóa học đã kích hoạt</a>
         </div>
+        
     </div>
     <hr>
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <table class="table">
+        <div class="">
+            <table class="table table-bordered table-hover table-responsive">
                 <thead class="thead-dark">
-                    <tr>
+                    <tr >
                         <th>Tên khóa học</th>
                         <th>Giá</th>
                         @* <th>Ngày tạo</th> *@
@@ -31,16 +85,16 @@
                             @* <td>@item.DateCreated</td> *@
                             <td>@item.Category.CategoryName</td>
                             <td>
-                                <a asp-action="Detail" asp-route-id="@item.Id" class="btn-primary" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;">Xem chi tiết</a>
-                                <a class="btn-danger delete-btn" data-id="@item.Id" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: pointer;">Xóa</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn-success" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;">Edit</a>
+                                <a asp-action="Detail" asp-route-id="@item.Id" class="action" ><i class="fa-solid fa-eye"></i></a>
+                                <a class="delete-btn action" data-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                                <a asp-action="Edit" class="action" asp-route-id="@item.Id" ><i class="fa-solid fa-wrench"></i></a>
                                 @if(item.IsActive==1)
                                 {
-                                    <a class="btn-info" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: context-menu;">Đã kích hoạt</a>
+                                    <a class="action" style="color: rgb(14, 185, 14);"><i class="fa-solid fa-check"></i></a>
                                 }
                                 else
                                 {
-                                    <a asp-action="CourseActivate" asp-route-id="@item.Id" class="btn-warning" style="width: 100px;height: 30px;border-radius: 999px;display: inline-block;text-align: center;cursor: pointer;">Kích hoạt</a>
+                                    <a class="action" style="color: red;" asp-action="CourseActivate" asp-route-id="@item.Id" ><i class="fa-solid fa-xmark"></i></a>
                                 }
                             </td>
                         </tr>

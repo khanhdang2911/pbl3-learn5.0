@@ -74,12 +74,12 @@ public class PostController : Controller
         
         if(id==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.posts.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -93,7 +93,7 @@ public class PostController : Controller
         var kq=_context.posts.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
         //Xoa file cu di
         // var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.ImageLink.Remove(0,8));
@@ -123,7 +123,7 @@ public class PostController : Controller
         var kq=_context.posts.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay danh muc");
+            return RedirectToAction("NotFound","Home");
         }
         _context.posts.Remove(kq);
         _context.SaveChanges();

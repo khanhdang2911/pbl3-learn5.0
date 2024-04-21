@@ -51,12 +51,12 @@ public class CategoryController : Controller
         
         if(id==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.categories.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -70,7 +70,7 @@ public class CategoryController : Controller
         var kq=_context.categories.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
 
         kq.CategoryName=category.CategoryName;
@@ -84,7 +84,7 @@ public class CategoryController : Controller
         var kq=_context.categories.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay danh muc");
+            return RedirectToAction("NotFound","Home");
         }
         _context.categories.Remove(kq);
         _context.SaveChanges();

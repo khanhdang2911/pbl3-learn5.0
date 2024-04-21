@@ -116,7 +116,7 @@
                                                 <p class="author">By <a >@item.Teacher.Name</a></p>
                                                 <div class="courses__item-bottom">
                                                     <div class="button">
-                                                        <a >
+                                                        <a asp-action="CheckoutVNPay" asp-controller="Course" asp-route-courseId="@item.Id" >
                                                             <span class="text">Đăng kí ngay</span>
                                                             <i class="flaticon-arrow-right"></i>
                                                         </a>
@@ -216,74 +216,26 @@
                     </div>
                 </div>
                 <div class="row gutter-20">
-                    <div class="col-xl-3 col-md-6">
+                    @foreach(var item in _context.posts.Include(p=>p.Blog).Take(4).ToList())
+                    {
+                        <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post01.jpg" alt="img"></a>
-                                <a href="" class="post-tag">Marketing</a>
+                                <a href="" class="shine__animate-link"><img src="~/@item.ImageLink" alt="img"></a>
+                                @* <a href="" class="post-tag">@item.Blog.BlogName</a> *@
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
-                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i class="flaticon-calendar"></i>@(item.DateCreatedOrEdited.ToString("dd/MM/yyyy"))</li>
                                         <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="">How To Become idiculously Self-Aware In 20 Minutes</a></h4>
+                                <h4 class="title"><a href="">@item.PostName</a></h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="blog__post-item shine__animate-item">
-                            <div class="blog__post-thumb">
-                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post02.jpg" alt="img"></a>
-                                <a href="" class="post-tag">Marketing</a>
-                            </div>
-                            <div class="blog__post-content">
-                                <div class="blog__post-meta">
-                                    <ul class="list-wrap">
-                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="">Get Started With UI Design With Tips To Speed</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="blog__post-item shine__animate-item">
-                            <div class="blog__post-thumb">
-                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post03.jpg" alt="img"></a>
-                                <a href="" class="post-tag">Marketing</a>
-                            </div>
-                            <div class="blog__post-content">
-                                <div class="blog__post-meta">
-                                    <ul class="list-wrap">
-                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="">Make Your Own Expanding Contracting Content</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="blog__post-item shine__animate-item">
-                            <div class="blog__post-thumb">
-                                <a href="" class="shine__animate-link"><img src="assets/img/blog/blog_post04.jpg" alt="img"></a>
-                                <a href="" class="post-tag">Marketing</a>
-                            </div>
-                            <div class="blog__post-content">
-                                <div class="blog__post-meta">
-                                    <ul class="list-wrap">
-                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="">Admin</a></li>
-                                    </ul>
-                                </div>
-                                <h4 class="title"><a href="">What we are capable to usually discovered</a></h4>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </section>

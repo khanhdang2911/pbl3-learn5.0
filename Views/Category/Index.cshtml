@@ -1,36 +1,29 @@
 @model List<Category>
-
-<div class="container">
-    <a asp-action="Create" class="btn btn-info">Tạo danh mục mới</a>
-    <hr>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Tên khóa học</th>
-                        <th>Tác vụ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach(var item in Model)
-                    {
-                        <tr>
-                            <td>@item.CategoryName</td>
-                            <td>
-                                
-                                <a class="btn btn-danger delete-btn" data-id="@item.Id">Xóa</a>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
+@{
+    Layout="_LayoutAdmin";
+}
 <style>
+     .category-manage-detail{
+        margin-top: 40px;
+        @* width: 60%; *@
+    }
+    .action{
+        padding: 5px;
+    }
+    .delete-btn{
+        cursor: pointer;
+    }
+    .btn-custom{
+        padding: 5px;
+        border-radius: 8px;
+        color:rgb(252, 252, 252);
+    }
+    .btn-custom:hover{
+        color:rgb(252, 252, 252);
+    }
+    .btn-add{
+        background-color: #3eb93c;
+    }
     /* Style for modal */
     .modal {
         width: 350px;
@@ -58,6 +51,36 @@
         background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối */
     }
 </style>
+
+<div class="container col-md-10 category-manage-detail">
+    <a asp-action="Create" class="btn-custom btn-add"><i class="fa-solid fa-plus"></i> Tạo danh mục mới</a>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="">
+            <table class="table table-bordered table-hover table-responsive">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Tên khóa học</th>
+                        <th>Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CategoryName</td>
+                            <td>
+                                
+                                <a class="action delete-btn" data-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="action"><i class="fa-solid fa-wrench"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="overlay" id="overlay"></div> <!-- Overlay để tối màn hình -->
 

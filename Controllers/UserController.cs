@@ -174,7 +174,7 @@ public class UserController : Controller
             Users kq=_context.users.Where(u=>u.Id==UsersId).First();
             if(kq==null)
             {
-                return Content("Khong tim thay user");
+                return RedirectToAction("NotFound","Home");
             }
             return View(kq);
         }
@@ -266,12 +266,12 @@ public class UserController : Controller
 
         if(UsersId==null)
         {
-            return Content("Khong tim thay user");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay user");
+            return RedirectToAction("NotFound","Home");
 
         }
         return View(kq);
@@ -283,7 +283,7 @@ public class UserController : Controller
         var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay user nay");
+            return RedirectToAction("NotFound","Home");
         }
         
         if(!ModelState.IsValid)
@@ -319,7 +319,7 @@ public class UserController : Controller
         var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -329,7 +329,7 @@ public class UserController : Controller
         var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         if(_hashPasswordByBC.VerifyPassword(oldPassword,kq.Password)==false)
         {

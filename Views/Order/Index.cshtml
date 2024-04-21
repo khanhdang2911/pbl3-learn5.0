@@ -11,9 +11,12 @@
     }
    
 }
+@{
+    Layout="_LayoutAdmin";
+}
 <style>
     .table-container{
-        width: 80%;
+        @* width: 80%; *@
         margin-top: 50px;
     }
     @* revenue-date-statistical *@
@@ -66,12 +69,13 @@
     .btn-submit:hover{
         opacity: 0.8;
     }
+    
 </style>
 <div class="container table-container revenue-date-statistical">
     <div class="revenue tab">
         <p style="border-bottom: 2px solid hwb(206 60% 11%);">Revenue</p>
         @* <p>---------------------</p> *@
-        <h3>@(totalMoney/1000000)M VND</h3>
+        <h3>@(totalMoney/1000000)M </h3>
     </div>
 
     <div class="order-quantity tab">
@@ -83,7 +87,7 @@
     <div class="avg-order-value tab">
         <p style="border-bottom: 2px solid hwb(206 60% 11%);">Avg. Order Value</p>
         @* <p>---------------------</p> *@
-        <h3>~@((totalMoney/1000000/soLuongOrder).ToString("#.##"))M VND</h3>
+        <h3>~@((totalMoney/1000000/soLuongOrder).ToString("#.##"))M </h3>
     </div>
 </div>
 <div class="container table-container" >
@@ -105,7 +109,7 @@
                 
         </div>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
                 <th>STT</th>
@@ -159,8 +163,8 @@
                         <td>@item.DateCreated.ToString("dd/MM/yyyy")</td>
                         <td>
                             <!-- Button to Open the Modal -->
-                                <a type="button" class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-@item.Id">
-                                Xóa
+                                <a type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#myModal-@item.Id">
+                                <i class="fa-solid fa-trash"></i>
                                 </a>
     
                                 <!-- The Modal -->

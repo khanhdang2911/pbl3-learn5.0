@@ -27,7 +27,7 @@ public class ChapterController : Controller
         Console.WriteLine("tao chuong hoc");
         if(courseId==null)
         {
-            return Content("Khong ton tai sdsd khoa hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["courseId"]=courseId;
         return View();
@@ -49,12 +49,12 @@ public class ChapterController : Controller
     {
         if(id==null)
         {
-            return Content("Không tìm thấy chuong học này");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy chuong học này");
+            return RedirectToAction("NotFound","Home");
         }
         _context.Entry(kq).Collection(c=>c.lessons).Load();
         return View(kq);
@@ -75,7 +75,7 @@ public class ChapterController : Controller
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay chuong hoc de chinh sua");
+            return RedirectToAction("NotFound","Home");
         }
         kq.ChapterName=chapter.ChapterName;
 
@@ -87,12 +87,12 @@ public class ChapterController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay id chuong hoc");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay chuong hoc de xoa");
+            return RedirectToAction("NotFound","Home");
         }
         _context.chapters.Remove(kq);
         _context.SaveChanges();

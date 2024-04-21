@@ -82,16 +82,16 @@ public class CourseController : Controller
     {
         if(id==null)
         {
-            return Content("Không tìm thấy khóa học này");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy khóa học này");
+            return RedirectToAction("NotFound","Home");
         }
         if(kq.IsActive==0)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         _context.Entry(kq).Collection(c=>c.chapters).Load();
         if(kq.chapters!=null)
@@ -109,7 +109,7 @@ public class CourseController : Controller
     {
         if(id==null)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
 
         SelectList categoryList=new SelectList(_context.categories,"Id","CategoryName");
@@ -117,12 +117,12 @@ public class CourseController : Controller
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy Course");
+            return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
         if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -137,12 +137,12 @@ public class CourseController : Controller
         
         if(kq==null)
         {
-            return Content("Khong tim thay");
+            return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
         if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         // Xoa file cu di
             // if(string.IsNullOrEmpty(kq.CourseImageLink)==false)
@@ -202,18 +202,18 @@ public class CourseController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return RedirectToAction("NotFound","Home");
         }
 
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
         if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         _context.courses.Remove(kq);
         _context.SaveChanges();
@@ -254,6 +254,10 @@ public class CourseController : Controller
         }
         //Neu id khac null
         allCourse=_context.courses.Where(c=>c.CategoryId==id).ToList();
+        if(_context.courses.Any(c=>c.CategoryId==id)==false)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
         //sort
         if(sortBy=="name")
         {
@@ -267,7 +271,7 @@ public class CourseController : Controller
         var kq=_context.courses.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay khoa hoc");
+            return  RedirectToAction("NotFound","Home");
         }
         _context.Entry(kq).State=EntityState.Modified;
         kq.IsActive=1;
@@ -292,12 +296,12 @@ public class CourseController : Controller
     {
         if(courseId==null)
         {
-            return NotFound();
+            return RedirectToAction("NotFound","Home");
         }
         bool checkCourse=_context.courses.Any(c => c.Id==courseId);
         if(checkCourse==false)
         {
-            return Content("Khong tim thay khoa hoc");
+            return  RedirectToAction("NotFound","Home");
         }
         ViewData["courseId"]=courseId;
         return View();
@@ -311,12 +315,13 @@ public class CourseController : Controller
         bool checkCourse=_context.courses.Any(c => c.Id==courseId);
         if(checkCourse==false)
         {
-            return Content("Khong tim thay khoa hoc");
+            return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
         if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
         {
-            return Content("Ban da dang ki khoa hoc nay roi");
+            TempData["Message"]="Bạn đã đăng kí khóa học này rồi";
+            return RedirectToAction("NotFound","Home");
         }
         UsersCourse usersCourse=new UsersCourse();
         usersCourse.CourseId=courseId;

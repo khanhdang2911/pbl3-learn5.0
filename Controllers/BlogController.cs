@@ -46,12 +46,12 @@ public class BlogController : Controller
         
         if(id==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.blogs.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong hop le id");
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -65,7 +65,7 @@ public class BlogController : Controller
         var kq=_context.blogs.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai hoc nay");
+            return RedirectToAction("NotFound","Home");
         }
 
         kq.BlogName=blog.BlogName;
@@ -79,7 +79,7 @@ public class BlogController : Controller
         var kq=_context.blogs.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay danh muc");
+            return RedirectToAction("NotFound","Home");
         }
         _context.blogs.Remove(kq);
         _context.SaveChanges();

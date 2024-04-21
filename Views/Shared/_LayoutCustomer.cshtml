@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="~/assets/css/spacing.css">
     <link rel="stylesheet" href="~/assets/css/tg-cursor.css">
     <link rel="stylesheet" href="~/assets/css/main.css">
+    @* Icon *@
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     @* Add HTML editer *@
     <script src="https://cdn.tiny.cloud/1/s5myx4278kigjry16ggvxrmp9kba7hfxb4kvurojntkc7cha/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -114,26 +116,8 @@
                                         <li>
                                             @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin"))
                                             {
-                                                
-                                                <li class="menu-item-has-children"><a href="#">Admin</a>
-                                                    <ul class="sub-menu">
-                                                        
-                                                        <li>
-                                                            <a asp-action="" asp-controller="Admin" >Quản lí user</a>
-                                                        </li>
-                                                        <li>
-                                                            <a asp-action="CourseManage" asp-controller="Admin" >Quản lí Course</a>
-                                                        </li>
-                                                        <li>
-                                                            <a asp-action="CategoryManage" asp-controller="Admin">Quản lí category</a>
-                                                        </li>
-                                                        <li>
-                                                            <a asp-action="BlogManage" asp-controller="Admin" >Quản lí Blog</a>
-                                                        </li>
-                                                        <li>
-                                                            <a asp-action="OrderManage" asp-controller="Admin">Quản lí order</a>
-                                                        </li>
-                                                    </ul>
+                                                <li class="menu-item"><a asp-action="index" asp-controller="admin">Admin</a>
+                                            
                                                 </li>
                                             }
                                         </li>
@@ -161,12 +145,12 @@
                                 <div class="tgmenu__action">
                                     <ul class="list-wrap">
 
-                                        <li class="mini-cart-icon">
+                                        @* <li class="mini-cart-icon">
                                             <a href="#" class="cart-count">
                                                 <img src="~/assets/img/icons/cart.svg" class="injectable" alt="img">
                                                 <span class="mini-cart-count">0</span>
                                             </a>
-                                        </li>
+                                        </li> *@
                                       
 
                                         <li class="mini-cart-icon">

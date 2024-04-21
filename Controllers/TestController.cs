@@ -22,7 +22,7 @@ public class TestController : Controller
         var kq=_context.courses.Where(c=>c.Id==CourseId).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay khoa hoc de them bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["CourseId"]=CourseId;
         return View();
@@ -59,7 +59,7 @@ public class TestController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai kiem tra nay");
+            return RedirectToAction("NotFound","Home");
         }
         kq.TestName=test.TestName;
         kq.Time=test.Time;
@@ -73,7 +73,7 @@ public class TestController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
         _context.tests.Remove(kq);
         _context.SaveChanges();
@@ -84,13 +84,13 @@ public class TestController : Controller
     {   
         if(id==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
 
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
         return View(kq);
     }
@@ -98,13 +98,13 @@ public class TestController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
 
         var checkExits=_context.tests.Any(c=>c.Id==id);
         if(checkExits==false)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
         
         var kq=_context.tests.Where(t=>t.Id==id).Include(q=>q.Questions).ThenInclude(a=>a.Answers).FirstOrDefault();
@@ -121,13 +121,13 @@ public class TestController : Controller
         }
         if(id==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
 
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay bai kiem tra");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["id"]=id;
         return View(answers.ToList());

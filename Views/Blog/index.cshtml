@@ -2,21 +2,47 @@
 @{
     int stt=1;
 }
+@{
+    Layout="_LayoutAdmin";
+}
 <style>
-    .btn-custom{
-        display: inline-block;
-        padding:8px;
-        border-radius: 9px;
+    .blog-manage-detail{
+        @* width: 70%; *@
+    }
+    .action{
+        padding: 5px;
         cursor: pointer;
     }
-    .btn-create{
-        color:white;
-        
-        background-color: #5751e1;
+    @* BLOG MANAGE *@
+    .head-content{
+        display: flex;
+        justify-content: space-between;
     }
-    .btn-create:hover{
-        color:white;
-        opacity: 0.85;
+    .input-search{
+        border-radius: 999px;
+        border: 0.5px solid black;
+        padding: 4px;
+        margin-left: 20px;
+    }
+    .btn-search{
+        border: none;
+        background-color: #5751e1;
+        color: white;
+        border-radius: 50%;
+    }
+    @*  *@
+    .btn-add{
+        background-color: #3eb93c;
+    }
+    .btn-custom{
+        @* display: inline-block; *@
+        padding:5px;
+        border-radius: 9px;
+        cursor: pointer;
+        color:rgb(252, 252, 252);
+    }
+    .btn-custom:hover{
+        color:rgb(252, 252, 252);
     }
     .manage-blog{
         display:flex;
@@ -26,12 +52,16 @@
     }
 
 </style>
-<div class="container">
+<div class="container blog-manage-detail">
     <div class="manage-blog">
-        <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 blog</a>
+        <a asp-action="create" class="btn-custom btn-add"> <i class="fa-solid fa-plus"></i> Tạo mới 1 blog</a>
+        <form action="" class="form-search">
+            <input type="text" class="input-search" placeholder="Search For Blog">
+            <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
         <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="index" asp-controller="Post">Quản lí các bài post</a>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
                 <th>STT</th>
@@ -46,9 +76,9 @@
                     <td>@stt</td>
                     <td>@item.BlogName</td>
                     <td>
-                        <a class="btn-custom btn-info" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
-                        <a class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal">
-                                Xóa
+                        <a class="action" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-wrench"></i></a>
+                        <a class="action" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <i class="fa-solid fa-trash"></i>
                                 </a>
     
                                 <!-- The Modal -->

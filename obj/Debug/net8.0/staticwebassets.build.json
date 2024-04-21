@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tVzy+YeE1ZVNmmvrLSTEwoPXpxC9jQ3VhMh+0jHkta0=",
+  "Hash": "wvvsOdfQJpwJhozJmne1JtTFmRoz1zbDAHPrTL7N6+Y=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -4710,6 +4710,25 @@
       "OriginalItemSpec": "wwwroot\\courses.html"
     },
     {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\css\\layout_admin.css",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "css/layout_admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\layout_admin.css"
+    },
+    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\css\\site.css",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -6515,6 +6534,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\english (2).jpg"
     },
     {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\gameblockChainBlog.jpg",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/gameblockChainBlog.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\gameblockChainBlog.jpg"
+    },
+    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\git.pdf",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -6836,6 +6874,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\toeic.jpg"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\toeicBlog.png",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/toeicBlog.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\toeicBlog.png"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\Version\\index.html",

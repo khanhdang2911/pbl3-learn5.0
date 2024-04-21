@@ -19,7 +19,7 @@ public class QuestionController : Controller
     {
         if(TestId==null)
         {
-            return Content("Test ID khong hop le");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["TestId"]=TestId;
         return View();
@@ -35,7 +35,7 @@ public class QuestionController : Controller
         }
         if(TestId==null)
         {
-            return Content("Không tìm thấy bài Test để chỉnh sửa");
+            return RedirectToAction("NotFound","Home");
         }
         List<Answer> answers=new List<Answer>();
         int i=0;
@@ -68,13 +68,13 @@ public class QuestionController : Controller
     {
         if(TestId==null)
         {
-            return Content("Khong tim thay bai kiem tra de chinh sua");
+            return RedirectToAction("NotFound","Home");
         }
         bool checkExits=_context.tests.Any(t=>t.Id==TestId);
         ViewData["TestId"]=TestId;
         if(checkExits==false)
         {
-            return Content("Id cua bai kiem tra khong hop le");
+            return RedirectToAction("NotFound","Home");
         }        
         var kq=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
 
@@ -92,7 +92,7 @@ public class QuestionController : Controller
         }
         if(TestId==null)
         {
-            return Content("Không tìm thấy bài kiểm tra");
+            return RedirectToAction("NotFound","Home");
         }
         Console.WriteLine(questions.Count+" la so luong ");
         List<Answer> answers=new List<Answer>();
@@ -149,7 +149,7 @@ public class QuestionController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay danh muc");
+            return RedirectToAction("NotFound","Home");
         }
         _context.tests.Remove(kq);
         _context.SaveChanges();

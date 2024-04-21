@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -61,13 +62,13 @@ public class AdminController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay User");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         Console.WriteLine(id+"  sdasdsa here");
         if(kq==null)
         {
-            return Content("Khong tim thay user nay dau");
+            return RedirectToAction("NotFound","Home");
         }
         var deleteCourse=_context.courses.Where(c=>c.TeacherId==id).ToList();
         _context.courses.RemoveRange(deleteCourse);
@@ -100,12 +101,12 @@ public class AdminController : Controller
     {
         if(id==null)
         {
-            return Content("Khong tim thay role");
+            return RedirectToAction("NotFound","Home");
         }
         var kq=_context.roles.Where(r=>r.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay Role");
+            return RedirectToAction("NotFound","Home");
         }
         _context.roles.Remove(kq);
         _context.SaveChanges();
@@ -116,7 +117,7 @@ public class AdminController : Controller
         var kq=_context.roles.Where(r=>r.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy Role để chỉnh sửa");
+            return RedirectToAction("NotFound","Home");
         }
         
         return View(kq);
@@ -151,7 +152,7 @@ public class AdminController : Controller
         Users user=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         if(user==null)
         {
-            return Content("Không tìm thấy User để thêm role");
+            return RedirectToAction("NotFound","Home");
         }
         ViewData["user"]=user;
         return View(RoleList);
@@ -163,7 +164,7 @@ public class AdminController : Controller
         var kq=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Không tìm thấy user");
+            return RedirectToAction("NotFound","Home");
         }
         RoleList=RoleList.Where(r=>r.IsChecked==true).ToList();
         
@@ -207,5 +208,17 @@ public class AdminController : Controller
     public IActionResult OrderManage()
     {
         return RedirectToAction("Index","Order");
+    }
+    // Search
+    [HttpPost]
+    public IActionResult SearchUser(string email)
+    {
+        Console.WriteLine("email la:"+email);
+        var kq=_context.users.Where(u=>u.Email.Contains(email)).ToList();
+        foreach(var item in kq)
+        {
+            _context.Entry(item).Collection(r=>r.usersRoles).Load();
+        }
+        return View("Index",kq);        
     }
 }

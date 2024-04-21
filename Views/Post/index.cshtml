@@ -2,28 +2,60 @@
 @{
     int stt=1;
 }
+@{
+    Layout="_LayoutAdmin";
+}
 <style>
-        .btn-custom{
-        display: inline-block;
-        padding:8px;
-        border-radius: 9px;
+    .post-manage-detail{
+        margin-top: 40px;
+        @* width: 80%; *@
+    }
+    .manage-post{
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    @* form search *@
+    .input-search{
+        border-radius: 999px;
+        border: 0.5px solid black;
+        padding: 4px;
+        margin-left: 20px;
+    }
+    .btn-search{
+        border: none;
+        background-color: #5751e1;
+        color: white;
+        border-radius: 50%;
+    }
+    @*  *@
+    .action{
+        padding: 5px;
+    }
+    .delete-btn{
         cursor: pointer;
     }
-    .btn-create{
-        color:white;
-        
-        background-color: #5751e1;
+    .btn-custom{
+        padding: 5px;
+        border-radius: 8px;
+        color:rgb(252, 252, 252);
     }
-    .btn-create:hover{
-        color:white;
-        opacity: 0.85;
+    .btn-custom:hover{
+        color:rgb(252, 252, 252);
+    }
+    .btn-add{
+        background-color: #3eb93c;
     }
 </style>
-<div class="container">
-    <div class="manage-blog">
-        <a asp-action="create" class="btn-custom  btn-create">Tạo mới 1 bài viết</a>
+<div class="container post-manage-detail">
+    <div class="manage-post">
+        <a asp-action="create" class="btn-custom  btn-add">Tạo mới 1 bài viết</a>
+        <form action="" class="form-search">
+            <input type="text" class="input-search" placeholder="Search For Blog">
+            <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
                 <th>STT</th>
@@ -40,9 +72,9 @@
                     <td>@item.PostName</td>
                     <td>@item.Blog.BlogName</td>
                     <td>
-                        <a class="btn-custom btn-info" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
-                        <a class="btn-custom btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-@item.Id">
-                                Xóa
+                        <a class="action" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-wrench"></i></a>
+                        <a class="action delete-btn" data-bs-toggle="modal" data-bs-target="#myModal-@item.Id">
+                                <i class="fa-solid fa-trash"></i>
                                 </a>
     
                                 <!-- The Modal -->
@@ -63,7 +95,7 @@
                                     </div>
                                 </div>
                                 </div>
-                        <a class="btn-custom btn-warning" asp-action="Detail" asp-route-id="@item.Id">Xem bài</a>
+                        <a class="action" asp-action="Detail" asp-route-id="@item.Id"><i class="fa-solid fa-eye"></i></a>
                     </td>
                 </tr>
                 stt++;

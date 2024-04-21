@@ -29,7 +29,7 @@ public class OrderController : Controller
         var kq=_context.orders.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return Content("Khong tim thay hoa don");
+            return RedirectToAction("NotFound","Home");
         }
         _context.orders.Remove(kq);
         _context.SaveChanges();
@@ -40,13 +40,13 @@ public class OrderController : Controller
     // {
     //     if(id==null)
     //     {
-    //         return Content("Khong tim thay hoa don");
+    //         return RedirectToAction("NotFound","Home");
     //     }
 
     //     var order=_context.orders.Where(c=>c.Id==id).FirstOrDefault();
     //     if(order==null)
     //     {
-    //         return Content("Khong tim thay hoa don");
+    //         return RedirectToAction("NotFound","Home");
     //     }
     //     ViewData["user"]=_context.users.Where(c=>c.Id==order.UserId).FirstOrDefault();
     //     ViewData["course"]=_context.courses.Where(c=>c.Id==order.courseId).FirstOrDefault();
