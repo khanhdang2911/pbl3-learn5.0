@@ -3,8 +3,16 @@
     Layout="_LayoutAdmin";
 }
 <style>
-    
-    
+    .CourseFunc{
+        padding: 20px 0;
+        background-color: rgb(255, 255, 255);
+        position: sticky;
+        top:100px;
+    }
+    thead{
+        position: sticky;
+        top:165px;
+    }
     @* head-content *@
     .input-search{
         border-radius: 999px;
@@ -52,17 +60,17 @@
 <div class="container course-manage-detail">
     <div class="CourseFunc" style="display: flex;justify-content: space-between;">
         <a asp-action="Create" class="btn-add btn-custom"><i class="fa-solid fa-plus"></i>Tạo khóa học mới</a>
-        <form action="" class="form-search">
-            <input type="text" class="input-search" placeholder="Search For Course">
+        <form method="post" asp-action="SearchCourse" class="form-search">
+            <input type="text" name="courseName" class="input-search" placeholder="Search For Course">
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div>
             <a asp-action="IndexForCourseNotActive" class=" btn-chuakichhoat" >Khóa học chưa kích hoạt</a>
             <a asp-action="Index" class=" btn-kichhoat" >Khóa học đã kích hoạt</a>
         </div>
-        
+        <hr>
     </div>
-    <hr>
+    
     <div class="row justify-content-center">
         <div class="">
             <table class="table table-bordered table-hover table-responsive">
@@ -139,9 +147,8 @@
 <div id="confirmDeleteModal" class="modal">
     <span class="close">&times;</span>
     <p>Bạn có chắc chắn muốn xóa không?</p>
-    <button id="confirmDeleteBtn" class="btn-danger" style="border-radius: 8px;">Xóa</button>
+    <button id="confirmDeleteBtn" class="btn btn-danger" style="border-radius: 8px;">Xóa</button>
 </div>
-
 @section Scripts {
     <script>
         // Lấy tất cả các nút xóa và gán sự kiện click cho mỗi nút

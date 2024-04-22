@@ -52,22 +52,25 @@ public class UserController : Controller
         if(checkUserExists1!=null)
         {
             ModelState.AddModelError("","Email đã tồn tại");
-            return View();
+            
         }
         var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone).FirstOrDefault();
         if(checkUserExists2!=null)
         {
             ModelState.AddModelError("","Phone đã tồn tại");
-            return View();
+            
         }
         if(string.IsNullOrEmpty(ConfirmPassword)==true)
         {
             ModelState.AddModelError("","Bạn chưa nhập lại mật khẩu");
-            return View();
+            
         }
         if(users.Password!=ConfirmPassword)
         {
             ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
+        }
+        if(ModelState.ErrorCount>=1)
+        {
             return View();
         }
         users.Password=_hashPasswordByBC.HashPassword(users.Password);

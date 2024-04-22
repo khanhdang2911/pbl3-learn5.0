@@ -48,15 +48,24 @@
         display:flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+    }
+    .manage-blog{
+        padding: 20px 0;
+        background-color: rgb(255, 255, 255);
+        position: sticky;
+        top:100px;
+    }
+    thead{
+        position: sticky;
+        top:165px;
     }
 
 </style>
 <div class="container blog-manage-detail">
     <div class="manage-blog">
         <a asp-action="create" class="btn-custom btn-add"> <i class="fa-solid fa-plus"></i> Tạo mới 1 blog</a>
-        <form action="" class="form-search">
-            <input type="text" class="input-search" placeholder="Search For Blog">
+        <form asp-action="SearchBlog" class="form-search">
+            <input type="text" name="blogName" class="input-search" placeholder="Search For Blog">
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="index" asp-controller="Post">Quản lí các bài post</a>
@@ -94,7 +103,7 @@
     
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a type="button" class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
+                                        <a type="button" class="btn btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Xóa</a>
                                     </div>
     
                                     </div>

@@ -455,4 +455,11 @@ public class CourseController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction("Detail","Course",new {id=courseId});
         }
+        // Search Course Admin
+        [HttpPost]
+        public IActionResult SearchCourse(string courseName)
+        {
+            var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)&&c.IsActive==1).Include(c=>c.Category).ToList();
+            return View("Index",kq);
+        }
 }

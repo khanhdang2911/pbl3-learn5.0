@@ -36,17 +36,9 @@
                         <div class="singUp-wrap">
                             <h2 class="title">Create Your Account</h2>
                             <p>Hey there! Ready to join the party? We just need a few details from you to get <br> started. Let's do this!</p>
-                            @* <div class="account__social">
-                                <a href="#" class="account__social-btn">
-                                    <img src="assets/img/icons/google.svg" alt="img">
-                                    Continue with google
-                                </a>
-                            </div>
-                            <div class="account__divider">
-                                <span>or</span>
-                            </div> *@
+                           
                             <form method="post" asp-action="Register" class="account__form">
-                                <div asp-validation-summary="ModelOnly"></div>
+                                @* <div asp-validation-summary="ModelOnly"></div> *@
                                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                                 <div class="form-grp">
                                     <label asp-for="Email">Email</label>
@@ -57,8 +49,8 @@
                                     <input asp-for="Password" type="password" placeholder="password">
                                 </div>
                                 <div class="form-grp">
-                                    <label name="ConfirmPassword" >Nhập lại mật khẩu</label>
-                                    <input name="ConfirmPassword" type="password" placeholder="Nhập lại mật khẩu">
+                                    <label for="ConfirmPassword" >Nhập lại mật khẩu</label>
+                                    <input name="ConfirmPassword" id="ConfirmPassword" type="password" placeholder="Nhập lại mật khẩu">
                                 </div>
                                 <div class="form-grp">
                                     <label asp-for="Name"></label>

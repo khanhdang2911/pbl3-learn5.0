@@ -29,7 +29,7 @@
                             <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in action in no time. Let's go!</p>
 
                             <form method="post" asp-action="Login" class="account__form">
-                                 <div asp-validation-summary="ModelOnly"></div>
+                                 @* <div asp-validation-summary="ModelOnly"></div> *@
                                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                                 <div class="form-grp">
                                     <label for="Email">Email</label>

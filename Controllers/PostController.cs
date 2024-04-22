@@ -149,4 +149,10 @@ public class PostController : Controller
         }
         return View("AllPost",kq);
     }
+    [HttpPost]
+    public IActionResult SearchPost(string postName)
+    {
+        var allPost=(from p in _context.posts select p).Where(p=>p.PostName.Contains(postName)).Include(p=>p.Blog).ToList();
+        return View("Index",allPost);
+    }
 }

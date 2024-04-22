@@ -11,9 +11,18 @@
         @* width: 80%; *@
     }
     .manage-post{
-        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
+    }
+    .manage-post{
+        padding: 20px 0;
+        background-color: rgb(255, 255, 255);
+        position: sticky;
+        top:100px;
+    }
+    thead{
+        position: sticky;
+        top:165px;
     }
     @* form search *@
     .input-search{
@@ -50,8 +59,8 @@
 <div class="container post-manage-detail">
     <div class="manage-post">
         <a asp-action="create" class="btn-custom  btn-add">Tạo mới 1 bài viết</a>
-        <form action="" class="form-search">
-            <input type="text" class="input-search" placeholder="Search For Blog">
+        <form asp-action="SearchPost" class="form-search">
+            <input type="text" name="postName" class="input-search" placeholder="Search For Blog">
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
@@ -90,7 +99,7 @@
     
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a  class="btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id">Delete</a>
+                                        <a  class="btn btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id">Xóa</a>
                                     </div>
                                     </div>
                                 </div>

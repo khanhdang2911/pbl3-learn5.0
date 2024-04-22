@@ -27,11 +27,11 @@
                 </div>
                 <div class="dashboard__left--bottom">
                     <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="Index" asp-controller="Home" >Home</a></div>
-                    <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="Index" asp-controller="Admin">User</a></div>
-                    <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="CourseManage" asp-controller="Admin">Course</a></div>
-                    <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="CategoryManage" asp-controller="Admin">Category</a></div>
-                    <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="BlogManage" asp-controller="Admin">Blog</a></div>
-                    <div class="dashboard__item"><i class="fa-solid fa-house dashboard__icon"></i><a asp-action="OrderManage" asp-controller="Admin">Order</a></div>
+                    <div class="dashboard__item"><i class="fa-solid fa-users dashboard__icon"></i></i><a asp-action="Index" asp-controller="Admin">User</a></div>
+                    <div class="dashboard__item"><i class="fa-solid fa-book dashboard__icon"></i><a asp-action="Index" asp-controller="Course">Course</a></div>
+                    <div class="dashboard__item"><i class="fa-solid fa-table-cells-large dashboard__icon"></i><a asp-action="Index" asp-controller="Category">Category</a></div>
+                    <div class="dashboard__item"><i class="fa-solid fa-blog dashboard__icon"></i><a asp-action="Index" asp-controller="Blog">Blog</a></div>
+                    <div class="dashboard__item"><i class="fa-solid fa-file-invoice-dollar dashboard__icon"></i><a asp-action="Index" asp-controller="Order">Order</a></div>
                 </div>
                 
             </div>
@@ -47,5 +47,19 @@
         </div>
     </main>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        let dashboardItemElement=document.querySelectorAll(".dashboard__item a");
+        var currentUrl = window.location.pathname;
+        console.log(currentUrl);
+        for(let item of dashboardItemElement)
+        {
+            console.log(item.getAttribute("href"));
+            if(item.getAttribute("href")===currentUrl)
+            {
+                item.parentElement.classList.add("isActive");
+            }
+            
+        }
+    </script>
 </body>
 </html>

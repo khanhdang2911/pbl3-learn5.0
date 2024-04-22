@@ -85,4 +85,9 @@ public class BlogController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
+    public IActionResult SearchBlog(string blogName)
+    {
+        var allBlog=(from c in _context.blogs select c).Where(c=>c.BlogName.Contains(blogName)).ToList();
+        return View(allBlog);
+    }
 }
