@@ -254,7 +254,7 @@ public class CourseController : Controller
         }
         //Neu id khac null
         allCourse=_context.courses.Where(c=>c.CategoryId==id).ToList();
-        if(_context.courses.Any(c=>c.CategoryId==id)==false)
+        if(_context.categories.Any(c=>c.Id==id)==false)
         {
             return RedirectToAction("NotFound","Home");
         }
@@ -435,7 +435,7 @@ public class CourseController : Controller
         public async Task<IActionResult> Comment([FromQuery]int courseId, string commentText, int rate)
         {
             int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
-            bool checkUserComment=((_context.usersCourses.Any(u=>u.UsersId==userId))&&(_context.comments.Any(c=>c.UserId==userId&&c.CourseId==courseId))==false);
+            bool checkUserComment=((_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))&&(_context.comments.Any(c=>c.UserId==userId&&c.CourseId==courseId))==false);
             if(checkUserComment==false)
             {
                 return RedirectToAction("NotFound","Home");

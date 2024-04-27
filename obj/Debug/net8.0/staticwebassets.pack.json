@@ -5,16 +5,8 @@
       "PackagePath": "staticwebassets\\PBL3_Course.bundle.scp.css"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\404.html",
-      "PackagePath": "staticwebassets\\404.html"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\Edge\\index.html",
       "PackagePath": "staticwebassets\\Edge\\index.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\GET.html",
-      "PackagePath": "staticwebassets\\GET.html"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\Trident\\index.html",
@@ -23,10 +15,6 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\Version\\index.html",
       "PackagePath": "staticwebassets\\Version\\index.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\about-us.html",
-      "PackagePath": "staticwebassets\\about-us.html"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\animate.min.css",
@@ -977,30 +965,6 @@
       "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\blog-details.html",
-      "PackagePath": "staticwebassets\\blog-details.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\blog.html",
-      "PackagePath": "staticwebassets\\blog.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\contact.html",
-      "PackagePath": "staticwebassets\\contact.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\course-details.html",
-      "PackagePath": "staticwebassets\\course-details.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\course.html",
-      "PackagePath": "staticwebassets\\course.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\courses.html",
-      "PackagePath": "staticwebassets\\courses.html"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\css\\layout_admin.css",
       "PackagePath": "staticwebassets\\css\\layout_admin.css"
     },
@@ -1017,26 +981,6 @@
       "PackagePath": "staticwebassets\\dist\\index.html"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\e.html",
-      "PackagePath": "staticwebassets\\e.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\events-details.html",
-      "PackagePath": "staticwebassets\\events-details.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\events.html",
-      "PackagePath": "staticwebassets\\events.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\forgot-pass.html",
-      "PackagePath": "staticwebassets\\forgot-pass.html"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-add-50.png",
       "PackagePath": "staticwebassets\\img\\icons8-add-50.png"
     },
@@ -1047,26 +991,6 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-fix-50.png",
       "PackagePath": "staticwebassets\\img\\icons8-fix-50.png"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\index-2.html",
-      "PackagePath": "staticwebassets\\index-2.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\index.html",
-      "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\instructor-datails.html",
-      "PackagePath": "staticwebassets\\instructor-datails.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\instructor-details.html",
-      "PackagePath": "staticwebassets\\instructor-details.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\instructors.html",
-      "PackagePath": "staticwebassets\\instructors.html"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\js\\site.js",
@@ -1301,22 +1225,6 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\login.html",
-      "PackagePath": "staticwebassets\\login.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\registration.html",
-      "PackagePath": "staticwebassets\\registration.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\shop-details.html",
-      "PackagePath": "staticwebassets\\shop-details.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\shop.html",
-      "PackagePath": "staticwebassets\\shop.html"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\cursor.html",
       "PackagePath": "staticwebassets\\src\\js\\cursor.html"
     },
@@ -1327,10 +1235,6 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\magnetic.html",
       "PackagePath": "staticwebassets\\src\\js\\magnetic.html"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\t.params.html",
-      "PackagePath": "staticwebassets\\t.params.html"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\BigData.png",

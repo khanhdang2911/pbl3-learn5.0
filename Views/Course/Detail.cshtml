@@ -210,7 +210,7 @@
                             </div>
                             @if(User.Identity.IsAuthenticated)
                             {
-                                @if((_context.usersCourses.Any(u=>u.UsersId==UserIdCurrent))&&(_context.comments.Any(c=>c.UserId==UserIdCurrent&&c.CourseId==Model.Id))==false)
+                                @if((_context.usersCourses.Any(u=>u.UsersId==UserIdCurrent&&u.CourseId==Model.Id))&&(_context.comments.Any(c=>c.UserId==UserIdCurrent&&c.CourseId==Model.Id))==false)
                                 {
                                     <div class="comment-respond">
                                         <h4 class="comment-reply-title">Post a comment</h4>
