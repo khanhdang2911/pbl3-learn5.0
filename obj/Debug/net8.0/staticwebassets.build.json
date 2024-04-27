@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Grxj5jPsRawcirs1V4ZIBGCy6p28DnTXuCrw42YyMlY=",
+  "Hash": "hAvX5z/p+SwfYhjpG71FED5geBuxatNxx8PCpA0mvDE=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -16,44 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PBL3_Course.styles.css",
-      "SourceId": "PBL3_Course",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/PBL3_Course",
-      "RelativePath": "PBL3_Course.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\bundle\\PBL3_Course.styles.css"
-    },
-    {
-      "Identity": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PBL3_Course.bundle.scp.css",
-      "SourceId": "PBL3_Course",
-      "SourceType": "Computed",
-      "ContentRoot": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/PBL3_Course",
-      "RelativePath": "PBL3_Course.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PBL3_Course.bundle.scp.css"
-    },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\assets\\css\\animate.min.css",
       "SourceId": "PBL3_Course",

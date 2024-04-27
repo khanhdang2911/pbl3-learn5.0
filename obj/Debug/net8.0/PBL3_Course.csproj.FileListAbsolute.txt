@@ -263,9 +263,7 @@ D:\PBL3_Course\obj\Debug\net8.0\staticwebassets\msbuild.build.PBL3_Course.props
 D:\PBL3_Course\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PBL3_Course.props
 D:\PBL3_Course\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PBL3_Course.props
 D:\PBL3_Course\obj\Debug\net8.0\staticwebassets.pack.json
-D:\PBL3_Course\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\PBL3_Course\obj\Debug\net8.0\scopedcss\bundle\PBL3_Course.styles.css
-D:\PBL3_Course\obj\Debug\net8.0\scopedcss\projectbundle\PBL3_Course.bundle.scp.css
 D:\PBL3_Course\obj\Debug\net8.0\PBL3_Course.csproj.CopyComplete
 D:\PBL3_Course\obj\Debug\net8.0\PBL3_Course.dll
 D:\PBL3_Course\obj\Debug\net8.0\refint\PBL3_Course.dll

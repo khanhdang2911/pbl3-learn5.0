@@ -1,10 +1,6 @@
 {
   "Files": [
     {
-      "Id": "D:\\PBL3_Course\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\PBL3_Course.bundle.scp.css",
-      "PackagePath": "staticwebassets\\PBL3_Course.bundle.scp.css"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\Edge\\index.html",
       "PackagePath": "staticwebassets\\Edge\\index.html"
     },
