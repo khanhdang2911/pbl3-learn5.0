@@ -87,6 +87,7 @@
                                             <span style="flex-grow: 1;"></span>
                                             @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                                             {
+                                            <a data-id="@item.Id" class="createLesson" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Tạo bài học</a><span>|</span>
                                             <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> <span>|</span>
                                             <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
                                             }
@@ -121,6 +122,7 @@
                                                             {
                                                             <span>|</span> <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
                                                             <span>|</span> <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+                                                            
                                                             }
                                                         
                                                         </li>
@@ -448,6 +450,18 @@
                     event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
                     var chapterId = this.getAttribute('data-id');
                     window.location.href = '/Chapter/Edit/' + chapterId; // Chuyển hướng tới trang chỉnh sửa chương học
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var editChapterLinks = document.querySelectorAll('.createLesson');
+            editChapterLinks.forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+                    var chapterId = this.getAttribute('data-id');
+                    console.log('/Lesson/Create?chapterId=' + chapterId);
+                    window.location.href = '/Lesson/Create?chapterId=' + chapterId; // Chuyển hướng tới trang chỉnh sửa chương học
                 });
             });
         });

@@ -2,10 +2,14 @@
 @using Microsoft.EntityFrameworkCore;
 @model List<int>
 @{
+    int UsersId=0;
+    if(User.Identity.IsAuthenticated)
+    {
+        UsersId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+    }
     var DateTimeNow=DateTime.Now;
     int result=0;
     var ListAns=new List<Answer>();
-    Console.WriteLine("So luong cua model"+Model.Count);
     foreach(var item in Model)
     {
         Answer ans=_context.answers.Where(a=>a.Id==item).FirstOrDefault();
@@ -14,7 +18,6 @@
             ListAns.Add(ans);
         }
     }
-    Console.WriteLine("So luong"+ListAns.Count);
     foreach(var item in ListAns)
     {
         if(item.IsCorrect==1)
@@ -22,24 +25,34 @@
             result++;
         }
     }
-    foreach(var item in ListAns)
-    {
-        Console.WriteLine("Id="+item.Id);
-        Console.WriteLine("Dap an:"+item.AnswerText);
-    }
     int TestId=(int)ViewBag.id;
     var test=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
     
+
+    var usersTest=ViewData["usersTest"] as UsersTest;
+    @* Lich su lam bai *@
+    
+    List<UsersTest> TestSubmitedOfUser=new List<UsersTest>();
+    if (_context.usersTests.Count() > 1)
+    {
+        TestSubmitedOfUser = _context.usersTests.Where(c => c.UsersId == UsersId && c.TestId == TestId).Take(_context.usersTests.Count() - 1).ToList();
+    }
 }
 <div class="container message">
     <h3>Đề:@test.TestName</h3>
     <h5>Bạn làm đúng được @result/ @test.NumberOfQuestion câu</h5>
     <h6>Tổng điểm:@(result*1)</h6>
-    <p><strong>Hoàn thành vào lúc</strong> @DateTimeNow</p>
+    <p><strong>Hoàn thành vào lúc:</strong>@usersTest.DateSubmited.ToString("MM/dd/yyyy h:mm tt")</p>
+    <h6 style="color: red;">Lịch sử các lần đã làm trước đó:</h6>
+    @foreach(var item in TestSubmitedOfUser)
+    {
+        <p>Ngày hoàn thành:@item.DateSubmited &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: black;">Điểm</span>:@item.correctAnswer </p>
+    }
+    
     
 </div>
     
-<div class="content">
+<div class="content" style="width: 60%;margin: 50px auto 50px;">
         @{
             int i=0;
         }
@@ -122,7 +135,7 @@
         color:red;
     }
     .message{
-        width: 50%;
+        width: 60%;
         margin-top: 50px;
         padding: 30px;
         background-color: rgb(235, 243, 243);

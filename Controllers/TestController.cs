@@ -111,25 +111,37 @@ public class TestController : Controller
 
         return View(kq);
     }
-    public IActionResult SubmitTest(int?id,[FromForm] int []answers)
+    public async Task<IActionResult> SubmitTest(int id,[FromForm] int []answers)
     {
-        int i=0;
-        foreach(var item in answers)
-        {
-            i++;
-            Console.WriteLine("dap an ne:"+i+"   "+item);
-        }
-        if(id==null)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
+        
 
-        var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
+        var kq=await _context.tests.Where(c=>c.Id==id).FirstOrDefaultAsync();
         if(kq==null)
         {
             return RedirectToAction("NotFound","Home");
         }
         ViewData["id"]=id;
+
+
+        // Luu lich su bai thi
+        int userID=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        UsersTest usersTest=new UsersTest();
+        usersTest.UsersId=userID;
+        usersTest.TestId=id;
+        usersTest.DateSubmited=DateTime.Now;
+        int correctAns=0;
+        Console.WriteLine(answers.Count()+" vcl that");
+        foreach(var item in answers.ToList())
+        {
+            if(_context.answers.Any(c=>c.Id==item&&c.IsCorrect==1))
+            {
+                correctAns++;
+            }
+        }
+        usersTest.correctAnswer=correctAns;
+        await _context.usersTests.AddAsync(usersTest);
+        await _context.SaveChangesAsync();
+        ViewData["usersTest"]=usersTest;
         return View(answers.ToList());
     }
 

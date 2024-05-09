@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PBL3_Course.Models;
 
 namespace PBL3_Course
 {
@@ -21,6 +22,9 @@ namespace PBL3_Course
         public ICollection<UsersCourse>? usersCourses{set;get;}
         public ICollection<Course>? courses{set;get;}
         public ICollection<Comment>? comments{set;get;}
+
+
+        public List<UsersTest>? usersTests{set;get;}
 
 
     }

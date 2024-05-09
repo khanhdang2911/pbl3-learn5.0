@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PBL3_Course.Models;
 
@@ -11,9 +12,11 @@ using PBL3_Course.Models;
 namespace PBL3_Course.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240509122454_Add_UserTest")]
+    partial class Add_UserTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,7 +232,7 @@ namespace PBL3_Course.Migrations
                     b.Property<int>("correctAnswer")
                         .HasColumnType("int");
 
-                    b.HasKey("UsersId", "TestId", "DateSubmited");
+                    b.HasKey("UsersId", "TestId");
 
                     b.HasIndex("TestId");
 

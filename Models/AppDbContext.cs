@@ -21,6 +21,11 @@ namespace PBL3_Course.Models
             modelBuilder.Entity<UsersCourse>(options=>{
                 options.HasKey(u=>new{u.UsersId, u.CourseId});
             });
+
+            modelBuilder.Entity<UsersTest>(options=>{
+                options.HasKey(u=>new{u.UsersId, u.TestId,u.DateSubmited});
+            });
+
         }
         public DbSet<Course> courses{set;get;}
         public DbSet<Lesson>lessons{set;get;}
@@ -39,8 +44,9 @@ namespace PBL3_Course.Models
         public DbSet<Order> orders{set;get;}
         public DbSet<Comment> comments{set;get;}
         public DbSet<Blog> blogs{set;get;}
-        public DbSet<Post> posts{set;get;}
+        public DbSet<Post> posts{set;get;}  
 
+        public DbSet<UsersTest> usersTests{set;get;}
        
     }
 }

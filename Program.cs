@@ -16,7 +16,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.WebHost.ConfigureKestrel(options=>{
     options.Limits.MaxRequestBodySize=512*1024*1024;
     options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(50); // Thời gian chờ mặc định là 10 phút
-
 });
 builder.Services.AddSingleton<HashPasswordByBC>();
 builder.Services.Configure<FormOptions>(options =>

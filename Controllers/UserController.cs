@@ -334,19 +334,29 @@ public class UserController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
+        if(string.IsNullOrWhiteSpace(oldPassword)||string.IsNullOrWhiteSpace(newpassword)||string.IsNullOrWhiteSpace(newpasswordConfirm))
+        {
+            ModelState.AddModelError("","Bạn chưa nhập đủ thông tin, xin hãy nhập lại");
+            return View(kq);
+        }
         if(_hashPasswordByBC.VerifyPassword(oldPassword,kq.Password)==false)
         {
             ModelState.AddModelError("","Mật khẩu cũ không chính xác");
-            return View(kq);
+            
         }
+        
         if(newpassword!=newpasswordConfirm)
         {
             ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
-            return View(kq);
+            
         }
         if(_hashPasswordByBC.VerifyPassword(newpassword,kq.Password))
         {
             ModelState.AddModelError("","Mật khẩu mới không được trùng mật khẩu cũ");
+            
+        }
+        if(ModelState.ErrorCount>0)
+        {
             return View(kq);
         }
         _context.Entry(kq).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
