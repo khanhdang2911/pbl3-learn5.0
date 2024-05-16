@@ -264,13 +264,10 @@ public class UserController : Controller
         }
         else if(UsersId.ToString()!=User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value)
         {
-            return RedirectToAction("Forbidden","User");
-        }
-
-        if(UsersId==null)
-        {
             return RedirectToAction("NotFound","Home");
         }
+
+
         var kq=_context.users.Where(u=>u.Id==UsersId).FirstOrDefault();
         if(kq==null)
         {
@@ -374,6 +371,9 @@ public class UserController : Controller
     {
         return View();
     }
+
+    //Thong ke cho teacher
+    
     
 
     

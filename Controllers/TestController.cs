@@ -82,6 +82,12 @@ public class TestController : Controller
 
     public IActionResult DetailNote(int ?id)//Trước khi người dùng click vào để làm bài
     {   
+        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+
+        if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==id)==false)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
         if(id==null)
         {
             return RedirectToAction("NotFound","Home");
@@ -96,6 +102,12 @@ public class TestController : Controller
     }
     public IActionResult Detail(int ?id)
     {
+        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+
+        if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==id)==false)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
         if(id==null)
         {
             return RedirectToAction("NotFound","Home");

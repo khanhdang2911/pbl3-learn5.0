@@ -1,45 +1,43 @@
 @using Microsoft.EntityFrameworkCore
 @inject AppDbContext _context
 @model Users
-@{
-    int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id")?.Value.ToString());
-    var allCourseOfUser=_context.courses.Where(c=>c.TeacherId==UserId).ToList();
 
-    var getCourseUser=(from u in _context.usersCourses join c in _context.courses on u.CourseId equals c.Id where u.UsersId==UserId select c).ToList();
+@{
+    int UserId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value.ToString());
+    var allCourseOfUser = _context.courses.Where(c => c.TeacherId == UserId).ToList();
+
+    var getCourseUser = (from u in _context.usersCourses
+                         join c in _context.courses on u.CourseId equals c.Id
+                         where u.UsersId == UserId
+                         select c).ToList();
 }
 
 <div style="border: 1px solid rgba(43, 37, 37, 0.527); width: 70%; margin: 50px auto 25px;"></div>
 <div class="profile">
     <div class="info">
-        <form  method="post" asp-action="EditUser" asp-route-UsersId="@Model.Id" style="margin: 0 auto;">
+        <form method="post" asp-action="EditUser" asp-route-UsersId="@Model.Id" style="margin: 0 auto;">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for ="Email" class="control-label" ></label>
+                <label asp-for="Email" class="control-label"></label>
                 <input type="text" asp-for="Email" class="form-control">
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-
             <div class="form-group">
-                    @* <label asp-for ="Password" class="control-label" ></label> *@
-   
-                    <input type="hidden" asp-for="Password" class="form-control" value="@Model.Password">
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-            
+                <input type="hidden" asp-for="Password" class="form-control" value="@Model.Password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
             <div class="form-group">
-                <label asp-for ="Name" class="control-label" ></label>
+                <label asp-for="Name" class="control-label"></label>
                 <input type="text" asp-for="Name" class="form-control">
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for ="Phone" class="control-label" ></label>
+                <label asp-for="Phone" class="control-label"></label>
                 <input type="text" asp-for="Phone" class="form-control">
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <a asp-action="ChangePassword" asp-controller="User" asp-route-id="@Model.Id">Đổi mật khẩu</a>
             <hr>
-            
-
             <input type="submit" class="btn btn-success" value="Lưu thông tin">
         </form>
     </div>
@@ -47,16 +45,16 @@
     <div class="courseOfUser">
         <h5 style="margin-bottom: 30px;">Các khóa học của tôi</h5>
         <ul>
-            @foreach(var item in allCourseOfUser)
+            @foreach (var item in allCourseOfUser)
             {
-                if(item.IsActive==1)
+                if (item.IsActive == 1)
                 {
                     <li><a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.CourseName</a></li>
                 }
             }
-            @foreach(var item in getCourseUser)
+            @foreach (var item in getCourseUser)
             {
-                if(item.IsActive==1)
+                if (item.IsActive == 1)
                 {
                     <li>
                         <a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.CourseName</a>
@@ -67,13 +65,95 @@
         </ul>
     </div>
 </div>
+
+@if(User.IsInRole("Teacher"))
+{
+    <div class="container report-detail">
+    <!-- Button to Open the Modal -->
+    <button type="button" class="report-detail-button btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        Xem Thống kê Khóa học
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Thống kê cho giáo viên</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    @foreach(var course in allCourseOfUser)
+                    {
+                        <div class="course-info">
+                            <h4>Tên khóa học: @course.CourseName</h4>
+                            <p>Số lượng học viên tham gia: 200 học viên</p>
+                            <p>Đánh giá trung bình của học viên: 4.5 <i class="fa-solid fa-star" style="color:yellow"></i></p>
+                            <p>Số lượt xem video: 90000 lượt</p>
+                            <ul class="lesson-favourite">
+                                    <li>Học lập trình bài 1: 100 lượt xem</li>
+                                    <li>Học lập trình bài 1: 100 lượt xem</li>
+                                    <li>Học lập trình bài 1: 100 lượt xem</li>
+                            </ul>
+                            <p>Tổng số lượt làm bài tập của học viên: 867 lượt</p>
+                        </div>
+                    }
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+
 <style>
-    .profile{
+    .profile {
         display: flex;
         justify-content: center;
         gap: 140px;
     }
-    .info{
+    .info {
         width: 300px;
     }
+    .report-detail {
+        width: 55%;
+    }
+    .report-detail {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    }
+
+    .course-info {
+        margin-bottom: 30px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .lesson-favourite {
+        list-style: none;
+        padding: 0;
+    }
+
+    .lesson-favourite li {
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    .report-detail-button{
+        border-radius: 99px;
+        padding: 4px;
+    }
+
 </style>
+
+
+
+

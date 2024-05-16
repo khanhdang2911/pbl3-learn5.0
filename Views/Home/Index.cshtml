@@ -101,7 +101,7 @@
                                     <div class="swiper-slide">
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
-                                                <a  class="shine__animate-link">
+                                                <a asp-action="detail" asp-controller="course" asp-route-id="@item.Id" class="shine__animate-link">
                                                     <img src="~/@item.CourseImageLink" alt="img">
                                                 </a>
                                             </div>
@@ -112,7 +112,7 @@
                                                     </li>
                                                     <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
                                                 </ul>
-                                                <h5 class="title"><a >@item.CourseName</a></h5>
+                                                <h5 class="title"><a asp-action="detail" asp-controller="course" asp-route-id="@item.Id">@item.CourseName</a></h5>
                                                 <p class="author">By <a >@item.Teacher.Name</a></p>
                                                 <div class="courses__item-bottom">
                                                     <div class="button">

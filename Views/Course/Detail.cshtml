@@ -150,7 +150,13 @@
                     @foreach(var item in Model.Tests)
                     {
                         <li style="padding: 5px;" >
-                            <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
+                            @if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)
+                            {
+                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;pointer-events: none;cursor: default;" >@item.TestName</a>
+                            }
+                            else{
+                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
+                            }
                             @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {
                                 <a class="delete-btn btn-danger delete-test" data-id="@item.Id" class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
