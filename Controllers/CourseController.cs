@@ -102,6 +102,7 @@ public class CourseController : Controller
             }
         }
         
+        
         return View(kq);
     }
     [HttpGet]
@@ -187,8 +188,14 @@ public class CourseController : Controller
     }
     [HttpPost]
     [AllowAnonymous]
-    public IActionResult Search(string courseName)
+    public async Task<IActionResult> Search(string courseName)
     {
+        var query=_context.courses;
+        if(string.IsNullOrWhiteSpace(courseName))
+        {
+            var AllCourse=await query.ToListAsync();
+            return View("AllCourse",AllCourse);
+        }
         var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
         return View("AllCourse",kq);
     }

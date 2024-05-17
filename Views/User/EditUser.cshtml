@@ -4,7 +4,7 @@
 
 @{
     int UserId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value.ToString());
-    var allCourseOfUser = _context.courses.Where(c => c.TeacherId == UserId).ToList();
+    var allCourseOfUser = _context.courses.Include(c=>c.chapters).ThenInclude(c=>c.lessons).Where(c => c.TeacherId == UserId).ToList();
 
     var getCourseUser = (from u in _context.usersCourses
                          join c in _context.courses on u.CourseId equals c.Id
@@ -63,19 +63,13 @@
                 }
             }
         </ul>
-    </div>
-</div>
-
-@if(User.IsInRole("Teacher"))
-{
-    <div class="container report-detail">
-    <!-- Button to Open the Modal -->
-    <button type="button" class="report-detail-button btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-        Xem Thống kê Khóa học
-    </button>
-
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+        @if(User.IsInRole("Teacher")){
+            <button type="button" class="report-detail-button btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                Xem Thống kê Khóa học
+            </button>
+        }
+        
+        <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -88,17 +82,42 @@
                 <div class="modal-body">
                     @foreach(var course in allCourseOfUser)
                     {
+                        var studentIncourse=_context.usersCourses.Where(c=>c.CourseId==course.Id).ToList();
+                        var starAvg=studentIncourse.Where(c=>c.rate!=null).Average(c=>c.rate);
+                        var totalView=0;
+                        var totalTestOfCourse = _context.tests.Include(c=>c.usersTests).Where(c=>c.CourseId==course.Id).ToList();
+                        var sumViewTest=0;
+                        foreach(var item in course.chapters)
+                        {
+                            totalView+=item.lessons.Sum(c=>c.View);
+                        }
                         <div class="course-info">
                             <h4>Tên khóa học: @course.CourseName</h4>
-                            <p>Số lượng học viên tham gia: 200 học viên</p>
-                            <p>Đánh giá trung bình của học viên: 4.5 <i class="fa-solid fa-star" style="color:yellow"></i></p>
-                            <p>Số lượt xem video: 90000 lượt</p>
+                            <p>Số lượng học viên tham gia: @studentIncourse.Count học viên</p>
+                            <p>Đánh giá trung bình của học viên: @starAvg <i class="fa-solid fa-star" style="color:yellow"></i></p>
+                            <p>Số lượt xem video: @totalView lượt</p>
                             <ul class="lesson-favourite">
-                                    <li>Học lập trình bài 1: 100 lượt xem</li>
-                                    <li>Học lập trình bài 1: 100 lượt xem</li>
-                                    <li>Học lập trình bài 1: 100 lượt xem</li>
+                                    @foreach(var item in course.chapters)
+                                    {
+                                        if(item.lessons!=null)
+                                        {
+                                            foreach(var lesson in item.lessons)
+                                            {
+                                                <li>&nbsp;&nbsp;&nbsp; @lesson.LessonName: @lesson.View lượt xem</li>
+                                            }
+                                        }
+                                    }
                             </ul>
-                            <p>Tổng số lượt làm bài tập của học viên: 867 lượt</p>
+                            
+                            <p>Chi tiết số lượt làm bài tập của học viên:</p>
+                            <ul>
+                                @foreach(var item in totalTestOfCourse)
+                                {
+                                    var viewTest=item.usersTests.Count;
+
+                                    <li>&nbsp;&nbsp;&nbsp; @item.TestName : @viewTest lượt </li>
+                                }
+                            </ul>
                         </div>
                     }
                 </div>
@@ -109,26 +128,30 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 </div>
 
-}
+
+
+<div class="container report-detail">
+    <!-- Button to Open the Modal -->
+    
+
+    <!-- The Modal -->
+    
+</div>
+
 
 <style>
     .profile {
         display: flex;
         justify-content: center;
         gap: 140px;
+        padding-bottom: 50px;
     }
     .info {
         width: 300px;
-    }
-    .report-detail {
-        width: 55%;
-    }
-    .report-detail {
-    margin-top: 50px;
-    margin-bottom: 100px;
     }
 
     .course-info {
@@ -138,20 +161,10 @@
         border-radius: 5px;
     }
 
-    .lesson-favourite {
-        list-style: none;
-        padding: 0;
-    }
-
-    .lesson-favourite li {
-        margin-bottom: 5px;
-        font-size: 14px;
-    }
     .report-detail-button{
         border-radius: 99px;
         padding: 4px;
     }
-
 </style>
 
 

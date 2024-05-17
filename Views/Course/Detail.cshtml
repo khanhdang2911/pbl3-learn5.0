@@ -3,9 +3,10 @@
 @inject IHttpContextAccessor HttpContextAccessor
 @inject AppDbContext _context
 @{
-    Users Teacher=(from c in _context.courses join u in _context.users on Model.TeacherId equals u.Id select u).First();
+    Users Teacher=_context.users.FirstOrDefault(c=>c.Id==Model.TeacherId);
+
     _context.Entry(Model).Collection(c=>c.Tests).Load();
-    int? UserIdCurrent = HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
+    int? UserIdCurrent = User.Claims.FirstOrDefault(c => c.Type == "Id")?.Value != null 
                                                     ? int.Parse(HttpContextAccessor.HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value) 
                                                     : null;
     var AllComments=_context.comments.Where(c=>c.CourseId==Model.Id).Include(c=>c.User).ToList();
@@ -150,12 +151,14 @@
                     @foreach(var item in Model.Tests)
                     {
                         <li style="padding: 5px;" >
-                            @if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)
+                            
+                            
+                            @if(UserIdCurrent==Teacher.Id){
+                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
+                            }
+                            else if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)
                             {
                                 <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;pointer-events: none;cursor: default;" >@item.TestName</a>
-                            }
-                            else{
-                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
                             }
                             @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {

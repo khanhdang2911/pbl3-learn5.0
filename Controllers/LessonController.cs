@@ -67,7 +67,6 @@ public class LessonController : Controller
                 lesson.DocumentFile.CopyTo(fileStream);
             }
             lesson.DocumentLink=$"uploads/{lesson.DocumentFile.FileName}";
-            Console.WriteLine("Toi upload link doc");
         }
         int courseId=_context.chapters.Where(c=>c.Id==chapterId).Select(c=>c.CourseId).FirstOrDefault();
         lesson.ChapterId=chapterId;
@@ -76,17 +75,19 @@ public class LessonController : Controller
         return RedirectToAction("Detail","Course",new {id=courseId});
     }
 
-    public IActionResult Detail(int? id)
+    public async Task<IActionResult> Detail(int? id)
     {
         if(id==null)
         {
             return RedirectToAction("NotFound","Home");
         }
-        var kq=_context.lessons.Where(c=>c.Id==id).FirstOrDefault();
+        var kq=await _context.lessons.Where(c=>c.Id==id).FirstOrDefaultAsync();
         if(kq==null)
         {
             return RedirectToAction("NotFound","Home");
         }
+        kq.View++;
+        await _context.SaveChangesAsync();
         return View(kq);
     }
     [HttpGet]

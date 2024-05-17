@@ -33,6 +33,7 @@ namespace PBL3_Course
         public IFormFile? DocumentFile{set;get;}
         public string? DocumentLink{set;get;} 
         public int? IsFree{set;get;}
+        public int View{set;get;}=0;
         
     }
 }
