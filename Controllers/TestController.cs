@@ -83,43 +83,62 @@ public class TestController : Controller
     public IActionResult DetailNote(int ?id)//Trước khi người dùng click vào để làm bài
     {   
         int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-
-        if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==id)==false)
+        var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
+        if(kq==null)
         {
+                        Console.WriteLine("1 nekkkkkkkkkkkkk");
+
+            return RedirectToAction("NotFound","Home");
+        }
+        //check xem phai giao vien cua khoa hoc do hay khong
+        var Course=_context.courses.Find(kq.CourseId);
+        if(UserId==Course.TeacherId)
+        {
+            
+        }
+        else if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==Course.Id)==false)
+        {
+                        Console.WriteLine("2 nekkkkkkkkkkkkk");
+
             return RedirectToAction("NotFound","Home");
         }
         if(id==null)
         {
+                        Console.WriteLine("3 nekkkkkkkkkkkkk");
+
             return RedirectToAction("NotFound","Home");
         }
 
-        var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
-        if(kq==null)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
+        
         return View(kq);
     }
     public IActionResult Detail(int ?id)
     {
-        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-
-        if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==id)==false)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
-        if(id==null)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
-
         var checkExits=_context.tests.Any(c=>c.Id==id);
         if(checkExits==false)
         {
             return RedirectToAction("NotFound","Home");
         }
-        
+        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+
+
         var kq=_context.tests.Where(t=>t.Id==id).Include(q=>q.Questions).ThenInclude(a=>a.Answers).FirstOrDefault();
+        var Course=_context.courses.Find(kq.CourseId);
+        if(UserId==Course.TeacherId)
+        {
+            
+        }
+        else if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==Course.Id)==false)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
+        if(id==null)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
+
+        
+        
 
         return View(kq);
     }

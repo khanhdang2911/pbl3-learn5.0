@@ -153,7 +153,7 @@
                         <li style="padding: 5px;" >
                             
                             
-                            @if(UserIdCurrent==Teacher.Id){
+                        @if(UserIdCurrent==Teacher.Id || _context.usersCourses.Any(c=>c.UsersId==UserIdCurrent)==true){
                                 <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
                             }
                             else if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)

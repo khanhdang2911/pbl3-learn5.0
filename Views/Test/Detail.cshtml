@@ -9,13 +9,13 @@
             @foreach(var item in Model.Questions){
                 int j=0;
                 <div class="exam__question" id="exam__question-@(i+1)">
-                    <h5 class="exam__question--text">Câu @(i+1): @item.QuestionName </h5>
+                    <h5 style="color:black;" class="exam__question--text">Câu @(i+1): @Html.Raw(item.QuestionName) </h5>
                 </div>
                 <div class="exam__answer">
                     @foreach(var ans in item.Answers)
                     {
                         Console.WriteLine("Id cua item"+ans.Id);
-                        <input type="radio" name="answer[@i]" id="answer-@(i*4+j)" value="@ans.Id">
+                        <input type="radio" class="question-title-@i" name="answer[@i]" id="answer-@(i*4+j)" value="@ans.Id">
                         <label for="answer-@(i*4+j)">@ans.AnswerText</label>
                         <br>
                         j++;
@@ -32,12 +32,13 @@
         <div class="btn-question">
             @for(int j=0;j<soCauhoi;j++)
             {
-                <div class="btn-question__detail"><button type="button"  class="btn-question__review time-button" onclick="goToQuestion('exam__question-@(j+1)')">@(j+1)</button></div>
+                <div class="btn-question__detail"><button type="button" id="btn-question-@j" class="btn-question__review time-button" onclick="goToQuestion('exam__question-@(j+1)')">@(j+1)</button></div>
             }
         </div>
    </div>
 </form>
 <style>
+    
     .exam{
         display:flex;
         justify-content: space-between;
@@ -113,7 +114,6 @@
         let prefixSecond=seconds<10?"0":"";
             seconds--;
             clockElement.innerHTML=` Thời gian còn lại: <strong>${prefixMinute}${minutes}:${prefixSecond}${seconds}</strong>`;
-            console.log(`${hours}:${minutes}:${seconds}`);
             if(hours===0&&minutes===0&&seconds===0)
             {
                 clearInterval(clearClock);
@@ -152,6 +152,18 @@
         });
     }
     
-
+    for(let i=0;i<@Model.Questions.Count;i++)
+    {
+        let inputQuestion=document.querySelectorAll(".question-title-"+i);
+        inputQuestion.forEach(input=>{
+            input.onclick=function(e)
+            {
+                document.querySelector("#btn-question-"+i).style.backgroundColor="#1084b0";
+                document.querySelector("#btn-question-"+i).style.color="white";
+                document.querySelector("#btn-question-"+i).style.border="none";
+            }
+            
+        })
+    }
 </script>
 

@@ -142,7 +142,8 @@ public class QuestionController : Controller
         //     i+=4;
         // }
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index","Home");
+        int courseId=_context.tests.Where(c=>c.Id==TestId).Select(c=>c.CourseId).First();
+        return RedirectToAction("Detail","Course",new {id=courseId});
     }
     public IActionResult Delete(int? id)
     {

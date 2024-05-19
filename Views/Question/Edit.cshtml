@@ -20,7 +20,8 @@
         {
             <div class="question-area">
                 <label for="questions[@i].QuestionName"  required ><strong>Nhập câu hỏi @(i+1):</strong></label>
-                <input type="text" name="questions[@i].QuestionName" id="questions[@i].QuestionName" asp-for="@item.QuestionName" required class="input-text">
+                @* <input type="text" name="questions[@i].QuestionName" id="questions[@i].QuestionName" asp-for="@item.QuestionName" required class="input-text"> *@
+                <textarea name="questions[@i].QuestionName" id="questions[@i].QuestionName" asp-for="@item.QuestionName" required></textarea>
                 <input type="hidden" name="questions[@i].TestId"  value="@TestId">
                 <br>
                 <label for="">Nhập đáp án:</label>
@@ -30,7 +31,14 @@
                 }
                 @foreach(var ans in item.Answers)
                 {
-                    <input type="text" name="answerText[@(i*4+j)]" required class="input-text" asp-for="@ans.AnswerText"> <input type="radio" class="input-radio"  name="answerCorrect[@i]" required value="@j"><br>
+                    <input type="text" name="answerText[@(i*4+j)]" required class="input-text" asp-for="@ans.AnswerText">
+                    if(ans.IsCorrect==1)
+                    {
+                        <input type="radio" class="input-radio" checked name="answerCorrect[@i]" required value="@j"><br>
+                    }
+                    else{
+                        <input type="radio" class="input-radio"  name="answerCorrect[@i]" required value="@j"><br>
+                    }
                     j++;
                 }
                 
@@ -38,7 +46,7 @@
             </div>
             ++i;
         }
-        <input type="submit" value="Sửa bài thi" class="btn-danger">
+        <input type="submit" value="Sửa bài thi" class="btn-danger btn-edit">
     </form>
 </div>
 <style>
@@ -68,6 +76,7 @@
         justify-content: center;
         align-items: center;
         margin: 0 auto;
+        padding-bottom: 50px;
     }
     input,button,textarea,label{
         color: black;

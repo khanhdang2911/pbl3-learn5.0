@@ -30,7 +30,7 @@ public class UserController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        return RedirectToAction("NotFound","Home");
     }
     public IActionResult Forbidden()
     {
@@ -110,18 +110,18 @@ public class UserController : Controller
             var CheckRoleNameForUser=(from u in _context.users join r in _context.usersRoles on kq.Id equals r.UsersId select r).ToList();
             if(CheckRoleNameForUser.Count==0)
             {
-                claims.Add(new Claim(ClaimTypes.Role,"Guest"));
-                Role role=new Role();
-                var checkRoleExists=_context.roles.Where(r=>r.RoleName=="Guest").FirstOrDefault();
-                if(checkRoleExists==null)
-                {
-                    role.RoleName="Guest";
-                    _context.roles.Add(role);
-                    _context.SaveChanges();
-                }
+                // claims.Add(new Claim(ClaimTypes.Role,"Guest"));
+                // Role role=new Role();
+                // var checkRoleExists=_context.roles.Where(r=>r.RoleName=="Guest").FirstOrDefault();
+                // if(checkRoleExists==null)
+                // {
+                //     role.RoleName="Guest";
+                //     _context.roles.Add(role);
+                //     _context.SaveChanges();
+                // }
                 UsersRole roleUsers=new UsersRole();
                 roleUsers.UsersId=kq.Id;
-                roleUsers.RoleId=_context.roles.Where(r=>r.RoleName=="Guest").Select(r=>r.Id).FirstOrDefault();
+                roleUsers.RoleId=_context.roles.Where(r=>r.RoleName=="Student").Select(r=>r.Id).FirstOrDefault();
 
                 _context.usersRoles.Add(roleUsers);
                 _context.SaveChanges();

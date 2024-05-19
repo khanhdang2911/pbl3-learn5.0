@@ -147,7 +147,7 @@ public class AdminController : Controller
         List<RoleCheckbox> RoleList=new List<RoleCheckbox>();
         foreach(var item in _context.roles)
         {
-            RoleList.Add(new RoleCheckbox(){Id=item.Id,RoleName=item.RoleName,IsChecked=false});
+                RoleList.Add(new RoleCheckbox(){Id=item.Id,RoleName=item.RoleName,IsChecked=false});
         }
         Users user=_context.users.Where(u=>u.Id==id).FirstOrDefault();
         if(user==null)
