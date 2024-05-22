@@ -961,6 +961,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\generalUse.css",
+      "PackagePath": "staticwebassets\\css\\generalUse.css"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\css\\layout_admin.css",
       "PackagePath": "staticwebassets\\css\\layout_admin.css"
     },
@@ -1275,6 +1279,10 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Photogr.jpg",
       "PackagePath": "staticwebassets\\uploads\\Photogr.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners 2_ Installing Required Tools.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners 2_ Installing Required Tools.mp4"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React.png",

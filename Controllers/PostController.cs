@@ -114,6 +114,7 @@ public class PostController : Controller
         kq.DateCreatedOrEdited=DateTime.Now;
         kq.PostContent=post.PostContent;
         kq.BlogId=post.BlogId;
+        kq.ImageLink=post.ImageLink;
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");

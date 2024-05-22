@@ -107,8 +107,15 @@
                                                                 <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                                 </a>
+
                                                             }
                                                             else if(_context.usersCourses.Any(u=>u.UsersId==UserIdCurrent&&u.CourseId==Model.Id))
+                                                            {
+                                                                <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
+                                                                <span class="item-name">@lesson.LessonName</span>
+                                                                </a>
+                                                            }
+                                                            else if(User.IsInRole("Teacher")&&Model.TeacherId==UserIdCurrent)
                                                             {
                                                                 <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
@@ -153,7 +160,7 @@
                         <li style="padding: 5px;" >
                             
                             
-                        @if(UserIdCurrent==Teacher.Id || _context.usersCourses.Any(c=>c.UsersId==UserIdCurrent)==true){
+                        @if(UserIdCurrent==Teacher.Id || _context.usersCourses.Any(c=>c.UsersId==UserIdCurrent)==true||User.IsInRole("Admin")){
                                 <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
                             }
                             else if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)
@@ -257,6 +264,8 @@
                 </div>
             </div>
 </section>
+
+                                                                
 <!-- blog-details-area-end -->
 
 

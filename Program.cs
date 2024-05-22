@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 using PBL3_Course.Services;
+using PBL3_Course.Security.Requirements;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,8 +31,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LoginPath="/User/Login";
         // options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
         // options.SlidingExpiration = true;
-        options.AccessDeniedPath = "/Login/Forbidden/";
+        options.AccessDeniedPath = "/Home/NotFound/";
     });
+builder.Services.AddAuthorization(options=>{
+    options.AddPolicy("TeacherInCourse",policybuilder=>{
+        policybuilder.RequireRole("Teacher");
+        policybuilder.AddRequirements(new TeacherInCourse());
+    });
+});
+builder.Services.AddTransient<IAuthorizationHandler,AppAuthorizationHandler>();
+
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddSingleton<IVnPayServices, VnPayService>();

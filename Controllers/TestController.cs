@@ -82,32 +82,32 @@ public class TestController : Controller
 
     public IActionResult DetailNote(int ?id)//Trước khi người dùng click vào để làm bài
     {   
+        if(id==null)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
         int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-                        Console.WriteLine("1 nekkkkkkkkkkkkk");
 
             return RedirectToAction("NotFound","Home");
         }
         //check xem phai giao vien cua khoa hoc do hay khong
         var Course=_context.courses.Find(kq.CourseId);
-        if(UserId==Course.TeacherId)
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UserId==Course.TeacherId)
         {
             
         }
         else if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==Course.Id)==false)
         {
-                        Console.WriteLine("2 nekkkkkkkkkkkkk");
-
             return RedirectToAction("NotFound","Home");
         }
-        if(id==null)
-        {
-                        Console.WriteLine("3 nekkkkkkkkkkkkk");
-
-            return RedirectToAction("NotFound","Home");
-        }
+        
 
         
         return View(kq);
@@ -119,12 +119,17 @@ public class TestController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
-        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        
 
 
         var kq=_context.tests.Where(t=>t.Id==id).Include(q=>q.Questions).ThenInclude(a=>a.Answers).FirstOrDefault();
+        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
         var Course=_context.courses.Find(kq.CourseId);
-        if(UserId==Course.TeacherId)
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UserId==Course.TeacherId)
         {
             
         }
@@ -152,7 +157,22 @@ public class TestController : Controller
             return RedirectToAction("NotFound","Home");
         }
         ViewData["id"]=id;
+        //Check role
+        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        var Course=_context.courses.Find(kq.CourseId);
+        if(User.IsInRole("Admin"))
+        {
 
+        }
+        else if(UserId==Course.TeacherId)
+        {
+            
+        }
+        else if(_context.usersCourses.Any(c=>c.UsersId==UserId&&c.CourseId==Course.Id)==false)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
+        //Check role end
 
         // Luu lich su bai thi
         int userID=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
@@ -161,7 +181,6 @@ public class TestController : Controller
         usersTest.TestId=id;
         usersTest.DateSubmited=DateTime.Now;
         int correctAns=0;
-        Console.WriteLine(answers.Count()+" vcl that");
         foreach(var item in answers.ToList())
         {
             if(_context.answers.Any(c=>c.Id==item&&c.IsCorrect==1))
