@@ -121,7 +121,11 @@ public class CourseController : Controller
             return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
-        if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        // if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        // {
+        //     return RedirectToAction("NotFound","Home");
+        // }
+        if(User.IsInRole("Admin")==false)
         {
             return RedirectToAction("NotFound","Home");
         }
@@ -141,7 +145,7 @@ public class CourseController : Controller
             return RedirectToAction("NotFound","Home");
         }
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
-        if((User.IsInRole("Teacher")&&kq.TeacherId==userId)==false)
+        if(User.IsInRole("Admin")==false)
         {
             return RedirectToAction("NotFound","Home");
         }

@@ -142,3 +142,20 @@
         border-radius: 15px;
     }
 </style>
+
+<script>
+
+    window.onload = function() {
+    // Clear the cache
+    if ('caches' in window) {
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key) {
+                return caches.delete(key);
+            }));
+        });
+    }
+
+    // Reload the page from the server
+};
+
+</script>

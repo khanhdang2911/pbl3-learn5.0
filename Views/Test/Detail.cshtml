@@ -14,14 +14,12 @@
                 <div class="exam__answer">
                     @foreach(var ans in item.Answers)
                     {
-                        Console.WriteLine("Id cua item"+ans.Id);
                         <input type="radio" class="question-title-@i" name="answer[@i]" id="answer-@(i*4+j)" value="@ans.Id">
                         <label for="answer-@(i*4+j)">@ans.AnswerText</label>
                         <br>
                         j++;
                     }
                 </div>
-                @* Tang i len 1 *@
                 ++i;
             }
         
@@ -38,7 +36,6 @@
    </div>
 </form>
 <style>
-    
     .exam{
         display:flex;
         justify-content: space-between;
@@ -67,7 +64,6 @@
         top:100px;
         right:0;
         z-index: 1;
-        @* box-shadow: 0px 0px 33px 0px rgba(0,0,0,0.1); *@
     }
     .btn-custom{
         display: inline-block;
@@ -91,79 +87,116 @@
         border-radius: 10px;
         background-color: #fff;
     }
-
-
 </style>
-
 
 <script>
     function goToQuestion(questionId) {
-        // Sử dụng phương thức scrollIntoView để cuộn đến câu hỏi cụ thể
         var questionElement = document.getElementById(questionId);
         questionElement.scrollIntoView();
     }
 
-    let hours=0;
-    let minutes=@Model.Time;
-    let seconds=1;
-    let clockElement=document.querySelector(".clock-element");
-    function clock()
-    {
-        let prefixHour=hours<10?"0":"";
-        let prefixMinute=minutes<10?"0":"";
-        let prefixSecond=seconds<10?"0":"";
-            seconds--;
-            clockElement.innerHTML=` Thời gian còn lại: <strong>${prefixMinute}${minutes}:${prefixSecond}${seconds}</strong>`;
-            if(hours===0&&minutes===0&&seconds===0)
-            {
-                clearInterval(clearClock);
-                document.querySelector("#submitTest_Exam").submit();
+    let hours = 0;
+    let minutes = @Model.Time;
+    let seconds = 1;
+    let clockElement = document.querySelector(".clock-element");
+
+    function clock() {
+        let prefixMinute = minutes < 10 ? "0" : "";
+        let prefixSecond = seconds < 10 ? "0" : "";
+        seconds--;
+        clockElement.innerHTML = ` Thời gian còn lại: <strong>${prefixMinute}${minutes}:${prefixSecond}${seconds}</strong>`;
+        if (hours === 0 && minutes === 0 && seconds === 0) {
+            clearInterval(clearClock);
+            document.querySelector("#submitTest_Exam").submit();
+        }
+        if (seconds === 0) {
+            if (minutes > 0) {
+                seconds = 60;
+                minutes--;
             }
-            if(seconds===0)
-            {
-                if(minutes>0)
-                {
-                    seconds=60;
-                    minutes--;
-                }
+        }
+        if (minutes === 0) {
+            if (hours > 0) {
+                hours--;
+                minutes = 59;
+                seconds = 60;
             }
-            if(minutes===0)
-            {
-                if(hours>0)
-                {
-                    hours--;
-                    minutes=59;
-                    seconds=60;
-                }
-            }
+        }
+        localStorage.setItem('minutes'+@Model.Id, minutes);
+        localStorage.setItem('seconds'+@Model.Id, seconds);
         
     }
 
-    var clearClock=setInterval(clock,1000);    
+    var clearClock = setInterval(clock, 1000);
 
-    //Check ans
-    document.querySelector("#submitTest_Exam").onsubmit=function(e)
-    {
-        let i=0;
-        let inputRadioElement=document.querySelectorAll(`input[type="radio"]:checked`);
-        Array.from(inputRadioElement).forEach(function(input){
-            input.name=`answers[${i}]`;
+    document.querySelector("#submitTest_Exam").onsubmit = function(e) {
+        let i = 0;
+        let inputRadioElement = document.querySelectorAll(`input[type="radio"]:checked`);
+        Array.from(inputRadioElement).forEach(function(input) {
+            input.name = `answers[${i}]`;
             ++i;
         });
-    }
-    
-    for(let i=0;i<@Model.Questions.Count;i++)
-    {
-        let inputQuestion=document.querySelectorAll(".question-title-"+i);
-        inputQuestion.forEach(input=>{
-            input.onclick=function(e)
-            {
-                document.querySelector("#btn-question-"+i).style.backgroundColor="#1084b0";
-                document.querySelector("#btn-question-"+i).style.color="white";
-                document.querySelector("#btn-question-"+i).style.border="none";
-            }
             
+        localStorage.removeItem("minutes"+@Model.Id);
+        localStorage.removeItem("seconds"+@Model.Id);
+        Object.keys(localStorage).forEach((key)=>{
+            if(key.includes("test"+@Model.Id))
+            {
+                localStorage.removeItem(key);
+            }
         })
+        
+          
     }
-</script>
 
+    for (let i = 0; i < @Model.Questions.Count; i++) {
+        let inputQuestion = document.querySelectorAll(".question-title-" + i);
+        inputQuestion.forEach(input => {
+            input.onchange = function(e) {
+                document.querySelector("#btn-question-" + i).style.backgroundColor = "#1084b0";
+                document.querySelector("#btn-question-" + i).style.color = "white";
+                document.querySelector("#btn-question-" + i).style.border = "none";
+            }
+        });
+    }
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener('change', function() {
+            localStorage.setItem(this.name+"test"+@Model.Id, this.value);
+        });
+    });
+
+    window.addEventListener('load', function() {
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            let savedValue = localStorage.getItem(input.name+"test"+@Model.Id);
+            if (savedValue && input.value === savedValue) {
+                input.checked = true;
+            }
+        });
+
+        if (localStorage.getItem('minutes'+@Model.Id) !== null && localStorage.getItem('seconds'+@Model.Id) !== null) {
+            minutes = Number(localStorage.getItem('minutes'+@Model.Id));
+            seconds = Number(localStorage.getItem('seconds'+@Model.Id));
+        }
+
+        let prefixMinute = minutes < 10 ? "0" : "";
+        let prefixSecond = seconds < 10 ? "0" : "";
+        clockElement.innerHTML = ` Thời gian còn lại: <strong>${prefixMinute}${minutes}:${prefixSecond}${seconds}</strong>`; 
+
+        //load button question
+        for (let i = 0; i < @Model.Questions.Count; i++) {
+        let inputQuestion = document.querySelectorAll(".question-title-" + i);
+        inputQuestion.forEach(input => {
+            if(input.checked==true) {
+                document.querySelector("#btn-question-" + i).style.backgroundColor = "#1084b0";
+                document.querySelector("#btn-question-" + i).style.color = "white";
+                document.querySelector("#btn-question-" + i).style.border = "none";
+            }
+        });
+    }       
+    
+    });
+
+    
+    
+    
+</script>

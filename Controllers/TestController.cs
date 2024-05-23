@@ -46,7 +46,25 @@ public class TestController : Controller
     [HttpGet]
     public IActionResult Edit(int? id)
     {
+        
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
+        if(kq==null)
+        {
+            return RedirectToAction("Home","NotFound");
+        }
+        var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
+        var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+            
+        }
+        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+        {
+
+        }
+        else{
+            return RedirectToAction("Home","NotFound");
+        }
         return View(kq);
     }
     [HttpPost]
@@ -60,6 +78,19 @@ public class TestController : Controller
         if(kq==null)
         {
             return RedirectToAction("NotFound","Home");
+        }
+        var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
+        var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+            
+        }
+        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+        {
+
+        }
+        else{
+            return RedirectToAction("Home","NotFound");
         }
         kq.TestName=test.TestName;
         kq.Time=test.Time;
@@ -75,6 +106,20 @@ public class TestController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
+        var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
+        var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+            
+        }
+        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+        {
+
+        }
+        else{
+            return RedirectToAction("Home","NotFound");
+        }
+
         _context.tests.Remove(kq);
         _context.SaveChanges();
         return RedirectToAction("Detail","Course",new{id=kq.CourseId});
@@ -137,16 +182,10 @@ public class TestController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
-        if(id==null)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
-
-        
-        
 
         return View(kq);
     }
+    [HttpPost]
     public async Task<IActionResult> SubmitTest(int id,[FromForm] int []answers)
     {
         
@@ -187,15 +226,12 @@ public class TestController : Controller
             {
                 correctAns++;
             }
-        }
+        }                                                                                                    
         usersTest.correctAnswer=correctAns;
         await _context.usersTests.AddAsync(usersTest);
         await _context.SaveChangesAsync();
         ViewData["usersTest"]=usersTest;
         return View(answers.ToList());
     }
-
-
-
 
 }

@@ -1257,6 +1257,14 @@
       "PackagePath": "staticwebassets\\uploads\\Detail-Anh1.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\FrontEnd_blob.png",
+      "PackagePath": "staticwebassets\\uploads\\FrontEnd_blob.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Frontend_blog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Frontend_blog.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\HTML.jpg",
       "PackagePath": "staticwebassets\\uploads\\HTML.jpg"
     },
@@ -1281,8 +1289,20 @@
       "PackagePath": "staticwebassets\\uploads\\Photogr.jpg"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners  5 _ Creating A Component In React.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners  5 _ Creating A Component In React.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners  6 _ Auto Format React Code With Prettier.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners  6 _ Auto Format React Code With Prettier.mp4"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners 2_ Installing Required Tools.mp4",
       "PackagePath": "staticwebassets\\uploads\\React For Beginners 2_ Installing Required Tools.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners 3 _ Create React App Using Vite.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners 3 _ Create React App Using Vite.mp4"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React.png",
