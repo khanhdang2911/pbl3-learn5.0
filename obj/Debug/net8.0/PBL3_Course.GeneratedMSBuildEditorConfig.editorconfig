@@ -222,8 +222,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/PBL3_Course/Views/Test/SubmitTest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxTdWJtaXRUZXN0LmNzaHRtbA==
+[D:/PBL3_Course/Views/Test/SubmitTestResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdFxTdWJtaXRUZXN0UmVzdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/PBL3_Course/Views/User/ChangePassword.cshtml]

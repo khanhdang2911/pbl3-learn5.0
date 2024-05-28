@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using PBL3_Course.Models;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace PBL3_Course.Controllers;
 [Authorize]
@@ -188,7 +189,6 @@ public class TestController : Controller
     [HttpPost]
     public async Task<IActionResult> SubmitTest(int id,[FromForm] int []answers)
     {
-        
 
         var kq=await _context.tests.Where(c=>c.Id==id).FirstOrDefaultAsync();
         if(kq==null)
@@ -228,10 +228,31 @@ public class TestController : Controller
             }
         }                                                                                                    
         usersTest.correctAnswer=correctAns;
+        TempData["id"]=JsonConvert.SerializeObject(id);
+        TempData["answers"]=JsonConvert.SerializeObject(answers);
+        TempData["usersTest"]=JsonConvert.SerializeObject(usersTest);
+        // await _context.usersTests.AddAsync(usersTest);
+        // await _context.SaveChangesAsync();
+        // ViewData["usersTest"]=usersTest;
+        // return View(answers.ToList());
+        return RedirectToAction("SubmitTestResult");
+    }
+    
+    public async Task<IActionResult> SubmitTestResult()
+    {
+        if (TempData["id"] == null || TempData["answers"] == null || TempData["usersTest"] == null)
+        {
+            return RedirectToAction("NotFound", "Home");
+        }
+        var answers=JsonConvert.DeserializeObject<List<int>>(TempData["answers"] as string);
+        var usersTest=JsonConvert.DeserializeObject<UsersTest>(TempData["usersTest"] as string);
+        var id=JsonConvert.DeserializeObject<int>(TempData["id"] as string);
         await _context.usersTests.AddAsync(usersTest);
         await _context.SaveChangesAsync();
         ViewData["usersTest"]=usersTest;
+        ViewData["id"]=id;
         return View(answers.ToList());
     }
-
 }
+
+    

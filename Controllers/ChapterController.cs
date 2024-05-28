@@ -1,9 +1,11 @@
 // using System.Data.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
 namespace PBL3_Course.Controllers;
+[Authorize]
 
 public class ChapterController : Controller
 {
@@ -24,11 +26,21 @@ public class ChapterController : Controller
     [HttpGet]
     public IActionResult Create(int? courseId)
     {
-        Console.WriteLine("tao chuong hoc");
-        if(courseId==null)
+        var course=_context.courses.Where(c=>c.Id==courseId).FirstOrDefault();
+        if(course==null)
         {
             return RedirectToAction("NotFound","Home");
         }
+        int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UserId!=course.TeacherId)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
+
         ViewData["courseId"]=courseId;
         return View();
     }
@@ -45,24 +57,39 @@ public class ChapterController : Controller
         return RedirectToAction("Detail","Course",new {id=courseId});
     }
 
-    public IActionResult Detail(int? id)
+    // public IActionResult Detail(int? id)
+    // {
+    //     if(id==null)
+    //     {
+    //         return RedirectToAction("NotFound","Home");
+    //     }
+    //     var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
+    //     if(kq==null)
+    //     {
+    //         return RedirectToAction("NotFound","Home");
+    //     }
+    //     _context.Entry(kq).Collection(c=>c.lessons).Load();
+    //     return View(kq);
+    // }
+    [HttpGet]
+    public IActionResult Edit(int? id)
     {
-        if(id==null)
-        {
-            return RedirectToAction("NotFound","Home");
-        }
+        
         var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
             return RedirectToAction("NotFound","Home");
         }
-        _context.Entry(kq).Collection(c=>c.lessons).Load();
-        return View(kq);
-    }
-    [HttpGet]
-    public IActionResult Edit(int? id)
-    {
-        var kq=_context.chapters.Where(c=>c.Id==id).FirstOrDefault();
+        var course=_context.courses.Find(kq.CourseId);
+         int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UserId!=course.Id)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
         return View(kq);
     }
     [HttpPost]
@@ -94,6 +121,18 @@ public class ChapterController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
+        //Check role cua giao vien
+        var course=_context.courses.Find(kq.CourseId);
+         int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id").Value);
+        if(User.IsInRole("Admin"))
+        {
+
+        }
+        else if(UserId!=course.Id)
+        {
+            return RedirectToAction("NotFound","Home");
+        }
+        //
         _context.chapters.Remove(kq);
         _context.SaveChanges();
         return RedirectToAction("Detail","Course",new{id=kq.CourseId});

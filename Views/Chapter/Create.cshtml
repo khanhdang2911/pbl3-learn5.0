@@ -4,17 +4,19 @@
 
 
 }
-<form method="post" asp-action="Create" asp-route-courseId="@courseId">
-    <div asp-validation-summary="All" class="text-danger"></div>
-
-    <div class="form-group">
-        <label asp-for ="ChapterName" class="control-label" ></label>
-        <input type="text" asp-for="ChapterName" class="form-control">
-        <span asp-validation-for="ChapterName" class="text-danger"></span>
-    </div>
-
+<div class="container" style="width: 40%;">
+    <form method="post" asp-action="Create" asp-route-courseId="@courseId">
+        <div asp-validation-summary="All" class="text-danger"></div>
     
-    <hr>
+        <div class="form-group">
+            <label asp-for ="ChapterName" class="control-label" ></label>
+            <input type="text" asp-for="ChapterName" class="form-control">
+            <span asp-validation-for="ChapterName" class="text-danger"></span>
+        </div>
     
-    <input type="submit" class="btn btn-success">
-</form>
+        
+        <hr>
+        
+        <input type="submit" value="Create chapter" class="btn btn-success">
+    </form>
+</div>

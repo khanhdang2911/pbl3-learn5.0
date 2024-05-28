@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Learn for 5.0</title>
-    <meta name="description" content="SkillGro - Online Courses & Education Template">
+    <meta name="description" content="Learning 5.0 Courses & Education">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
@@ -100,18 +100,18 @@
                                 </div>
                                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                     <ul class="navigation">
-                                        <li class="active menu-item"><a asp-action="Index" asp-controller="Home">Home</a>
+                                        <li class="menu-item home"><a asp-action="Index" asp-controller="Home">Home</a>
                                        
                                         </li>
-                                        <li class="menu-item"><a asp-action="AllCourse" asp-controller="Course">Courses</a>
+                                        <li class="menu-item courses"><a asp-action="AllCourse" asp-controller="Course">Courses</a>
                                             
                                         </li>
                                         
                                       
-                                        <li class="menu-item"><a asp-action="allpost" asp-controller="post" asp-route-blogid="">Blog</a></li>
+                                        <li class="menu-item blog"><a asp-action="allpost" asp-controller="post" asp-route-blogid="">Blog</a></li>
                                         @if(HttpContextAccessor.HttpContext.User.Identity.IsAuthenticated&&User.IsInRole("Admin")==false)
                                         {
-                                            <li class="menu-item"><a asp-action="TeacherRegister" asp-controller="User">Đăng kí giảng dạy</a>
+                                            <li class="menu-item register-teacher"><a asp-action="TeacherRegister" asp-controller="User">Apply to become a teacher</a>
                                             </li>
                                         }
                                         
@@ -381,7 +381,30 @@
         SVGInject(document.querySelectorAll("img.injectable"));
         
     </script>
+    <script>
+        let currentUrl=window.location.pathname;
+        if(currentUrl.includes("/Course/AllCourse"))
+        {
+            var elementSelected=document.querySelector(".menu-item.courses");
+            elementSelected.classList.add("active");
+        }
+        else if(currentUrl=="/post/allpost")
+        {
+            var elementSelected=document.querySelector(".menu-item.blog");
+            elementSelected.classList.add("active");
+        }
+        else if(currentUrl=="/")
+        {
+            var elementSelected=document.querySelector(".menu-item.home");
+            elementSelected.classList.add("active");
+        }
+        else if(currentUrl=="/Course/Create")
+        {
+            var elementSelected=document.querySelector(".menu-item.register-teacher");
+            elementSelected.classList.add("active");
+        }
 
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

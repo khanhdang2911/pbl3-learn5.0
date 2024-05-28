@@ -1,0 +1,161 @@
+@inject AppDbContext _context
+@using Microsoft.EntityFrameworkCore;
+@model List<int>
+@{
+    int UsersId=0;
+    if(User.Identity.IsAuthenticated)
+    {
+        UsersId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+    }
+    var DateTimeNow=DateTime.Now;
+    int result=0;
+    var ListAns=new List<Answer>();
+    foreach(var item in Model)
+    {
+        Answer ans=_context.answers.Where(a=>a.Id==item).FirstOrDefault();
+        if(ans!=null)
+        {
+            ListAns.Add(ans);
+        }
+    }
+    foreach(var item in ListAns)
+    {
+        if(item.IsCorrect==1)
+        {
+            result++;
+        }
+    }
+    int TestId=(int)ViewBag.id;
+    var test=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
+    
+
+    var usersTest=ViewData["usersTest"] as UsersTest;
+    @* Lich su lam bai *@
+    
+    List<UsersTest> TestSubmitedOfUser=new List<UsersTest>();
+    if (_context.usersTests.Count() > 1)
+    {
+        TestSubmitedOfUser = _context.usersTests.Where(c => c.UsersId == UsersId && c.TestId == TestId).Take(_context.usersTests.Count() - 1).ToList();
+    }
+}
+<div class="container message">
+    <h3>Đề:@test.TestName</h3>
+    <h5>Bạn làm đúng được @result/ @test.NumberOfQuestion câu</h5>
+    <h6>Tổng điểm:@(result*1)</h6>
+    <p><strong>Hoàn thành vào lúc:</strong>@usersTest.DateSubmited.ToString("MM/dd/yyyy h:mm tt")</p>
+    <h6 style="color: red;">Lịch sử các lần đã làm trước đó:</h6>
+    @foreach(var item in TestSubmitedOfUser)
+    {
+        <p>Ngày hoàn thành:@item.DateSubmited &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: black;">Điểm</span>:@item.correctAnswer </p>
+    }
+    
+    
+</div>
+    
+<div class="content" style="width: 60%;margin: 50px auto 50px;">
+        @{
+            int i=0;
+        }
+            @foreach(var item in test.Questions){
+                var checkExist=ListAns.Where(a=>a.QuestionId==item.Id).FirstOrDefault();
+                int j=0;
+                <div class="container">
+                    <div class="exam__question" id="exam__question-@(i+1)">
+                        <h5 class="exam__question--text">Câu @(i+1): @Html.Raw(item.QuestionName) </h5>
+                    </div>
+                    <div class="exam__answer">
+                        @foreach(var ans in item.Answers)
+                        {
+                            
+                            if(ans.IsCorrect==1)
+                            {
+                                if(checkExist!=null)
+                                {
+                                    //nếu đáp án người dùng chọn trùng với đáp án đúng của câu hỏi 
+                                    if(checkExist.Id==ans.Id)
+                                    {
+                                        <input type="radio" disabled checked name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                    }
+                                    
+                                    else{
+                                        <input type="radio" disabled name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                    }
+                                }
+                                else
+                                {
+                                    //Nếu không chọn đáp án
+                                    <input type="radio" disabled name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                }
+                                <label for="answer-@(i*4+j)" style="color: rgb(9, 148, 62);font-weight: 900;">@ans.AnswerText</label>
+                                <i class="fa-solid fa-check" style="color: rgb(29, 115, 28);"></i>
+                            }
+                            else 
+                            {
+                                    if(checkExist!=null)
+                                    {
+                                    
+                                        if(checkExist.Id==ans.Id)
+                                        {
+                                            <input type="radio" disabled checked name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                            <label for="answer-@(i*4+j)" style="color: rgb(234, 15, 15);font-weight: 900;">@ans.AnswerText</label>
+                                            <i class="fa-solid fa-circle-xmark" style="color: red;"></i> 
+                                        }
+                                        else{
+                                            <input type="radio" disabled name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                            <label for="answer-@(i*4+j)" style="">@ans.AnswerText</label>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //Nếu không chọn đáp án
+                                        <input type="radio" disabled name="answers[@i].IsCorrect" id="answer-@(i*4+j)" value="@ans.IsCorrect">
+                                        <label for="answer-@(i*4+j)" style="">@ans.AnswerText</label>
+                                    }
+                                   
+            
+                                    
+                            }
+                            
+                            <br>
+                            j++;
+                        }
+                    </div>
+                   
+                </div>
+                 ++i;
+            }
+   </div>
+<script>
+    window.onbeforeunload = function() {
+    return "Are you sure you want to leave this page?";
+};
+</script>
+<style>
+    .incorrect{
+        color:red;
+    }
+    .message{
+        width: 60%;
+        margin-top: 50px;
+        padding: 30px;
+        background-color: rgb(235, 243, 243);
+        border-radius: 15px;
+    }
+</style>
+
+<script>
+
+    window.onload = function() {
+    // Clear the cache
+    if ('caches' in window) {
+        caches.keys().then(function(keyList) {
+            return Promise.all(keyList.map(function(key) {
+                return caches.delete(key);
+            }));
+        });
+    }
+
+    // Reload the page from the server
+};
+
+</script>

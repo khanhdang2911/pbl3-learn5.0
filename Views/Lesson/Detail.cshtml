@@ -2,11 +2,17 @@
     Layout="_NoLayout";
 }
 @model Lesson
-    <div style="text-align: center;">
-    <video controls width="800px" height="700px" style="display: inline-block;"> 
+<div class="video-container">
+    <video controls controlsList="nodownload" width="700px" height="550px" style=""> 
         <source src="~/@Model.FileLinkContent">
     </video>
 </div>
 
-
+<style>
+    .video-container video{
+        display: block; 
+        margin: 0 auto;
+        border:1px black solid;
+    }
+</style>
 
