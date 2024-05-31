@@ -76,6 +76,21 @@
                                         <div class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @foreach(var item in Model)
                                             {
+                                                var userCourse=_context.usersCourses.Where(c=>c.CourseId==item.Id).ToList();
+                                                double star=0;
+                                               
+                                                    foreach(var userC in userCourse)
+                                                    {
+                                                        if(userC.rate!=null)
+                                                        {
+                                                            star+=(double)userC.rate;
+                                                        }
+                                                    }
+                                                if(userCourse.Count>0)
+                                                {
+                                                    star=star/userCourse.Count;
+                                                }
+
                                                 <div class="col">
                                                     <div class="courses__item shine__animate-item">
                                                         <div class="courses__item-thumb">
@@ -88,7 +103,7 @@
                                                                 <li class="courses__item-tag">
                                                                     <a asp-action="Detail" asp-controller="Course" asp-route-id="@item.Id">@item.Category.CategoryName</a>
                                                                 </li>
-                                                                <li class="avg-rating"><i class="fas fa-star"></i>4.8</li>
+                                                                <li class="avg-rating"><i class="fas fa-star"></i>@star</li>
                                                             </ul>
                                                             <h5 class="title"><a asp-action="Detail" asp-route-id="@item.Id">@item.CourseName</a></h5>
                                                             @{
@@ -120,9 +135,9 @@
                                 @* <nav class="pagination__wrap mt-30">
                                     <ul class="list-wrap">
                                         <li class="active"><a href="#">1</a></li>
-                                        <li><a href="courses.html">2</a></li>
-                                        <li><a href="courses.html">3</a></li>
-                                        <li><a href="courses.html">4</a></li>
+                                        <li><a href="">2</a></li>
+                                        <li><a href="">3</a></li>
+                                        <li><a href="">4</a></li>
                                     </ul>
                                 </nav> *@
                             </div>

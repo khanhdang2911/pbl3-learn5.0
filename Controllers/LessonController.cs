@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using PBL3_Course.Models;
 
 namespace PBL3_Course.Controllers;
-[Authorize]
+
 
 public class LessonController : Controller
 {
@@ -22,13 +22,14 @@ public class LessonController : Controller
         _context=context;
         _iAuthorize=iAuthorize;
     }
-
+    [Authorize]
     public IActionResult Index()
     {
         var allLesson=(from c in _context.lessons select c).ToList();
         return View(allLesson);
     }
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> Create(int? chapterId)
     {
 
@@ -64,6 +65,7 @@ public class LessonController : Controller
         return View();
     }
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Create(int chapterId,[Bind("LessonName,Description,FormFile,DocumentFile,IsFree")] Lesson lesson)
     {
         
@@ -127,23 +129,25 @@ public class LessonController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
-        var chapter=_context.chapters.Where(c=>c.Id==kq.ChapterId).FirstOrDefault();
+        if(kq.IsFree==0)
+        {
 
-        if(chapter==null)
-        {
-            return RedirectToAction("NotFound","Home");
         }
-        var course=_context.courses.Find(chapter.CourseId);
-        //Neu giao vien cua khoa hoc do thi chac chan dc xem
-        int teacherId = course.TeacherId;
-        int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-        if(teacherId==UserId)
-        {
-        }
-        else if(User.IsInRole("Admin")){}
-        else if(_context.usersCourses.Any(c=>c.CourseId==course.Id&&c.UsersId==UserId)==false)
-        {
-            return RedirectToAction("NotFound","Home");
+        else{
+            var chapter=_context.chapters.Where(c=>c.Id==kq.ChapterId).FirstOrDefault();
+
+            var course=_context.courses.Find(chapter.CourseId);
+            //Neu giao vien cua khoa hoc do thi chac chan dc xem
+            int teacherId = course.TeacherId;
+            int UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
+            if(teacherId==UserId)
+            {
+            }
+            else if(User.IsInRole("Admin")){}
+            else if(_context.usersCourses.Any(c=>c.CourseId==course.Id&&c.UsersId==UserId)==false)
+            {
+                return RedirectToAction("NotFound","Home");
+            }
         }
 
         kq.View++;
@@ -151,6 +155,7 @@ public class LessonController : Controller
         return View(kq);
     }
     [HttpGet]
+    [Authorize]
     public IActionResult Edit(int? id)
     {
         var kq=_context.lessons.Where(c=>c.Id==id).FirstOrDefault();
@@ -168,7 +173,7 @@ public class LessonController : Controller
         if(teacherId==UserId)
         {
         }
-        else if(User.IsInRole("Admin")){}
+        // else if(User.IsInRole("Admin")){}
         else 
         {
             return RedirectToAction("NotFound","Home");
@@ -177,6 +182,7 @@ public class LessonController : Controller
         return View(kq);
     }
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Edit(int? id,[Bind("LessonName,Description,FormFile,DocumentFile,IsFree")] Lesson lesson)
     {
         if(!ModelState.IsValid)
@@ -189,8 +195,8 @@ public class LessonController : Controller
         {
             return RedirectToAction("NotFound","Home");
         }
-        var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.FileLinkContent.Remove(0,8));
-        System.IO.File.Delete(fileDelete);
+        // var fileDelete=Path.Combine(_environment.WebRootPath,"uploads",kq.FileLinkContent.Remove(0,8));
+        // System.IO.File.Delete(fileDelete);
         if(lesson.FormFile!=null)
         {
             var filepath=Path.Combine(_environment.WebRootPath,"uploads",lesson.FormFile.FileName);
@@ -220,6 +226,7 @@ public class LessonController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Detail","Course", new{id=courseId});
     }
+    [Authorize]
     public IActionResult Delete(int? id)
     {
         if(id==null)
@@ -241,7 +248,7 @@ public class LessonController : Controller
         if(teacherId==UserId)
         {
         }
-        else if(User.IsInRole("Admin")){}
+        // else if(User.IsInRole("Admin")){}
         else 
         {
             return RedirectToAction("NotFound","Home");

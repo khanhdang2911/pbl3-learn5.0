@@ -200,7 +200,7 @@ public class CourseController : Controller
             var AllCourse=await query.ToListAsync();
             return View("AllCourse",AllCourse);
         }
-        var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)).ToList();
+        var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)&&c.IsActive==1).ToList();
         return View("AllCourse",kq);
     }
     [Authorize(Roles ="Admin")]
@@ -472,5 +472,20 @@ public class CourseController : Controller
         {
             var kq=_context.courses.Where(c=>c.CourseName.Contains(courseName)&&c.IsActive==1).Include(c=>c.Category).ToList();
             return View("Index",kq);
+        }
+
+        //block khoa hoc
+        [Authorize(Roles="Admin")]
+        public async Task<IActionResult> BlockCourse(int id)
+        {
+            var course=await _context.courses.Where(c=>c.Id==id).FirstOrDefaultAsync();
+            if(course==null)
+            {
+                return RedirectToAction("NotFound","Home");
+            }
+            _context.Entry(course).State=EntityState.Modified;
+            course.IsActive=0;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index","Course");
         }
 }

@@ -82,11 +82,12 @@ public class ChapterController : Controller
         }
         var course=_context.courses.Find(kq.CourseId);
          int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id").Value);
-        if(User.IsInRole("Admin"))
-        {
+        // if(User.IsInRole("Admin"))
+        // {
 
-        }
-        else if(UserId!=course.Id)
+        // }
+        // else
+         if(UserId!=course.TeacherId)
         {
             return RedirectToAction("NotFound","Home");
         }
@@ -124,11 +125,12 @@ public class ChapterController : Controller
         //Check role cua giao vien
         var course=_context.courses.Find(kq.CourseId);
          int UserId=int.Parse(User.Claims.FirstOrDefault(c=>c.Type=="Id").Value);
-        if(User.IsInRole("Admin"))
-        {
+        // if(User.IsInRole("Admin"))
+        // {
 
-        }
-        else if(UserId!=course.Id)
+        // }
+        // else 
+        if(UserId!=course.TeacherId)
         {
             return RedirectToAction("NotFound","Home");
         }

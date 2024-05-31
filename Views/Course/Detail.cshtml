@@ -102,11 +102,25 @@
                                                     foreach(var lesson in item.lessons)
                                                     {
                                                         <li class="course-item open-item">
-                                                            @if(User.IsInRole("Admin"))
+                                                            @if(lesson.IsFree==0)
                                                             {
                                                                 <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                                 </a>
+                                                                @if(!string.IsNullOrEmpty(lesson.DocumentLink))
+                                                                {
+                                                                    <li><a href="~/@lesson.DocumentLink" download>Document</a></li>
+                                                                }
+                                                            }
+                                                            else if(User.IsInRole("Admin"))
+                                                            {
+                                                                <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
+                                                                <span class="item-name">@lesson.LessonName</span>
+                                                                </a>
+                                                                @if(!string.IsNullOrEmpty(lesson.DocumentLink))
+                                                                {
+                                                                    <li><a href="~/@lesson.DocumentLink" download>Document</a></li>
+                                                                }
 
                                                             }
                                                             else if(_context.usersCourses.Any(u=>u.UsersId==UserIdCurrent&&u.CourseId==Model.Id))
@@ -114,30 +128,45 @@
                                                                 <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                                 </a>
+                                                                @if(!string.IsNullOrEmpty(lesson.DocumentLink))
+                                                                {
+                                                                    <li><a href="~/@lesson.DocumentLink" download>Document</a></li>
+                                                                }
                                                             }
                                                             else if(User.IsInRole("Teacher")&&Model.TeacherId==UserIdCurrent)
                                                             {
                                                                 <a asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                                 </a>
+                                                                @if(!string.IsNullOrEmpty(lesson.DocumentLink))
+                                                                {
+                                                                    <li><a href="~/@lesson.DocumentLink" download>Document</a></li>
+                                                                }
                                                             }
                                                             else{
-                                                                <a style="pointer-events: none;cursor: default;" asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
+                                                                <a style="pointer-events: none;cursor: default;max-width: 50%;" asp-action="Detail" asp-controller="Lesson" asp-route-id="@lesson.Id">
                                                                 <span class="item-name">@lesson.LessonName</span>
                                                                 </a>
+                                                                @if(!string.IsNullOrEmpty(lesson.DocumentLink))
+                                                                {
+                                                                    <span><a >Document</a></span>
+                                                                }
+                                                                
+                                                                
                                                             }
                                                             @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                                                             {
                                                             <span>|</span> <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
                                                             <span>|</span> <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
-                                                            
                                                             }
+                                                            
                                                         
                                                         </li>
                                                     }
                                                 }
                                             </ul>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             }

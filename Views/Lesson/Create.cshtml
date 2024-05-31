@@ -54,15 +54,3 @@
     </form>
 </div>
 
-<script>
-    document.getElementById('statusSelect').addEventListener('change', function () {
-        var priceField = document.getElementById('priceField');
-        if (this.value === '1') {
-            priceField.style.display = 'block';
-             @* priceInput.value = ''; // Clear the value *@
-        } else {
-            priceField.style.display = 'none';
-            @* priceInput.value = '0'; // Set value to 0 *@
-        }
-    });
-</script>

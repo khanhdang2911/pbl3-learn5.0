@@ -93,16 +93,95 @@
                             @* <td>@item.DateCreated</td> *@
                             <td>@item.Category.CategoryName</td>
                             <td>
-                                <a asp-action="Detail" asp-route-id="@item.Id" class="action" ><i class="fa-solid fa-eye"></i></a>
-                                <a class="delete-btn action" data-id="@item.Id"><i class="fa-solid fa-trash"></i></a>
+                                @if(item.IsActive==1)
+                                {
+                                    <a asp-action="Detail" asp-route-id="@item.Id" class="action" ><i class="fa-solid fa-eye"></i></a>
+                                }
+                                <a class="delete-btn action" data-bs-toggle="modal" data-bs-target="#myModal-delete-course-@item.Id" ><i class="fa-solid fa-trash"></i></a>
+                                     <!-- The Modal -->
+                                    <div class="modal fade" id="myModal-delete-course-@item.Id">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Confirm</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                Are you sure you want to delete this course ?
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 <a asp-action="Edit" class="action" asp-route-id="@item.Id" ><i class="fa-solid fa-wrench"></i></a>
+                                @if(item.IsActive==1)
+                                {
+                                    <a class="block-course action" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#myModal-block-course-@item.Id"><i class="fa-solid fa-lock"></i></a>
+                                }
+
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal-block-course-@item.Id">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Confirm</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                Are you sure you want to block this course ?
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <a asp-action="BlockCourse" asp-route-id="@item.Id" class="btn btn-danger">Block</a>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 @if(item.IsActive==1)
                                 {
                                     <a class="action" style="color: rgb(14, 185, 14);"><i class="fa-solid fa-check"></i></a>
                                 }
                                 else
                                 {
-                                    <a class="action" style="color: red;" asp-action="CourseActivate" asp-route-id="@item.Id" ><i class="fa-solid fa-xmark"></i></a>
+                                    <a class="action" style="color: rgb(72, 200, 61);" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#myModal-active-course-@item.Id"><i class="fa-solid fa-square-check"></i></a>
+                                    <div class="modal fade" id="myModal-active-course-@item.Id">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Confirm</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                Are you sure you want to active this course ?
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <a asp-action="CourseActivate" asp-route-id="@item.Id" class="btn btn-danger">Active</a>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                             </td>
                         </tr>
@@ -113,7 +192,7 @@
     </div>
 </div>
 
-<style>
+@* <style>
     /* Style for modal */
     .modal {
         width: 350px;
@@ -172,4 +251,4 @@
             });
         });
     </script>
-}
+} *@
