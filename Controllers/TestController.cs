@@ -55,11 +55,8 @@ public class TestController : Controller
         }
         var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
         var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-        if(User.IsInRole("Admin"))
-        {
-            
-        }
-        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+        
+        if(courseOfTest.TeacherId==UserId)
         {
 
         }

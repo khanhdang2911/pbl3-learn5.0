@@ -13,7 +13,7 @@
     
     //Lay rating de danh gia trung binh
     double? rating=0;
-    var ratingListStudent=_context.usersCourses.Where(u=>u.CourseId==Model.Id).ToList();
+    var ratingListStudent=_context.usersCourses.Where(u=>u.CourseId==Model.Id&&u.rate!=null).ToList();
     foreach(var item in ratingListStudent)
     {
         if(item.rate!=null)
