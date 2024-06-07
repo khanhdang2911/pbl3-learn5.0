@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hdGhvfHCyxRxgDP2VQgjIPGFipb+ilYqBcqDA/WCxj0=",
+  "Hash": "0ZZCm5kTyJ4VsREXSIhQy+o+Yxw5Mu8/c9HuTuoEoXk=",
   "Source": "PBL3_Course",
   "BasePath": "_content/PBL3_Course",
   "Mode": "Default",
@@ -5869,25 +5869,6 @@
       "OriginalItemSpec": "wwwroot\\Trident\\index.html"
     },
     {
-      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\5402956068646.mp4",
-      "SourceId": "PBL3_Course",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
-      "BasePath": "_content/PBL3_Course",
-      "RelativePath": "uploads/5402956068646.mp4",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\5402956068646.mp4"
-    },
-    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\BigData.png",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -6021,6 +6002,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\Detail-Anh1.png"
     },
     {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\download.jpg",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\download.jpg"
+    },
+    {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\english (2).jpg",
       "SourceId": "PBL3_Course",
       "SourceType": "Discovered",
@@ -6076,25 +6076,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\English Grammar_ Don't _ Doesn't Have Questions.mp4"
-    },
-    {
-      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ Review #1 - Subjective Pronouns.mp4",
-      "SourceId": "PBL3_Course",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
-      "BasePath": "_content/PBL3_Course",
-      "RelativePath": "uploads/English Grammar_ Review #1 - Subjective Pronouns.mp4",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\English Grammar_ Review #1 - Subjective Pronouns.mp4"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ This _ That _ These _ Those Practice.mp4",
@@ -6589,6 +6570,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\React.png"
+    },
+    {
+      "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf",
+      "SourceId": "PBL3_Course",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\PBL3_Course\\wwwroot\\",
+      "BasePath": "_content/PBL3_Course",
+      "RelativePath": "uploads/tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf"
     },
     {
       "Identity": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255.pdf",

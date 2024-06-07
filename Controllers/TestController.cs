@@ -29,7 +29,7 @@ public class TestController : Controller
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> Create([Bind("TestName,Time,CourseId,NumberOfQuestion")] Test test)
+    public IActionResult Create([Bind("TestName,Time,CourseId,NumberOfQuestion")] Test test)
     {
 
         if(!ModelState.IsValid)
@@ -38,10 +38,10 @@ public class TestController : Controller
             return View();
         }
         
-        await _context.tests.AddAsync(test);
-        await _context.SaveChangesAsync();
-        int Id=_context.tests.Where(t=>t.TestName==test.TestName).Select(t=>t.CourseId).FirstOrDefault();
-        return RedirectToAction("Detail","Course",new{id=Id});
+        _context.tests.Add(test);
+        _context.SaveChanges();
+        int Id=_context.tests.Where(t=>t.TestName==test.TestName).Select(t=>t.Id).FirstOrDefault();
+        return RedirectToAction("Create","Question",new{TestId=Id});
     }
 
     [HttpGet]

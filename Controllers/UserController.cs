@@ -119,12 +119,12 @@ public class UserController : Controller
                 //     _context.roles.Add(role);
                 //     _context.SaveChanges();
                 // }
-                UsersRole roleUsers=new UsersRole();
-                roleUsers.UsersId=kq.Id;
-                roleUsers.RoleId=_context.roles.Where(r=>r.RoleName=="Student").Select(r=>r.Id).FirstOrDefault();
+                // UsersRole roleUsers=new UsersRole();
+                // roleUsers.UsersId=kq.Id;
+                // roleUsers.RoleId=_context.roles.Where(r=>r.RoleName=="Student").Select(r=>r.Id).FirstOrDefault();
 
-                _context.usersRoles.Add(roleUsers);
-                _context.SaveChanges();
+                // _context.usersRoles.Add(roleUsers);
+                // _context.SaveChanges();
 
             }
             else

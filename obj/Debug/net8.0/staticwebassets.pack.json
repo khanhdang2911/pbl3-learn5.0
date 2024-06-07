@@ -1237,10 +1237,6 @@
       "PackagePath": "staticwebassets\\src\\js\\magnetic.html"
     },
     {
-      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\5402956068646.mp4",
-      "PackagePath": "staticwebassets\\uploads\\5402956068646.mp4"
-    },
-    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\BigData.png",
       "PackagePath": "staticwebassets\\uploads\\BigData.png"
     },
@@ -1259,10 +1255,6 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ Don't _ Doesn't Have Questions.mp4",
       "PackagePath": "staticwebassets\\uploads\\English Grammar_ Don't _ Doesn't Have Questions.mp4"
-    },
-    {
-      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ Review #1 - Subjective Pronouns.mp4",
-      "PackagePath": "staticwebassets\\uploads\\English Grammar_ Review #1 - Subjective Pronouns.mp4"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ This _ That _ These _ Those Practice.mp4",
@@ -1369,6 +1361,10 @@
       "PackagePath": "staticwebassets\\uploads\\dataAnalystBlog.jpg"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\download.jpg",
+      "PackagePath": "staticwebassets\\uploads\\download.jpg"
+    },
+    {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\english (2).jpg",
       "PackagePath": "staticwebassets\\uploads\\english (2).jpg"
     },
@@ -1387,6 +1383,10 @@
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\network.png",
       "PackagePath": "staticwebassets\\uploads\\network.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf",
+      "PackagePath": "staticwebassets\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf"
     },
     {
       "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255.pdf",
