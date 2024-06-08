@@ -34,7 +34,6 @@ public class TestController : Controller
 
         if(!ModelState.IsValid)
         {
-            ModelState.AddModelError("","Tạo không thành công");
             return View();
         }
         
@@ -51,7 +50,7 @@ public class TestController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(kq==null)
         {
-            return RedirectToAction("Home","NotFound");
+            return RedirectToAction("NotFound","Home");
         }
         var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
         var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
@@ -61,8 +60,9 @@ public class TestController : Controller
 
         }
         else{
-            return RedirectToAction("Home","NotFound");
+            return RedirectToAction("NotFound","Home");
         }
+        ViewData["CourseId"]=courseOfTest.Id;
         return View(kq);
     }
     [HttpPost]
@@ -72,18 +72,21 @@ public class TestController : Controller
         {
             return View();
         }
+        
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
+        if(test.NumberOfQuestion<kq.NumberOfQuestion)
+        {
+            ModelState.AddModelError("CheckNumberOfQuestion","Số lượng câu hỏi hiện tại phải lớn hơn câu hỏi cũ");
+            return View();
+        }
         if(kq==null)
         {
             return RedirectToAction("NotFound","Home");
         }
         var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
         var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-        if(User.IsInRole("Admin"))
-        {
-            
-        }
-        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+    
+        if(courseOfTest.TeacherId==UserId)
         {
 
         }
@@ -95,7 +98,7 @@ public class TestController : Controller
         kq.NumberOfQuestion=test.NumberOfQuestion;
         _context.Entry(kq).State=EntityState.Modified;
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return RedirectToAction("Edit","Question",new{TestId=id});
     }
     public IActionResult Delete(int? id)
     {
@@ -106,16 +109,13 @@ public class TestController : Controller
         }
         var courseOfTest=_context.courses.Where(c=>c.Id==kq.CourseId).First();
         var UserId=int.Parse(User.Claims.First(c=>c.Type=="Id").Value);
-        if(User.IsInRole("Admin"))
-        {
-            
-        }
-        else if(User.IsInRole("Admin")&&courseOfTest.TeacherId==UserId)
+ 
+        if(courseOfTest.TeacherId==UserId)
         {
 
         }
         else{
-            return RedirectToAction("Home","NotFound");
+            return RedirectToAction("NotFound","Home");
         }
 
         _context.tests.Remove(kq);

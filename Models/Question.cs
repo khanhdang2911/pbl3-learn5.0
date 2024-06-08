@@ -13,6 +13,6 @@ namespace PBL3_Course
         [ForeignKey("TestId")]
         public Test? Test{set;get;}
         public int TestId{set;get;}
-        public ICollection<Answer>? Answers{set;get;}
+        public List<Answer>? Answers{set;get;}
     }
 }

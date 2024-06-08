@@ -1,48 +1,64 @@
 @model Test
 @inject AppDbContext _context
 @{
-    
-    var TestId=Model.Id;
-    var course=_context.courses.Where(c=>c.Id==Model.CourseId).FirstOrDefault();
-    int soCauHoi=Model.NumberOfQuestion;
-    
+    var TestId = Model.Id;
+    var course = _context.courses.Where(c => c.Id == Model.CourseId).FirstOrDefault();
+    int soCauHoi = Model.NumberOfQuestion;
 
-    int i=0;
-
+    int i = 0;
 }
 <div class="title">
     <h3 class="title__name">@Model.TestName (@course.CourseName)</h3>
 </div>
 <div class="exam-system">
-    <form method="post" asp-action="Edit" asp-controller="Question" asp-route-TestId="@TestId" >
-        <div asp-validation-summary="All" class="text-danger"></div>
-        @foreach(var item in Model.Questions)
+    <form method="post" asp-action="Edit" asp-controller="Question" asp-route-TestId="@TestId" class="form-edit-question">
+        @* <div asp-validation-summary="All" class="text-danger"></div> *@
+        @for (int k = 0; k < Model.NumberOfQuestion; k++)
         {
             <div class="question-area">
-                <label for="questions[@i].QuestionName"  required ><strong>Nhập câu hỏi @(i+1):</strong></label>
-                @* <input type="text" name="questions[@i].QuestionName" id="questions[@i].QuestionName" asp-for="@item.QuestionName" required class="input-text"> *@
-                <textarea name="questions[@i].QuestionName" id="questions[@i].QuestionName" asp-for="@item.QuestionName" required></textarea>
-                <input type="hidden" name="questions[@i].TestId"  value="@TestId">
+                <label for="questions[@i].QuestionName" required><strong>Nhập câu hỏi @(i + 1):</strong></label>
+                <span class="error error-question-@i" style="display: none; color: red;">Bạn chưa nhập câu hỏi</span>
+                @* Neu cau hoi chua co thi them vao *@
+                @if (k < Model.Questions.Count)
+                {
+                    <textarea name="questions[@i].QuestionName" id="questions[@i].QuestionName" class="question-textarea" asp-for="@Model.Questions[k].QuestionName"></textarea>
+                    <input type="hidden" name="questions[@i].Id" value="@Model.Questions[k].Id">
+                }
+                else
+                {
+                    <textarea name="questions[@i].QuestionName" id="questions[@i].QuestionName" class="question-textarea"></textarea>
+                }
+                <input type="hidden" name="questions[@i].TestId" value="@TestId">
+                
                 <br>
                 <label for="">Nhập đáp án:</label>
                 <br>
                 @{
-                    int j=0;
+                    int j = 0;
                 }
-                @foreach(var ans in item.Answers)
+                @for (int m = 0; m < 4; m++)
                 {
-                    <input type="text" name="answerText[@(i*4+j)]" required class="input-text" asp-for="@ans.AnswerText">
-                    if(ans.IsCorrect==1)
+                    // Neu da co cau hoi tu truoc do roi thi can in ra 
+                    if (k < Model.Questions.Count)
                     {
-                        <input type="radio" class="input-radio" checked name="answerCorrect[@i]" required value="@j"><br>
+                        <input type="text" name="answerText[@(i * 4 + j)]" required class="input-text" asp-for="@Model.Questions[k].Answers[m].AnswerText">
+                        if (Model.Questions[k]?.Answers[m].IsCorrect == 1)
+                        {
+                            <input type="radio" class="input-radio" checked name="answerCorrect[@i]" required value="@j"><br>
+                        }
+                        else
+                        {
+                            <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="@j"><br>
+                        }
                     }
-                    else{
-                        <input type="radio" class="input-radio"  name="answerCorrect[@i]" required value="@j"><br>
+                    // neu chua co cau hoi, cau nay moi duoc them vao thi chua co hiện gì cả
+                    else
+                    {
+                        <input type="text" name="answerText[@(i * 4 + j)]" required class="input-text">
+                        <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="@j"><br>
                     }
                     j++;
                 }
-                
-                
             </div>
             ++i;
         }
@@ -50,9 +66,8 @@
     </form>
 </div>
 <style>
-
     @* Title *@
-    .title{
+    .title {
         margin: 0 auto;
         width: 80%;
         padding: 20px;
@@ -61,16 +76,15 @@
         background-color: rgb(225, 235, 236);
         border-radius: 30px;
     }
-    .title__name{
+    .title__name {
         width: 600px;
         margin: 0 auto;
-        background-color:;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    @* Exem-system *@
-    .exam-system{
+    @* Exam-system *@
+    .exam-system {
         width: 70%;
         display: flex;
         justify-content: center;
@@ -78,36 +92,63 @@
         margin: 0 auto;
         padding-bottom: 50px;
     }
-    input,button,textarea,label{
+    input, button, textarea, label {
         color: black;
     }
-    .input-text{
+    .input-text {
         width: 600px;
     }
-    
-    input{
+    input {
         padding: 5px;
         border-radius: 10px;
         margin-top: 10px;
     }
-    strong{
-        color:red;
+    strong {
+        color: red;
         font-weight: 600;
     }
-    .question-area
-    {
-        border:1px solid black;
-        @* box-sizing: border-box; *@
-        padding:40px;
+    .question-area {
+        border: 1px solid black;
+        padding: 40px;
         width: 100%;
     }
-    .btn-danger{
+    .btn-danger {
         background-color: #5751e1;
         border: none;
     }
-    .btn-danger:hover{
+    .btn-danger:hover {
         background-color: #5751e1;
         opacity: 0.8;
     }
-
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let formElement = document.querySelector(".form-edit-question");
+        let allQuestions = document.querySelectorAll(".question-textarea");
+
+        formElement.onsubmit = function(e) {
+            let formIsValid = true;
+            allQuestions.forEach((question, index) => {
+                let errorSpan = document.querySelector(".error-question-" + index);
+                if (!question.value.trim()) {
+                    e.preventDefault();
+                    errorSpan.style.display = "block";
+                    formIsValid = false;
+                } else {
+                    errorSpan.style.display = "none";
+                }
+            });
+            return formIsValid;
+        }
+
+        allQuestions.forEach((question, index) => {
+            let errorSpan = document.querySelector(".error-question-" + index);
+            question.oninput = function(e) {
+                if (e.target.value.trim()) {
+                    errorSpan.style.display = "none";
+                }
+            }
+        });
+    });
+</script>

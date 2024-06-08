@@ -1,1 +1,37 @@
 
+@model Test
+@{
+    var CourseId=ViewBag.CourseId;
+    
+}
+<form method="post" asp-action="Edit" style="width: 30%;margin:0 auto;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for ="TestName" class="control-label" ></label>
+        <input type="text" asp-for="TestName" class="form-control">
+        <span asp-validation-for="TestName" class="text-danger"></span>
+        
+    </div>
+
+    <br>
+    <div class="form-group">
+        <label asp-for ="Time" class="control-label" >Thời gian làm bài</label>
+        <input type="number" asp-for="Time" class="form-control">
+        <span asp-validation-for="Time" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" value="@CourseId" asp-for="CourseId" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for ="NumberOfQuestion" class="control-label" >Số lượng câu hỏi</label>
+        <input type="text" asp-for="NumberOfQuestion" class="form-control">
+        <span asp-validation-for="NumberOfQuestion" class="text-danger"></span>
+    </div>
+
+    <hr>
+    
+    <input type="submit" class="btn-info" style="padding: 6px;border-radius: 8px;" value="Chuyển đến sửa câu hỏi">
+</form>
+

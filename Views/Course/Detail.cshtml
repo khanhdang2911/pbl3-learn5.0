@@ -199,7 +199,7 @@
                             @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {
                                 <a class="delete-btn btn-danger delete-test" data-id="@item.Id" class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
-                                <a asp-action="Edit" asp-controller="Question" asp-route-TestId="@item.Id" class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
+                                <a asp-action="Edit" asp-controller="Test" asp-route-id="@item.Id" class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
                             }
                             
                         </li>
