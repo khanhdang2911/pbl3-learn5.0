@@ -8,7 +8,7 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage = "Bạn chưa nhập tên cho blog cần tạo")]
+        [Required(ErrorMessage = "You have not entered a name for the blog you want to create")]
         public string BlogName{set;get;} ="";
 
         public ICollection<Post>? posts{set;get;}

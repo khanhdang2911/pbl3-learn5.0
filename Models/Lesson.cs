@@ -8,27 +8,27 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập tên bài học")]
-        [Display(Name ="Tên bài học")]
+        [Required(ErrorMessage ="You have not entered a lesson name")]
+        [Display(Name ="Lesson name")]
         public string LessonName{set;get;}
 
         [DataType(DataType.Text)]
-        [Display(Name ="Mô tả bài học")]
+        [Display(Name ="Lesson description")]
 
         public string? Description{set;get;}
         
-        [Display(Name ="Nội dung bài học")]
+        [Display(Name ="Lesson content")]
         // [Required(ErrorMessage ="Bạn chưa nhập nội dung bài học")]
         public string? FileLinkContent{set;get;}
         [ForeignKey("ChapterId")]
         public int ChapterId{set;get;}
         public Chapter? Chapter{set;get;}
 
-        [Display(Name ="Upload video bài giảng")]
+        [Display(Name ="Upload lecture videos")]
         [NotMapped]
         public IFormFile? FormFile{set;get;}
 
-        [Display(Name ="Upload file tài liệu")]
+        [Display(Name ="Upload document files")]
         [NotMapped]
         public IFormFile? DocumentFile{set;get;}
         public string? DocumentLink{set;get;} 

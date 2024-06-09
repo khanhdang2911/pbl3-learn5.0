@@ -48,19 +48,19 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="courses-top-left">
-                                        <p>Số khóa học:@Model.Count</p>
+                                        <p>Number of courses:@Model.Count</p>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="d-flex justify-content-center justify-content-md-end align-items-center flex-wrap">
                                         <div class="courses-top-right m-0 ms-md-auto">
-                                            <span class="sort-by">Sắp xếp theo:</span>
+                                            <span class="sort-by">Sort by:</span>
                                             <div class="courses-top-right-select">
                                                 <select id="orderby" class="orderby">
                                                     <option value="">---</option>
-                                                    <option value="price2">Theo giá thấp đến cao</option>
-                                                    <option value="price1">Theo giá cao đến thấp</option>
-                                                    <option value="name">Theo tên</option>
+                                                    <option value="price2">From low to high price</option>
+                                                    <option value="price1">From high to low price</option>
+                                                    <option value="name">By name</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
                                                                     <a asp-action="checkoutvnpay" asp-route-courseId="@item.Id">
-                                                                        <span class="text">Mua ngay</span>
+                                                                        <span class="text">Enroll now</span>
                                                                         <i class="flaticon-arrow-right"></i>
                                                                     </a>
                                                                 </div>

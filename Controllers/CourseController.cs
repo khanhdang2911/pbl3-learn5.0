@@ -331,7 +331,7 @@ public class CourseController : Controller
         int userId=Int32.Parse(User.Claims.First(c => c.Type == "Id").Value);
         if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
         {
-            TempData["Message"]="Bạn đã đăng kí khóa học này rồi";
+            TempData["Message"]="You have already registered for this course";
             return RedirectToAction("NotFound","Home");
         }
         UsersCourse usersCourse=new UsersCourse();
@@ -350,7 +350,7 @@ public class CourseController : Controller
         }
         if(User.IsInRole("Admin"))
         {
-            TempData["Message"]="Bạn là Admin mà, bạn có quyền xem mà không cần phải mua khóa học này";
+            TempData["Message"]="You are an Admin, you have the right to view without having to buy this course";
             return RedirectToAction("NotFound","Home");
         }
         var checkCourse=_context.courses.Where(c => c.Id==courseId).FirstOrDefault();
@@ -362,7 +362,7 @@ public class CourseController : Controller
         //Kiem tra neu khoa học hiện tại của user hiện tại đang đăng nhập thì không cần phải mua
         if(checkCourse.TeacherId==userId)
         {
-            TempData["Message"]="Bạn là chủ sở hữu của khóa học này mà, bạn có quyền xem mà không cần phải mua khóa học này!";
+            TempData["Message"]="You are the owner of this course, you have the right to view it without having to buy this course!";
             return RedirectToAction("NotFound","Home");
         }
         if(checkCourse.Price==0)
@@ -377,7 +377,7 @@ public class CourseController : Controller
         }
         if(_context.usersCourses.Any(u=>u.UsersId==userId&&u.CourseId==courseId))
         {
-            TempData["Message"]="Bạn đã mua khóa học này rồi đó, không cần mua lại nhé!";
+            TempData["Message"]="You have already purchased this course, there is no need to buy it again!";
             return RedirectToAction("NotFound","Home");
         }
 
@@ -404,7 +404,7 @@ public class CourseController : Controller
 
 			if (response == null || response.VnPayResponseCode != "00")
 			{
-				TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
+				TempData["Message"] = $"VNPay payment error: {response.VnPayResponseCode}";
 				return RedirectToAction("NotFound","Home");
 			}
 
@@ -436,7 +436,7 @@ public class CourseController : Controller
             _context.SaveChanges();
 			
 
-			TempData["Message"] = $"Thanh toán VNPay thành công";
+			TempData["Message"] = $"VNPay payment successful";
 			return RedirectToAction("Success","Home");
 		}
 

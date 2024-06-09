@@ -11,7 +11,7 @@
 
     <hr>
     <div class="form-group">
-        <label asp-for ="FormFile" class="control-label" >Chọn ảnh</label>
+        <label asp-for ="FormFile" class="control-label" >Select photo</label>
         <input type="file" asp-for="FormFile" class="form-control">
         <span asp-validation-for="FormFile" class="text-danger"></span>
     </div>
@@ -23,7 +23,7 @@
 
 
     <div class="form-group" >
-        <label asp-for="BlogId" class="control-label">Chủ đề</label>
+        <label asp-for="BlogId" class="control-label">Topic</label>
         <select id="blogid" asp-for="BlogId" class="control-label">
             <option value="" >----------</option>
             @foreach(var item in _context.blogs)
@@ -42,7 +42,7 @@
     </div>
 
     <hr>
-    <input type="submit" class="btn btn-success" value="Tạo bài viết">
+    <input type="submit" class="btn btn-success" value="Create Post">
 </form>
 @* <script>
     let formElement=document.querySelector("#create-post");

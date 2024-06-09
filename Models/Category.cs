@@ -8,7 +8,7 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập tên lĩnh vực")]
+        [Required(ErrorMessage ="You have not entered a category name")]
         public string CategoryName{set;get;}
         public ICollection<Course>? courses{set;get;}
     }

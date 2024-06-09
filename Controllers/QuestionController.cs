@@ -29,7 +29,7 @@ public class QuestionController : Controller
     {
         if (!ModelState.IsValid)
         {
-            ModelState.AddModelError("", "Tạo không thành công");
+            // ModelState.AddModelError("", "Tạo không thành công");
             ViewData["TestId"] = TestId;
             return View();
         }
@@ -93,7 +93,7 @@ public class QuestionController : Controller
                     Console.WriteLine($"Error: {error.ErrorMessage}");
                 }
             }
-            ModelState.AddModelError("", "Tạo không thành công, chưa nhập đủ thông tin");
+            ModelState.AddModelError("", "Creation failed, not enough information was entered");
             ViewData["TestId"] = TestId;//khong can cung duoc vi co model truyen qua
             var kq = _context.tests.Where(t => t.Id == TestId).Include(t => t.Questions).ThenInclude(t => t.Answers).FirstOrDefault();
             return View(kq);
@@ -122,7 +122,6 @@ public class QuestionController : Controller
             await _context.Entry(item).Collection(q => q.Answers).LoadAsync();
             if (item.Answers.Count==4)
             {
-                Console.WriteLine("Hello co vao day khong vay 11?");
                 foreach (var ans in item.Answers)
                 {
                     if (_context.answers.Any(q => q.Id == ans.Id) == true)
@@ -141,7 +140,6 @@ public class QuestionController : Controller
             }
             else
             {
-                Console.WriteLine("Hello co vao day khong vay 22?");
                 
                 for(int temp=1;temp<=4;temp++)
                 {

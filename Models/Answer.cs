@@ -8,7 +8,7 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập nội dung cho đáp án")]
+        [Required(ErrorMessage ="You have not entered content for the answer")]
         public string AnswerText{set;get;}
         public int IsCorrect{set;get;}
         [ForeignKey("QuestionId")]

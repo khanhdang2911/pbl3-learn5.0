@@ -8,7 +8,7 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập tên role")]
+        [Required(ErrorMessage ="You have not entered a role name")]
         public string RoleName{set;get;}
         public ICollection<UsersRole>? usersRoles{set;get;}
     }

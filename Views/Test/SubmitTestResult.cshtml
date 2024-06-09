@@ -26,7 +26,7 @@
         }
     }
     int TestId=(int)ViewBag.id;
-    var test=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(t=>t.Answers).FirstOrDefault();
+    var test=_context.tests.Where(t=>t.Id==TestId).Include(t=>t.Questions).ThenInclude(q => q.Answers).FirstOrDefault();
     
 
     var usersTest=ViewData["usersTest"] as UsersTest;
@@ -43,10 +43,10 @@
     <h5>Bạn làm đúng được @result/ @test.NumberOfQuestion câu</h5>
     <h6>Tổng điểm:@(result*1)</h6>
     <p><strong>Hoàn thành vào lúc:</strong>@usersTest.DateSubmited.ToString("MM/dd/yyyy h:mm tt")</p>
-    <h6 style="color: red;">Lịch sử các lần đã làm trước đó:</h6>
+    <h6 style="color: red;">History of Previous Test Attempts:</h6>
     @foreach(var item in TestSubmitedOfUser)
     {
-        <p>Ngày hoàn thành:@item.DateSubmited &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: black;">Điểm</span>:@item.correctAnswer </p>
+        <p>Test Completion Date:@item.DateSubmited &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: black;">Point</span>:@item.correctAnswer </p>
     }
     
     
@@ -61,10 +61,10 @@
                 int j=0;
                 <div class="container">
                     <div class="exam__question" id="exam__question-@(i+1)">
-                        <h5 class="exam__question--text">Câu @(i+1): @Html.Raw(item.QuestionName) </h5>
+                        <h5 class="exam__question--text">Question @(i+1): @Html.Raw(item.QuestionName) </h5>
                     </div>
                     <div class="exam__answer">
-                        @foreach(var ans in item.Answers)
+                        @foreach(var ans in item.Answers.OrderBy(c=>c.Id))
                         {
                             
                             if(ans.IsCorrect==1)
@@ -143,19 +143,3 @@
     }
 </style>
 
-<script>
-
-    window.onload = function() {
-    // Clear the cache
-    if ('caches' in window) {
-        caches.keys().then(function(keyList) {
-            return Promise.all(keyList.map(function(key) {
-                return caches.delete(key);
-            }));
-        });
-    }
-
-    // Reload the page from the server
-};
-
-</script>

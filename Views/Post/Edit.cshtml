@@ -23,7 +23,7 @@
 
 
     <div class="form-group" >
-        <label asp-for="BlogId" class="control-label">Chủ đề</label>
+        <label asp-for="BlogId" class="control-label">Topic</label>
         <select id="blogid" asp-for="BlogId" class="control-label">
             <option value="" >----------</option>
             @foreach(var item in _context.blogs)
@@ -42,7 +42,7 @@
     </div>
 
     <hr>
-    <input type="submit" class="btn btn-success" value="Sửa bài viết">
+    <input type="submit" class="btn btn-success" value="Save">
 </form>
 <script>
     let formElement=document.querySelector("#create-post");
@@ -56,7 +56,7 @@
             if(!blogidElement.value)
             {
                 console.log(blogidElement);
-                blogidMessageElement.innerHTML="Bạn chưa chọn chủ đề cho bài viết";
+                blogidMessageElement.innerHTML="You have not chosen a topic for your article";
                 e.preventDefault();
             }
         }

@@ -16,8 +16,8 @@
         @for (int k = 0; k < Model.NumberOfQuestion; k++)
         {
             <div class="question-area">
-                <label for="questions[@i].QuestionName" required><strong>Nhập câu hỏi @(i + 1):</strong></label>
-                <span class="error error-question-@i" style="display: none; color: red;">Bạn chưa nhập câu hỏi</span>
+                <label for="questions[@i].QuestionName" required><strong>Enter the question @(i + 1):</strong></label>
+                <span class="error error-question-@i" style="display: none; color: red;">You have not entered a question yet</span>
                 @* Neu cau hoi chua co thi them vao *@
                 @if (k < Model.Questions.Count)
                 {
@@ -31,7 +31,7 @@
                 <input type="hidden" name="questions[@i].TestId" value="@TestId">
                 
                 <br>
-                <label for="">Nhập đáp án:</label>
+                <label for="">Enter the answer:</label>
                 <br>
                 @{
                     int j = 0;

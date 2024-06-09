@@ -36,7 +36,7 @@ public class CategoryController : Controller
 
         if(!ModelState.IsValid)
         {
-            ModelState.AddModelError("","Tạo không thành công");
+            // ModelState.AddModelError("","Tạo không thành công");
             return View();
         }
         

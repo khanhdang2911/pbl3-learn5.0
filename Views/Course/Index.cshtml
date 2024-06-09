@@ -65,8 +65,8 @@
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div>
-            <a asp-action="IndexForCourseNotActive" class=" btn-chuakichhoat" >Khóa học chưa kích hoạt</a>
-            <a asp-action="Index" class=" btn-kichhoat" >Khóa học đã kích hoạt</a>
+            <a asp-action="IndexForCourseNotActive" class=" btn-chuakichhoat" >The course has not been activated yet</a>
+            <a asp-action="Index" class=" btn-kichhoat" >The course has been activated</a>
         </div>
         <hr>
     </div>
@@ -76,11 +76,11 @@
             <table class="table table-bordered table-hover table-responsive">
                 <thead class="thead-dark">
                     <tr >
-                        <th>Tên khóa học</th>
-                        <th>Giá</th>
+                        <th>Course name</th>
+                        <th>Price</th>
                         @* <th>Ngày tạo</th> *@
-                        <th>Lĩnh vực</th>
-                        <th>Tác vụ</th>
+                        <th>Category</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

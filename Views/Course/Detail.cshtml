@@ -73,7 +73,7 @@
                         </ul>
                         @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                         {
-                        <a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" class="btn-info" style="padding: 4px;border-radius: 13px;margin-bottom: 10px;display: inline-block;">Thêm chương học</a>
+                        <a asp-action="Create" asp-controller="Chapter" asp-route-courseId="@Model.Id" class="btn-info" style="padding: 4px;border-radius: 13px;margin-bottom: 10px;display: inline-block;">Add chapter</a>
                         }
                     </div>
                     <div class="courses__curriculum-wrap">
@@ -88,9 +88,9 @@
                                             <span style="flex-grow: 1;"></span>
                                             @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                                             {
-                                            <a data-id="@item.Id" class="createLesson" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Tạo bài học</a><span>|</span>
-                                            <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Sửa</a> <span>|</span>
-                                            <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Xóa</a>
+                                            <a data-id="@item.Id" class="createLesson" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Create lesson</a><span>|</span>
+                                            <a href="#" class="edit-chapter-link" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black; padding: 10px;">Edit</a> <span>|</span>
+                                            <a class="delete-btn delete-chapter" data-id="@item.Id" style="font-size: 15px; font-weight: 600; color: black;padding:10px">Delete</a>
                                             }
                                         </button>
                                     </h2>
@@ -156,8 +156,8 @@
                                                             }
                                                             @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                                                             {
-                                                            <span>|</span> <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Chỉnh sửa bài học</a>
-                                                            <span>|</span> <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Xóa bài học</a>
+                                                            <span>|</span> <a asp-action="Edit" asp-controller="Lesson" asp-route-id="@lesson.Id">Edit lesson</a>
+                                                            <span>|</span> <a class="delete-btn delete-lesson" data-id="@lesson.Id" style="cursor: pointer;">Delete lesson</a>
                                                             }
                                                             
                                                         
@@ -178,12 +178,12 @@
                 <div class="create-test-exam">
                     @if(User.IsInRole("Teacher")&&Teacher.Id==UserIdCurrent)
                     {
-                        <a asp-action="Create" asp-controller="Test" asp-route-CourseId="@Model.Id" class="btn-custom btn-primary">Tạo bài thi</a>
+                        <a asp-action="Create" asp-controller="Test" asp-route-CourseId="@Model.Id" class="btn-custom btn-primary">Create test</a>
                     }
                     
                 </div>
                 <div class="test-exam">
-                    <h4>Đề thi</h4>
+                    <h4>Test-exam</h4>
                     @foreach(var item in Model.Tests)
                     {
                         <li style="padding: 5px;" >
@@ -198,8 +198,8 @@
                             }
                             @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {
-                                <a class="delete-btn btn-danger delete-test" data-id="@item.Id" class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Xóa</a>
-                                <a asp-action="Edit" asp-controller="Test" asp-route-id="@item.Id" class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Sửa</a>
+                                <a class="delete-btn btn-danger delete-test" data-id="@item.Id" class="btn-danger" style="cursor: pointer;padding: 3px;border-radius: 5px;">Delete</a>
+                                <a asp-action="Edit" asp-controller="Test" asp-route-id="@item.Id" class="btn-warning" style="cursor: pointer;padding: 3px;border-radius: 5px;">Edit</a>
                             }
                             
                         </li>
@@ -260,10 +260,10 @@
                                 @if((_context.usersCourses.Any(u=>u.UsersId==UserIdCurrent&&u.CourseId==Model.Id))&&(_context.comments.Any(c=>c.UserId==UserIdCurrent&&c.CourseId==Model.Id))==false)
                                 {
                                     <div class="comment-respond">
-                                        <h4 class="comment-reply-title">Post a comment</h4>
+                                        <h4 class="comment-reply-title">Post a Review</h4>
                                         <form asp-action="Comment" asp-route-courseId="@Model.Id" class="comment-form">
                                             <p class="comment-notes">
-                                                <span>Để lại những trải nghiệm của bạn với khóa học ở đây.</span>
+                                                <span>Leave your experiences with the course here.</span>
                                             </p>
                                             <div class="rating">
                                                 
@@ -283,7 +283,7 @@
                                             </div>
                                             
                                             <p class="form-submit"></p>
-                                            <button type="submit" class="btn btn-two arrow-btn">Post Comment <img src="~/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                                            <button type="submit" class="btn btn-two arrow-btn">Post Review <img src="~/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
                                         </form>
                                     </div>
                                 }

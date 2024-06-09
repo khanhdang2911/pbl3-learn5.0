@@ -76,7 +76,7 @@ public class TestController : Controller
         var kq=_context.tests.Where(c=>c.Id==id).FirstOrDefault();
         if(test.NumberOfQuestion<kq.NumberOfQuestion)
         {
-            ModelState.AddModelError("CheckNumberOfQuestion","Số lượng câu hỏi hiện tại phải lớn hơn câu hỏi cũ");
+            ModelState.AddModelError("","The number of current questions must be greater than the old questions");
             return View();
         }
         if(kq==null)

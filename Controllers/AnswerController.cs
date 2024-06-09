@@ -32,7 +32,7 @@ public class AnswerController : Controller
 
         if(!ModelState.IsValid)
         {
-            ModelState.AddModelError("","Tạo không thành công");
+            // ModelState.AddModelError("","Tạo không thành công");
             return View();
         }
         await _context.answers.AddAsync(answer);

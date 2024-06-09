@@ -58,7 +58,7 @@
 </style>
 <div class="container post-manage-detail">
     <div class="manage-post">
-        <a asp-action="create" class="btn-custom  btn-add">Tạo mới 1 bài viết</a>
+        <a asp-action="create" class="btn-custom  btn-add">Create a new article</a>
         <form asp-action="SearchPost" class="form-search">
             <input type="text" name="postName" class="input-search" placeholder="Search For Blog">
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -67,10 +67,10 @@
     <table class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
-                <th>STT</th>
-                <th>Tên bài viết</th>
-                <th>Tên chủ đề</th>
-                <th>Tác vụ</th>
+                <th>NO</th>
+                <th>Post name</th>
+                <th>Topic name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -93,17 +93,17 @@
     
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Xác nhận</h4>
+                                        <h4 class="modal-title">Confirm</h4>
                                         <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
                                     </div>
 
                                     <div class="modal-body">
-                                        Bạn có chắc muốn xóa bài post này?
+                                        Are you sure you want to delete this post?
                                     </div>
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a  class="btn btn-danger btn-custom" asp-action="delete" asp-route-id="@item.Id">Xóa</a>
+                                        <a  class="btn btn-danger btn-custom" asp-action="delete" asp-route-id="@item.Id">Delete</a>
                                     </div>
                                     </div>
                                 </div>

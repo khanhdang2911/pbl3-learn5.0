@@ -31,26 +31,26 @@
     
     
         <div class="form-group">
-            <label asp-for ="FormFile" class="control-label" >File bài giảng</label>
+            <label asp-for ="FormFile" class="control-label" >Lecture files</label>
             <input type="file" asp-for="FormFile" class="form-control">
             <span asp-validation-for="FormFile" class="text-danger"></span>
         </div> 
         <div class="form-group">
-            <label asp-for ="DocumentFile" class="control-label" >File bài tập</label>
+            <label asp-for ="DocumentFile" class="control-label" >Document file</label>
             <input type="file" asp-for="DocumentFile" class="form-control">
             <span asp-validation-for="DocumentFile" class="text-danger"></span>
         </div>
         <hr>
         <div class="form-group">
-            <label asp-for ="IsFree" class="control-label" >Loại bài học</label>
+            <label asp-for ="IsFree" class="control-label" >Lesson type</label>
             <select asp-for="IsFree" class="form-control" id="statusSelect">
-                <option value="1">Không miễn phí</option>
-                <option value="0">Miễn phí</option>
+                <option value="1">Not free</option>
+                <option value="0">Free</option>
                 
             </select>
             <span asp-validation-for="IsFree" class="text-danger"></span>
         </div>
-        <input type="submit" class="btn-info btn-submit" value="Xác nhận">
+        <input type="submit" class="btn-info btn-submit" value="Create">
     </form>
 </div>
 

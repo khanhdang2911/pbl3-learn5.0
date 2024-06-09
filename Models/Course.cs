@@ -9,21 +9,21 @@ namespace PBL3_Course
         [Key]
         public int Id{set;get;}
         [Required]
-        [Display(Name ="Tên khóa học")]
+        [Display(Name ="Course name")]
         public string CourseName{set;get;}
         [Required]
-        [Display(Name ="Giá")]
+        [Display(Name ="Price")]
 
         public decimal Price{set;get;}
         [DataType(DataType.Text)]
-        [Display(Name ="Mô tả khóa học")]
+        [Display(Name ="Course description")]
 
         public string? Description{set;get;}
         public ICollection<Chapter>? chapters{set;get;}
         public DateTime DateCreated{set;get;}
         public DateTime? DateEdited{set;get;}
         public int status {set;get;}
-        [Display(Name ="Ảnh đại diện cho khóa học")]
+        [Display(Name ="Photo representing the course")]
         [NotMapped]
         public IFormFile? ImageFile{set;get;}
         public string? CourseImageLink{set;get;}

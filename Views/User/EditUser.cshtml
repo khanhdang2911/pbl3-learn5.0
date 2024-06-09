@@ -36,14 +36,14 @@
                 <input type="text" asp-for="Phone" class="form-control">
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <a asp-action="ChangePassword" asp-controller="User" asp-route-id="@Model.Id">Đổi mật khẩu</a>
+            <a asp-action="ChangePassword" asp-controller="User" asp-route-id="@Model.Id">Change password</a>
             <hr>
             <input type="submit" class="btn btn-success" value="Lưu thông tin">
         </form>
     </div>
 
     <div class="courseOfUser">
-        <h5 style="margin-bottom: 30px;">Các khóa học của tôi</h5>
+        <h5 style="margin-bottom: 30px;">My courses</h5>
         <ul>
             @foreach (var item in allCourseOfUser)
             {
@@ -64,8 +64,8 @@
             }
         </ul>
         @if(User.IsInRole("Teacher")){
-            <button type="button" class="report-detail-button btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                Xem Thống kê Khóa học
+            <button type="button" class="report-detail-button btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"> 
+                View Your Course Statistics
             </button>
         }
         
@@ -74,7 +74,7 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Thống kê cho giáo viên</h4>
+                    <h4 class="modal-title">Statistics for teachers</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
@@ -92,10 +92,10 @@
                             totalView+=item.lessons.Sum(c=>c.View);
                         }
                         <div class="course-info">
-                            <h4>Tên khóa học: @course.CourseName</h4>
-                            <p>Số lượng học viên tham gia: @studentIncourse.Count học viên</p>
-                            <p>Đánh giá trung bình của học viên: @starAvg <i class="fa-solid fa-star" style="color:yellow"></i></p>
-                            <p>Số lượt xem video: @totalView lượt</p>
+                            <h4>Course name: @course.CourseName</h4>
+                            <p>Number of students participating: @studentIncourse.Count học viên</p>
+                            <p>Average student rating: @starAvg <i class="fa-solid fa-star" style="color:yellow"></i></p>
+                            <p>Number of video views: @totalView lượt</p>
                             <ul class="lesson-favourite">
                                     @foreach(var item in course.chapters)
                                     {
@@ -103,19 +103,19 @@
                                         {
                                             foreach(var lesson in item.lessons)
                                             {
-                                                <li>&nbsp;&nbsp;&nbsp; @lesson.LessonName: @lesson.View lượt xem</li>
+                                                <li>&nbsp;&nbsp;&nbsp; @lesson.LessonName: @lesson.View views</li>
                                             }
                                         }
                                     }
                             </ul>
                             
-                            <p>Chi tiết số lượt làm bài tập của học viên:</p>
+                            <p>Details of students' number of homework turns:</p>
                             <ul>
                                 @foreach(var item in totalTestOfCourse)
                                 {
                                     var viewTest=item.usersTests.Count;
 
-                                    <li>&nbsp;&nbsp;&nbsp; @item.TestName : @viewTest lượt </li>
+                                    <li>&nbsp;&nbsp;&nbsp; @item.TestName : @viewTest views </li>
                                 }
                             </ul>
                         </div>
@@ -124,7 +124,7 @@
 
                 <!-- Modal Footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

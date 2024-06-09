@@ -61,7 +61,7 @@
 </style>
 <div class="container user-manage-detail">
     <div class="head-content">
-        <a asp-action="AddUser" class="btn-custom btn-add"><i class="fa-solid fa-plus"></i>Tạo user mới</a>
+        <a asp-action="AddUser" class="btn-custom btn-add"><i class="fa-solid fa-plus"></i>Create new user</a>
         <form method="post" asp-action="SearchUser" class="form-search">
             <input type="text" name="email" required class="input-search" placeholder="Search For user">
             <button type="submit"  class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -73,10 +73,10 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Email</th>
-                        <th>Tên</th>
+                        <th>Name</th>
                         <th>Phone</th>
-                        <th>Quyền truy cập</th>
-                        <th>Tác vụ</th>
+                        <th>Role access</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

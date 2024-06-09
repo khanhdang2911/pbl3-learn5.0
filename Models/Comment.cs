@@ -8,7 +8,7 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập nội dung phần bình luận")]
+        [Required(ErrorMessage ="You have not entered comment content yet")]
         [DataType(DataType.Text)]
         public string CommentText{set;get;}
         public DateTime DateComment{set;get;}

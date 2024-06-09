@@ -15,12 +15,12 @@
         @for (int i = 0; i < soCauHoi; i++)
         {
             <div class="question-area">
-                <label for="questions[@i].QuestionName" required><strong>Nhập câu hỏi @(i + 1):</strong></label>
-                <span class="error error-question-@i" style="display: none; color: red;">Bạn chưa nhập câu hỏi</span>
+                <label for="questions[@i].QuestionName" required><strong>Enter question @(i + 1):</strong></label>
+                <span class="error error-question-@i" style="display: none; color: red;">You have not entered a question yet</span>
                 <textarea name="questions[@i].QuestionName" id="questions[@i].QuestionName" class="question-textarea"></textarea>
                 <input type="hidden" name="questions[@i].TestId" value="@TestId">
                 <br>
-                <label for="">Nhập đáp án:</label>
+                <label for="">Enter the answer:</label>
                 <br>
                 <input type="text" name="answerText[@(i * 4)]" required class="input-text"> <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="0"><br>
                 <input type="text" name="answerText[@(i * 4 + 1)]" required class="input-text"> <input type="radio" class="input-radio" name="answerCorrect[@i]" required value="1"><br>

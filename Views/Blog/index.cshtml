@@ -63,19 +63,19 @@
 </style>
 <div class="container blog-manage-detail">
     <div class="manage-blog">
-        <a asp-action="create" class="btn-custom btn-add"> <i class="fa-solid fa-plus"></i> Tạo mới 1 blog</a>
+        <a asp-action="create" class="btn-custom btn-add"> <i class="fa-solid fa-plus"></i> Create a new blog</a>
         <form asp-action="SearchBlog" class="form-search">
             <input type="text" name="blogName" class="input-search" placeholder="Search For Blog">
             <button type="submit" class=btn-search><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-        <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="index" asp-controller="Post">Quản lí các bài post</a>
+        <a class="btn-custom btn-info" style="background-color: #576ed3;" asp-action="index" asp-controller="Post">Manage posts</a>
     </div>
     <table class="table table-bordered table-hover table-responsive">
         <thead>
             <tr>
-                <th>STT</th>
-                <th>Tên Blog</th>
-                <th>Tác vụ</th>
+                <th>NO</th>
+                <th>Blog name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -97,16 +97,16 @@
     
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Xác nhận</h4>
+                                        <h4 class="modal-title">Confirm</h4>
                                         <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Bạn có chắc muốn xóa bài blog này?
+                                        Are you sure you want to delete this blog post?
                                     </div>
     
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a type="button" class="btn btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Xóa</a>
+                                        <a type="button" class="btn btn-danger btn-custom btn-danger" asp-action="delete" asp-route-id="@item.Id" >Delete</a>
                                     </div>
     
                                     </div>

@@ -6,8 +6,8 @@
 {
     <div id="form-submit-role" class="border border-primary" style="margin: 0 auto;width: 50%;">
         <form method="post" class="m-5" asp-action="AddRoleForUser" asp-route-id="@user.Id" style="margin: 0 auto;">
-            <h4>Phân quyền cho người dùng @user.Name</h4>
-            <span class="error error-submit-role">Bạn chưa chọn role cho người dùng !</span>
+            <h4>Assign permissions to users @user.Name</h4>
+            <span class="error error-submit-role">You have not selected a role for the user !</span>
             <div>
                 @for (var item = 0; item < @Model.Count(); item++)
                 {
@@ -28,7 +28,8 @@
 }
 else
 {
-    <h1>khong tim thay user
+    <h1>
+Can't find user
     </h1>
 }
 <script>

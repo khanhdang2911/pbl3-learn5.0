@@ -9,7 +9,7 @@ namespace PBL3_Course
         [Key]
         public int Id{set;get;}
         [Required]
-        [Display(Name ="Tên chương học")]
+        [Display(Name ="Chapter name")]
         public string ChapterName{set;get;}
         public ICollection<Lesson>? lessons{set;get;}
         public Course? Course{set;get;}

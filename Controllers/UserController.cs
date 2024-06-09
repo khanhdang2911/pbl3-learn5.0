@@ -51,23 +51,23 @@ public class UserController : Controller
         var checkUserExists1=_context.users.Where(u=>u.Email==users.Email).FirstOrDefault();
         if(checkUserExists1!=null)
         {
-            ModelState.AddModelError("","Email đã tồn tại");
+            ModelState.AddModelError("","Email already exists");
             
         }
         var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone).FirstOrDefault();
         if(checkUserExists2!=null)
         {
-            ModelState.AddModelError("","Phone đã tồn tại");
+            ModelState.AddModelError("","Phone already exists");
             
         }
         if(string.IsNullOrEmpty(ConfirmPassword)==true)
         {
-            ModelState.AddModelError("","Bạn chưa nhập lại mật khẩu");
+            ModelState.AddModelError("","You have not re-entered your password");
             
         }
         if(users.Password!=ConfirmPassword)
         {
-            ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
+            ModelState.AddModelError("","Re-enter incorrect password");
         }
         if(ModelState.ErrorCount>=1)
         {
@@ -93,14 +93,14 @@ public class UserController : Controller
             var kq=_context.users.Where(u=>u.Email==Email).FirstOrDefault();
             if(kq==null)
             {
-                ModelState.AddModelError("","Sai thông tin đăng nhập");
+                ModelState.AddModelError("","Wrong account name or password");
                 return View();
             }
             if(kq!=null)
             {
                 if(_hashPasswordByBC.VerifyPassword(Password,kq.Password)==false)
                 {
-                    ModelState.AddModelError("","Sai mật khẩu");
+                    ModelState.AddModelError("","Password is not correct");
                     return View();
                 }
             }
@@ -159,13 +159,13 @@ public class UserController : Controller
         {
             if(string.IsNullOrEmpty(code))
             {
-                ModelState.AddModelError("","Phải nhập code để xác nhận");
+                ModelState.AddModelError("","Must enter code to confirm");
                 return View();
             }
             else if(code!=_randomCode.ToString())
             {
                 Console.WriteLine(code+"  "+_randomCode);
-                ModelState.AddModelError("","Mã xác nhận bạn nhập không đúng, vui lòng kiểm tra lại");
+                ModelState.AddModelError("","The confirmation code you entered is incorrect, please check again");
                 return View();
             }
             var user=_context.users.Where(u=>u.Email==EmailEnter).FirstOrDefault();
@@ -188,18 +188,18 @@ public class UserController : Controller
             Console.WriteLine(newpassword+"  "+newpasswordConfirm);
             if(string.IsNullOrEmpty(newpassword))
             {
-                ModelState.AddModelError("","Bạn chưa nhập mật khẩu mới");
+                ModelState.AddModelError("","You have not entered a new password");
                 return View(kq);
             }
 
             if(string.IsNullOrEmpty(newpasswordConfirm))
             {
-                ModelState.AddModelError("","Bạn chưa xác nhận lại mật khẩu mới");
+                ModelState.AddModelError("","You have not reconfirmed your new password");
                 return View(kq);
             }
             if(newpassword!=newpasswordConfirm)
             {
-                ModelState.AddModelError("","Nhập lại mật khẩu chưa chính xác");
+                ModelState.AddModelError("","Re-enter the password incorrectly");
                 return View(kq);
             }
             
@@ -213,13 +213,13 @@ public class UserController : Controller
         {
             if(string.IsNullOrEmpty(Email))
             {
-                ModelState.AddModelError("","Phải nhập Email của bạn");
+                ModelState.AddModelError("","Enter your Email");
                 return View();
             }
             var user=_context.users.Where(u=>u.Email==Email).FirstOrDefault();
             if(user==null)
             {
-                ModelState.AddModelError("","Email không tồn tại");
+                ModelState.AddModelError("","Email does not exist");
                 return View();
             }
             EmailEnter=Email;
@@ -231,9 +231,9 @@ public class UserController : Controller
             email.From.Add(new MailboxAddress("khanhdang", "khanhdang3152@gmail.com"));
             email.To.Add(new MailboxAddress("", $"{Email}"));
 
-            email.Subject = "XÁC NHẬN NGƯỜI DÙNG";
+            email.Subject = "CONFIRM USER EMAIL";
             email.Body = new TextPart(MimeKit.Text.TextFormat.Html) { 
-                Text = $"<b>Mã code xác nhận của bạn là: {_randomCode}</b>"};
+                Text = $"<b>Your confirmation code is: {_randomCode}</b>"};
             Console.WriteLine("Ma code:"+_randomCode);
 
             using (var smtp = new SmtpClient())
@@ -246,7 +246,6 @@ public class UserController : Controller
                 smtp.Send(email);
                 smtp.Disconnect(true);
             }
-            Console.WriteLine("da toi buoc nay roi nay");
             
            
 
@@ -295,13 +294,13 @@ public class UserController : Controller
         var checkUserExists1=_context.users.Where(u=>u.Email==users.Email&&u.Id!=UsersId).FirstOrDefault();
         if(checkUserExists1!=null)
         {
-            ModelState.AddModelError("","Email đã tồn tại");
+            ModelState.AddModelError("","Email already exists");
             return View(kq);
         }
         var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone&&u.Id!=UsersId).FirstOrDefault();
         if(checkUserExists2!=null)
         {
-            ModelState.AddModelError("","Phone đã tồn tại");
+            ModelState.AddModelError("","Phone already exists");
             return View(kq);
         }
 
@@ -333,23 +332,23 @@ public class UserController : Controller
         }
         if(string.IsNullOrWhiteSpace(oldPassword)||string.IsNullOrWhiteSpace(newpassword)||string.IsNullOrWhiteSpace(newpasswordConfirm))
         {
-            ModelState.AddModelError("","Bạn chưa nhập đủ thông tin, xin hãy nhập lại");
+            ModelState.AddModelError("","You did not enter enough information, please re-enter");
             return View(kq);
         }
         if(_hashPasswordByBC.VerifyPassword(oldPassword,kq.Password)==false)
         {
-            ModelState.AddModelError("","Mật khẩu cũ không chính xác");
+            ModelState.AddModelError("","The old password is incorrect");
             
         }
         
         if(newpassword!=newpasswordConfirm)
         {
-            ModelState.AddModelError("","Nhập lại mật khẩu không chính xác");
+            ModelState.AddModelError("","Re-enter incorrect password");
             
         }
         if(_hashPasswordByBC.VerifyPassword(newpassword,kq.Password))
         {
-            ModelState.AddModelError("","Mật khẩu mới không được trùng mật khẩu cũ");
+            ModelState.AddModelError("","The new password must not be the same as the old password");
             
         }
         if(ModelState.ErrorCount>0)

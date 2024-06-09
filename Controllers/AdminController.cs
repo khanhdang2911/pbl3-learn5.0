@@ -44,13 +44,13 @@ public class AdminController : Controller
         var checkUserExists1=_context.users.Where(u=>u.Email==users.Email).FirstOrDefault();
         if(checkUserExists1!=null)
         {
-            ModelState.AddModelError("","Email đã tồn tại");
+            ModelState.AddModelError("","Email already exists");
             return View();
         }
         var checkUserExists2=_context.users.Where(u=>u.Phone==users.Phone).FirstOrDefault();
         if(checkUserExists2!=null)
         {
-            ModelState.AddModelError("","Phone đã tồn tại");
+            ModelState.AddModelError("","Phone already exists");
             return View();
         }
         _context.users.Add(users);
@@ -90,7 +90,7 @@ public class AdminController : Controller
         var checkRoleExists=_context.roles.Any(r=>r.RoleName==role.RoleName);
         if(checkRoleExists==true)
         {
-            ModelState.AddModelError("","Role đã tồn tại");
+            ModelState.AddModelError("","Role already exists");
             return View();
         }
         await _context.roles.AddAsync(role);
@@ -132,7 +132,7 @@ public class AdminController : Controller
         var checkRoleExists=_context.roles.Any(r=>r.RoleName==role.RoleName);
         if(checkRoleExists==true)
         {
-            ModelState.AddModelError("","Role đã tồn tại");
+            ModelState.AddModelError("","Role already exists");
             return View();
         }
         var kq=_context.roles.Where(r=>r.Id==id).FirstOrDefault();
@@ -213,7 +213,6 @@ public class AdminController : Controller
     [HttpPost]
     public IActionResult SearchUser(string email)
     {
-        Console.WriteLine("email la:"+email);
         var kq=_context.users.Where(u=>u.Email.Contains(email)).ToList();
         foreach(var item in kq)
         {

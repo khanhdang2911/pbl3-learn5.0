@@ -9,13 +9,13 @@ namespace PBL3_Course
     {
         [Key]
         public int Id{set;get;}
-        [EmailAddress(ErrorMessage ="Bạn nhập email sai định dạng")]
-        [Required(ErrorMessage ="Bạn chưa nhập email")]
+        [EmailAddress(ErrorMessage ="You entered an email in the wrong format")]
+        [Required(ErrorMessage ="You have not entered your email yet")]
         public string Email{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập tên")]
+        [Required(ErrorMessage ="You have not entered your name")]
         public string Name{set;get;}
-        [Required(ErrorMessage ="Bạn chưa nhập số điện thoại")]
-        [Phone(ErrorMessage ="Nhập số điện thoại sai định dạng")]
+        [Required(ErrorMessage ="You did not enter a phone number")]
+        [Phone(ErrorMessage ="Enter the phone number in the wrong format")]
         public string Phone{set;get;}
         public string Password{set;get;}
         public ICollection<UsersRole>? usersRoles{set;get;}
