@@ -117,9 +117,14 @@ public class LessonController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Detail","Course",new {id=courseId});
     }
-
+    
     public async Task<IActionResult> Detail(int? id)
     {
+        if(User.Identity.IsAuthenticated==false)
+        {
+            TempData["Message"]="Please login to watch this lecture";
+            return RedirectToAction("NotFound","Home");
+        }
         if(id==null)
         {
             return RedirectToAction("NotFound","Home");

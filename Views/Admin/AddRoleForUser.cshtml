@@ -6,8 +6,8 @@
 {
     <div id="form-submit-role" class="border border-primary" style="margin: 0 auto;width: 50%;">
         <form method="post" class="m-5" asp-action="AddRoleForUser" asp-route-id="@user.Id" style="margin: 0 auto;">
-            <h4>Assign permissions to users @user.Name</h4>
-            <span class="error error-submit-role">You have not selected a role for the user !</span>
+            <h4>Assign permissions to user @user.Name</h4>
+            @* <span class="error error-submit-role">You have not selected a role for the user !</span> *@
             <div>
                 @for (var item = 0; item < @Model.Count(); item++)
                 {
@@ -21,7 +21,7 @@
                 }
             </div>
             <div>
-                <input class="btn-primary mt-3" type="submit" value="Lưu" style="border-radius: 999px;" />
+                <input class="btn-primary mt-3" type="submit" value="Save" style="border-radius: 999px;" />
             </div>
         </form>
     </div>
@@ -32,7 +32,7 @@ else
 Can't find user
     </h1>
 }
-<script>
+@* <script>
     let inputCheck=document.querySelectorAll(".form-check-input-role");
     let formSubmit=document.querySelector("#form-submit-role");
     let errorSubmit=document.querySelector(".error-submit-role");
@@ -61,4 +61,4 @@ Can't find user
             errorSubmit.style.display="none";
         }
     })
-</script>
+</script> *@

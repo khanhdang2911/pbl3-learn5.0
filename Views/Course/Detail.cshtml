@@ -183,18 +183,18 @@
                     
                 </div>
                 <div class="test-exam">
-                    <h4>Test-exam</h4>
+                    <h4>Test - Exam</h4>
                     @foreach(var item in Model.Tests)
                     {
                         <li style="padding: 5px;" >
                             
                             
                         @if(UserIdCurrent==Teacher.Id || _context.usersCourses.Any(c=>c.UsersId==UserIdCurrent)==true||User.IsInRole("Admin")){
-                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;" >@item.TestName</a>
+                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 220px; display: inline-block;" >@item.TestName</a>
                             }
                             else if(_context.usersCourses.Any(c=>c.UsersId==UserIdCurrent&&c.CourseId==item.Id)==false)
                             {
-                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 240px; display: inline-block;pointer-events: none;cursor: default;" >@item.TestName</a>
+                                <a asp-action="DetailNote" asp-controller="Test" asp-route-id="@item.Id" style="min-width: 220px; display: inline-block;pointer-events: none;cursor: default;" >@item.TestName</a>
                             }
                             @if(User.IsInRole("Teacher")&&UserIdCurrent==Teacher.Id)
                             {

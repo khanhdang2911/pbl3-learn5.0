@@ -1401,6 +1401,14 @@
       "PackagePath": "staticwebassets\\uploads\\toeicBlog.png"
     },
     {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\web2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\web2.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\web_prog.png",
+      "PackagePath": "staticwebassets\\uploads\\web_prog.png"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PBL3_Course.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

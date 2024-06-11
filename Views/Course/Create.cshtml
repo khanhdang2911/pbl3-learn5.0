@@ -1,28 +1,26 @@
 @model Course
 @{
-    SelectList categoryList=ViewData["categoryList"] as SelectList;
+    SelectList categoryList = ViewData["categoryList"] as SelectList;
 }
 <form method="post" asp-action="Create" style="width: 60%;margin: 0 auto;" enctype="multipart/form-data">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
-        <label asp-for ="CourseName" class="control-label" ></label>
+        <label asp-for="CourseName" class="control-label"></label>
         <input type="text" asp-for="CourseName" class="form-control">
         <span asp-validation-for="CourseName" class="text-danger"></span>
     </div>
     <br>
 
-
     <hr>
     <div class="form-group">
-        <label asp-for ="Description" class="control-label" ></label>
+        <label asp-for="Description" class="control-label"></label>
         <textarea asp-for="Description"></textarea>
-        @* <input type="text" asp-for="Description" class="form-control"> *@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     
     <hr>
     <div class="form-group">
-        <label asp-for ="ImageFile" class="control-label" ></label>
+        <label asp-for="ImageFile" class="control-label"></label>
         <input type="file" required asp-for="ImageFile" class="form-control">
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
@@ -32,7 +30,6 @@
         <select asp-for="status" class="form-control" id="statusSelect">
             <option value="1">Not free</option>
             <option value="0">Free</option>
-            
         </select>
         <span asp-validation-for="status" class="text-danger"></span>
     </div>
@@ -42,9 +39,9 @@
         <input type="text" asp-for="Price" class="form-control" id="priceInput">
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    <div class="form-group" >
+    <div class="form-group">
         <label asp-for="CategoryId" class="control-label"></label>
-        <select asp-for="CategoryId" asp-items="@categoryList" class="control-label"></select>
+        <select asp-for="CategoryId" asp-items="@categoryList" class="form-control"></select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
     <hr>
@@ -52,14 +49,26 @@
 </form>
 
 <script>
-    document.getElementById('statusSelect').addEventListener('change', function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        var statusSelect = document.getElementById('statusSelect');
         var priceField = document.getElementById('priceField');
-        if (this.value === '1') {
-            priceField.style.display = 'block';
-             @* priceInput.value = ''; // Clear the value *@
-        } else {
-            priceField.style.display = 'none';
-            priceInput.value = '0'; // Set value to 0
+        var priceInput = document.getElementById('priceInput');
+        
+        function togglePriceField() {
+            if (statusSelect.value === '1') {
+                priceField.style.display = 'block';
+                priceInput.disabled = false;
+                priceInput.value = '';
+            } else {
+                priceField.style.display = 'none';
+                priceInput.disabled = true;
+                priceInput.value = '0';
+            }
         }
+
+        statusSelect.addEventListener('change', togglePriceField);
+
+        // Initialize on page load
+        togglePriceField();
     });
 </script>

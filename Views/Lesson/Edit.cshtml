@@ -32,7 +32,7 @@
     
         <div class="form-group">
             <label asp-for ="FormFile" class="control-label" >Lecture file</label>
-            <input type="file" asp-for="FormFile" class="form-control">
+            <input type="file" required asp-for="FormFile" class="form-control">
             <span asp-validation-for="FormFile" class="text-danger"></span>
         </div> 
         <div class="form-group">
