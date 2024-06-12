@@ -238,7 +238,10 @@ public class UserController : Controller
 
             using (var smtp = new SmtpClient())
             {
-                smtp.Connect("smtp.gmail.com", 587, false);
+                smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
+
+                smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+
 
                 // Note: only needed if the SMTP server requires authentication
                 smtp.Authenticate("khanhdang3152@gmail.com", "tlol kfvg mubs yyyl");

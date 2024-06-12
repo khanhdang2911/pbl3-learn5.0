@@ -39,10 +39,10 @@
     }
 }
 <div class="container message">
-    <h3>Đề:@test.TestName</h3>
-    <h5>Bạn làm đúng được @result/ @test.NumberOfQuestion câu</h5>
-    <h6>Tổng điểm:@(result*1)</h6>
-    <p><strong>Hoàn thành vào lúc:</strong>@usersTest.DateSubmited.ToString("MM/dd/yyyy h:mm tt")</p>
+    <h3>Test:@test.TestName</h3>
+    <h5>You got @result/ @test.NumberOfQuestion questions correct</h5>
+    <h6>Total score:@(result*1)</h6>
+    <p><strong>Completed on time:</strong>@usersTest.DateSubmited.ToString("MM/dd/yyyy h:mm tt")</p>
     <h6 style="color: red;">History of Previous Test Attempts:</h6>
     @foreach(var item in TestSubmitedOfUser)
     {
