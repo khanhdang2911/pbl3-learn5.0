@@ -1,0 +1,1485 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Edge\\index.html",
+      "PackagePath": "staticwebassets\\Edge\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Trident\\index.html",
+      "PackagePath": "staticwebassets\\Trident\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\Version\\index.html",
+      "PackagePath": "staticwebassets\\Version\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\animate.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\aos.css",
+      "PackagePath": "staticwebassets\\assets\\css\\aos.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\default-icons.css",
+      "PackagePath": "staticwebassets\\assets\\css\\default-icons.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\flaticon-skillgro.css",
+      "PackagePath": "staticwebassets\\assets\\css\\flaticon-skillgro.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\assets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\odometer.css",
+      "PackagePath": "staticwebassets\\assets\\css\\odometer.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\select2.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\spacing.css",
+      "PackagePath": "staticwebassets\\assets\\css\\spacing.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\swiper-bundle.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\css\\tg-cursor.css",
+      "PackagePath": "staticwebassets\\assets\\css\\tg-cursor.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flat-icon\\flaticon_tg_defaultbada.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.eot",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.eot"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.svg",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.ttf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.woff",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.woff"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\fonts\\flaticon_skill_grow533a.woff2",
+      "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_skill_grow533a.woff2"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_author01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_author01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_author02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_author02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_bg.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_bg.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_bg02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_bg02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\banner_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\banner_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\bg_dots.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\bg_dots.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_icon.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_icon.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\banner\\h2_banner_shape03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\banner\\h2_banner_shape03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\breadcrumb_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\breadcrumb_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\courses_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\courses_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\cta_bg.html",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\cta_bg.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\bg\\instructor_bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg\\instructor_bg.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\author.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\author.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_details.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_details.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post10.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post10.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post11.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post11.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\blog_post12.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\blog_post12.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\comment01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\comment01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\comment02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\comment02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\blog\\latest_post04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\blog\\latest_post04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand06.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand06.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\brand\\brand07.png",
+      "PackagePath": "staticwebassets\\assets\\img\\brand\\brand07.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author001.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author001.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author002.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author002.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author003.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author003.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_author004.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_author004.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_instructors.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_instructors.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb10.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb10.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb11.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb11.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\course_thumb12.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\course_thumb12.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\courses_details.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\courses_details.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\courses\\review-author.png",
+      "PackagePath": "staticwebassets\\assets\\img\\courses\\review-author.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_details_img.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_details_img.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_details_img02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_details_img02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_shape.png",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_shape.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\events\\event_thumb08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\events\\event_thumb08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\img\\favicon.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\brand_star.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\brand_star.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\calendar.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\calendar.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\cart.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\cart.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\cat_star.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\cat_star.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\contact_phone.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\contact_phone.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon05.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon05.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\course_icon06.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\course_icon06.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\down_arrow.html",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\down_arrow.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\emial.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\emial.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\envelope.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\envelope.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\facebook.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\facebook.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\features_icon04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\features_icon04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\google.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\google.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\h2_features_icon03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\h2_features_icon03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\heart.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\heart.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\instagram.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\instagram.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\lock.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\lock.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\map.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\map.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\map_marker.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\map_marker.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\phone.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\phone.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\play.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\play.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\right_arrow.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\right_arrow.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\twitter.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\twitter.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\whatsapp.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\whatsapp.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\icons\\youtube.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\icons\\youtube.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor_img_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor_img_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\h2_instructor_shape.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\h2_instructor_shape.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor05.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor05.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor06.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor06.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor07.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor07.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor08.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor08.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor09.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor09.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_details_thumb.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_details_thumb.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_nav04.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_nav04.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_two01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_two01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\instructor\\instructor_two02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\instructor\\instructor_two02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\logo.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\preloader.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\preloader.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\logo\\secondary_logo.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\logo\\secondary_logo.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\objects\\title_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\objects\\title_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\about_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\about_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\about_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\about_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\apple-store.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\apple-store.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape03.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape03.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape04.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape04.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\breadcrumb_shape05.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\breadcrumb_shape05.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\error_img.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\error_img.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\fact_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\fact_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_shape01.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_shape01.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\faq_shape02.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\faq_shape02.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\features_item_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\features_item_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\google-play.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\google-play.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\inner_about_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\inner_about_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\inner_about_shape.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\inner_about_shape.svg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_img.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_img.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\newsletter_shape03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\newsletter_shape03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\payment.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\payment.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\student_grp.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\student_grp.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author01.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author01.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author02.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author02.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\others\\testi_author03.png",
+      "PackagePath": "staticwebassets\\assets\\img\\others\\testi_author03.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img01.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img02.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img03.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img04.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img05.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img06.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img07.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img07.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img08.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img08.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\img\\shop\\shop_img09.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\shop\\shop_img09.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\ajax-form.js",
+      "PackagePath": "staticwebassets\\assets\\js\\ajax-form.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\aos.js",
+      "PackagePath": "staticwebassets\\assets\\js\\aos.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\imagesloaded.pkgd.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\imagesloaded.pkgd.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.appear.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.appear.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.circleType.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.circleType.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.lettering.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.lettering.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.marquee.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.marquee.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\jquery.odometer.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.odometer.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\select2.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\svg-inject.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\svg-inject.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\swiper-bundle.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\swiper-bundle.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\tg-cursor.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tg-cursor.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\tween-max.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tween-max.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\vendor\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vendor\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\vivus.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\vivus.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\assets\\js\\wow.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\generalUse.css",
+      "PackagePath": "staticwebassets\\css\\generalUse.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\layout_admin.css",
+      "PackagePath": "staticwebassets\\css\\layout_admin.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\css\\styleDetailCourse.css",
+      "PackagePath": "staticwebassets\\css\\styleDetailCourse.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\dist\\index.html",
+      "PackagePath": "staticwebassets\\dist\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-add-50.png",
+      "PackagePath": "staticwebassets\\img\\icons8-add-50.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-delete-30.png",
+      "PackagePath": "staticwebassets\\img\\icons8-delete-30.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\img\\icons8-fix-50.png",
+      "PackagePath": "staticwebassets\\img\\icons8-fix-50.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\cursor.html",
+      "PackagePath": "staticwebassets\\src\\js\\cursor.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\index.html",
+      "PackagePath": "staticwebassets\\src\\js\\index.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\src\\js\\magnetic.html",
+      "PackagePath": "staticwebassets\\src\\js\\magnetic.html"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\3 types of bias in AI _ Machine learning (1).mp4",
+      "PackagePath": "staticwebassets\\uploads\\3 types of bias in AI _ Machine learning (1).mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\3 types of bias in AI _ Machine learning.mp4",
+      "PackagePath": "staticwebassets\\uploads\\3 types of bias in AI _ Machine learning.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\A one minute TEDx Talk for the digital age _ Woody Roseland _ TEDxMileHigh (1).mp4",
+      "PackagePath": "staticwebassets\\uploads\\A one minute TEDx Talk for the digital age _ Woody Roseland _ TEDxMileHigh (1).mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Artificial Intelligence in 2 Minutes _ What is Artificial Intelligence_ _ Edureka.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Artificial Intelligence in 2 Minutes _ What is Artificial Intelligence_ _ Edureka.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\BigData.png",
+      "PackagePath": "staticwebassets\\uploads\\BigData.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\BlogToeicTuVung.png",
+      "PackagePath": "staticwebassets\\uploads\\BlogToeicTuVung.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\CSS in 100 Seconds.mp4",
+      "PackagePath": "staticwebassets\\uploads\\CSS in 100 Seconds.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Casually Explained_ Critical Thinking.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Casually Explained_ Critical Thinking.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Classification and Regression in Machine Learning.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Classification and Regression in Machine Learning.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Course1.png",
+      "PackagePath": "staticwebassets\\uploads\\Course1.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Cách tạo viền cho văn bản trong Photoshop _ DesignerVN.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Cách tạo viền cho văn bản trong Photoshop _ DesignerVN.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Deep Learning Cars.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Deep Learning Cars.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Detail-Anh1.png",
+      "PackagePath": "staticwebassets\\uploads\\Detail-Anh1.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ Don't _ Doesn't Have Questions.mp4",
+      "PackagePath": "staticwebassets\\uploads\\English Grammar_ Don't _ Doesn't Have Questions.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ This _ That _ These _ Those Practice.mp4",
+      "PackagePath": "staticwebassets\\uploads\\English Grammar_ This _ That _ These _ Those Practice.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ This _ That.mp4",
+      "PackagePath": "staticwebassets\\uploads\\English Grammar_ This _ That.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\English Grammar_ a _ an + Noun.mp4",
+      "PackagePath": "staticwebassets\\uploads\\English Grammar_ a _ an + Noun.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Everything about Web Design in 3 minutes..mp4",
+      "PackagePath": "staticwebassets\\uploads\\Everything about Web Design in 3 minutes..mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\FrontEnd_blob.png",
+      "PackagePath": "staticwebassets\\uploads\\FrontEnd_blob.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Frontend_blog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Frontend_blog.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\HTML.jpg",
+      "PackagePath": "staticwebassets\\uploads\\HTML.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\How do I Create a GIF in Photoshop - Animate your Art! _ Adobe Photoshop _ Creative Cloud.mp4",
+      "PackagePath": "staticwebassets\\uploads\\How do I Create a GIF in Photoshop - Animate your Art! _ Adobe Photoshop _ Creative Cloud.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Java.png",
+      "PackagePath": "staticwebassets\\uploads\\Java.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Javascript.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Javascript.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\KidLearning.jpg",
+      "PackagePath": "staticwebassets\\uploads\\KidLearning.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 1 - Introduction.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 1 - Introduction.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 2 - ECMAScript.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 2 - ECMAScript.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 38 - libuv.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 38 - libuv.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 53 - Dependencies.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 53 - Dependencies.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 56 - npm Scripts.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 56 - npm Scripts.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 6 - Hello World.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 6 - Hello World.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorial - 7 - Browser vs Node.js.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorial - 7 - Browser vs Node.js.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Node.js Tutorials - 8 - Modules.mp4",
+      "PackagePath": "staticwebassets\\uploads\\Node.js Tutorials - 8 - Modules.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Photogr.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Photogr.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners  5 _ Creating A Component In React.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners  5 _ Creating A Component In React.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners  6 _ Auto Format React Code With Prettier.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners  6 _ Auto Format React Code With Prettier.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners 2_ Installing Required Tools.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners 2_ Installing Required Tools.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React For Beginners 3 _ Create React App Using Vite.mp4",
+      "PackagePath": "staticwebassets\\uploads\\React For Beginners 3 _ Create React App Using Vite.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\React.png",
+      "PackagePath": "staticwebassets\\uploads\\React.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\Recreating Airbnb Layout - FRONTEND HTML_CSS_JS (1).mp4",
+      "PackagePath": "staticwebassets\\uploads\\Recreating Airbnb Layout - FRONTEND HTML_CSS_JS (1).mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\What is Critical Thinking_.mp4",
+      "PackagePath": "staticwebassets\\uploads\\What is Critical Thinking_.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\What is Machine Learning_.mp4",
+      "PackagePath": "staticwebassets\\uploads\\What is Machine Learning_.mp4"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\chatGptBlog.png",
+      "PackagePath": "staticwebassets\\uploads\\chatGptBlog.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\computerAI2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\computerAI2.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\dataAnalystBlog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\dataAnalystBlog.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\download.jpg",
+      "PackagePath": "staticwebassets\\uploads\\download.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\english (2).jpg",
+      "PackagePath": "staticwebassets\\uploads\\english (2).jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\gameblockChainBlog.jpg",
+      "PackagePath": "staticwebassets\\uploads\\gameblockChainBlog.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\machine learning.png",
+      "PackagePath": "staticwebassets\\uploads\\machine learning.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\marketing.jpg",
+      "PackagePath": "staticwebassets\\uploads\\marketing.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\network.png",
+      "PackagePath": "staticwebassets\\uploads\\network.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf",
+      "PackagePath": "staticwebassets\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255 (1).pdf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255.pdf",
+      "PackagePath": "staticwebassets\\uploads\\tieng-anh-de-thi-chinh-thuck23ma-de-403_97202392255.pdf"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeic.jpg",
+      "PackagePath": "staticwebassets\\uploads\\toeic.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\toeicBlog.png",
+      "PackagePath": "staticwebassets\\uploads\\toeicBlog.png"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\web2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\web2.jpg"
+    },
+    {
+      "Id": "D:\\PBL3_Course\\wwwroot\\uploads\\web_prog.png",
+      "PackagePath": "staticwebassets\\uploads\\web_prog.png"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.PBL3_Course.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.PBL3_Course.props",
+      "PackagePath": "build\\PBL3_Course.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PBL3_Course.props",
+      "PackagePath": "buildMultiTargeting\\PBL3_Course.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.PBL3_Course.props",
+      "PackagePath": "buildTransitive\\PBL3_Course.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

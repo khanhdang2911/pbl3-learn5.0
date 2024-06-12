@@ -275,3 +275,8 @@ D:\PBL3_Course\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Ab
 D:\PBL3_Course\bin\Debug\net8.0\MailKit.dll
 D:\PBL3_Course\bin\Debug\net8.0\MimeKit.dll
 D:\PBL3_Course\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\web.config
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\appsettings.Development.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\appsettings.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\PBL3_Course.deps.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\PBL3_Course.runtimeconfig.json
