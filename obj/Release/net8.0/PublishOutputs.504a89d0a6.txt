@@ -1,6 +1,11 @@
 D:\PBL3_Course\app\publish\PBL3_Course.exe
+D:\PBL3_Course\app\publish\app\publish\web.config
 D:\PBL3_Course\app\publish\appsettings.Development.json
 D:\PBL3_Course\app\publish\appsettings.json
+D:\PBL3_Course\app\publish\app\publish\appsettings.Development.json
+D:\PBL3_Course\app\publish\app\publish\appsettings.json
+D:\PBL3_Course\app\publish\app\publish\PBL3_Course.deps.json
+D:\PBL3_Course\app\publish\app\publish\PBL3_Course.runtimeconfig.json
 D:\PBL3_Course\app\publish\PBL3_Course.dll
 D:\PBL3_Course\app\publish\PBL3_Course.runtimeconfig.json
 D:\PBL3_Course\app\publish\PBL3_Course.pdb

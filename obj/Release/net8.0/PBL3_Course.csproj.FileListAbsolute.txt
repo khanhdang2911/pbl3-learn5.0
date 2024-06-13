@@ -275,3 +275,8 @@ D:\PBL3_Course\obj\Release\net8.0\refint\PBL3_Course.dll
 D:\PBL3_Course\obj\Release\net8.0\PBL3_Course.pdb
 D:\PBL3_Course\obj\Release\net8.0\PBL3_Course.genruntimeconfig.cache
 D:\PBL3_Course\obj\Release\net8.0\ref\PBL3_Course.dll
+D:\PBL3_Course\bin\Release\net8.0\app\publish\web.config
+D:\PBL3_Course\bin\Release\net8.0\app\publish\appsettings.Development.json
+D:\PBL3_Course\bin\Release\net8.0\app\publish\appsettings.json
+D:\PBL3_Course\bin\Release\net8.0\app\publish\PBL3_Course.deps.json
+D:\PBL3_Course\bin\Release\net8.0\app\publish\PBL3_Course.runtimeconfig.json

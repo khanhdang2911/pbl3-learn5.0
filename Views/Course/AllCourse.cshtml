@@ -76,7 +76,7 @@
                                         <div class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @foreach(var item in Model)
                                             {
-                                                var userCourse=_context.usersCourses.Where(c=>c.CourseId==item.Id).ToList();
+                                                var userCourse=_context.usersCourses.Where(c=>c.CourseId==item.Id && c.rate!=null).ToList();
                                                 double star=0;
                                                
                                                     foreach(var userC in userCourse)

@@ -280,3 +280,8 @@ D:\PBL3_Course\bin\Debug\net8.0\app\publish\appsettings.Development.json
 D:\PBL3_Course\bin\Debug\net8.0\app\publish\appsettings.json
 D:\PBL3_Course\bin\Debug\net8.0\app\publish\PBL3_Course.deps.json
 D:\PBL3_Course\bin\Debug\net8.0\app\publish\PBL3_Course.runtimeconfig.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\app\publish\web.config
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\app\publish\appsettings.Development.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\app\publish\appsettings.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\app\publish\PBL3_Course.deps.json
+D:\PBL3_Course\bin\Debug\net8.0\app\publish\app\publish\PBL3_Course.runtimeconfig.json
